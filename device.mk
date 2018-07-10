@@ -90,6 +90,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ld.config.txt
 
+# Exclude vibrator from InputManager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fts_ts.kl:system/usr/keylayout/fts_ts.kl \
