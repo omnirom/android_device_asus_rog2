@@ -57,14 +57,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_volumes_ZS630KL.xml:system/etc/audio_policy_volumes_ZS630KL.xml
 
 # Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.msmnile.recovery
+
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.msmnile \
-    libcutils \
-    libgptutils.asus_msmnile.recovery \
-    libz
 
 # Camera
 PRODUCT_PACKAGES += \
