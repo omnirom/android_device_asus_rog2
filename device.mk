@@ -111,6 +111,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FrameworksResOverlay
 
+# Health
+PRODUCT_PACKAGES += android.hardware.health@2.0-service.rog2
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/goodix_ts.idc:system/usr/idc/goodix_ts.idc \
