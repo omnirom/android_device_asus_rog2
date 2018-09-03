@@ -1,0 +1,32 @@
+cc_binary {
+    name: "android.hardware.health@2.0-service.rog2",
+    defaults: ["hidl_defaults"],
+    stem: "android.hardware.health@2.0-service",
+    init_rc: ["android.hardware.health@2.0-service.rc"],
+    product_overlay_specific: true,
+    relative_install_path: "hw",
+
+    static_libs: [
+        "libbatterymonitor",
+        "libhealthservice",
+        "libhealthstoragedefault",
+        "android.hardware.health@2.0-impl",
+        "android.hardware.health@1.0-convert",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "libutils",
+        "android.hardware.health@2.0",
+    ],
+
+    srcs: [
+        "HealthServiceDefault.cpp"
+    ],
+
+    overrides: [
+        "healthd",
+    ],
+}
