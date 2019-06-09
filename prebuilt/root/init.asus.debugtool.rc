@@ -1,0 +1,232 @@
+on fs
+    wait /dev/block/bootdevice/by-name/asdf
+    exec /system/bin/e2fsck -p /dev/block/bootdevice/by-name/asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev noatime barrier=1
+    restorecon_recursive /asdf
+
+    mkdir /asdf/asdf_logcat
+    chown system system /asdf/asdf_logcat
+    chmod 0775 /asdf/asdf_logcat
+
+    # add display lcd config file for early Splendid feature
+    mkdir /asdf/lcd
+    restorecon_recursive /asdf/lcd
+    chmod 0777 /asdf/lcd
+
+    start checkasdf
+
+on post-fs-data
+    mkdir /data/logcat_log
+    mkdir /data/anr
+    mkdir /data/tombstones
+    mkdir /data/logcat_log/btsnoop
+    mkdir /data/logcat_log/evtlog
+    mkdir /data/logcat_log/evtlog.old
+
+    chown system system /data/logcat_log
+    chown system system /data/anr
+    chown system system /data/tombstones
+    chown system system /data/logcat_log/btsnoop
+    chown root root /data/logcat_log/evtlog
+    chown root root /data/logcat_log/evtlog.old
+
+    chmod 0775 /data/logcat_log
+    chmod 0775 /data/anr
+    chmod 0775 /data/tombstones
+    chmod 0777 /data/logcat_log/btsnoop
+    chmod 0775 /data/logcat_log/evtlog
+    chmod 0775 /data/logcat_log/evtlog.old
+    chmod 0666 /proc/QPSTInfo
+
+service asus_kernelmsg /system/bin/init.asus.kernelmessage.sh
+    class late_start
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:persist.asus.kernelmessage=0
+    stop asus_kernelmsg
+
+on property:persist.asus.kernelmessage=7
+    start asus_kernelmsg
+
+service savelogmtp /system/bin/savelogmtp.sh
+    class late_start
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+service wifistresstest /system/etc/wifistresstest.sh
+    class late_start
+    user root
+    group sdcard_rw
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+service check-datalog /system/bin/sh /system/bin/init.asus.checkdatalog.sh
+    class late_start
+    user root
+    oneshot
+    seclabel u:r:dumpstate:s0
+
+on property:persist.asus.startlog=1
+    start check-datalog
+
+on property:persist.asus.startlog=0
+    start check-datalog
+
+#log_kernel
+service logcat-kernel /system/bin/logcat -r 10000 -b kernel -n 20 -v threadtime -f /data/logcat_log/kernel.log
+    class late_start
+    user system
+    disabled
+    seclabel u:r:dumpstate:s0
+
+#logcat log, the default is -b main -b system -b crash.
+service logcat /system/bin/logcat -r 10000 -n 20 -v threadtime -f /data/logcat_log/logcat.txt
+    class late_start
+    user system
+    disabled
+    seclabel u:r:dumpstate:s0
+
+#log_radio
+service logcat-radio /system/bin/logcat -r 10000 -b radio -n 20 -v threadtime -f /data/logcat_log/logcat-radio.txt
+    class late_start
+    user system
+    disabled
+    seclabel u:r:dumpstate:s0
+
+#log_events
+service logcat-events /system/bin/logcat -r 10000 -b events -n 20 -v threadtime -f /data/logcat_log/logcat-events.txt
+    class late_start
+    user system
+    disabled
+    seclabel u:r:dumpstate:s0
+
+#log_asdf
+service logcat-asdf /system/bin/logcat -r 10000 -b kernel -b main -b system -b crash -n 2 -v threadtime -f /asdf/asdf_logcat/asdf-logcat.txt
+    class late_start
+    user system
+    disabled
+    seclabel u:r:dumpstate:s0
+
+#log_clean
+service logcat-clean /system/bin/logcat -b all -c
+    disabled
+    oneshot
+    seclabel u:r:dumpstate:s0
+
+service savelogscomplete  /system/bin/savelogs_complete.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:zygote:s0
+
+service savelogs /system/bin/savelogs.sh
+    class late_start
+    user root
+    group sdcard_rw
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+service cscclearlog /system/bin/cscclearlog.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+service checkasdf /system/bin/sh /system/bin/init.asus.checkasdf.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+on property:persist.asus.savelogs=*
+    start savelogs
+
+on property:persist.asus.checklogsize=*
+    start checklogsize
+
+service checklogsize /system/bin/init.asus.checklogsize.sh
+    class late_start
+    user root
+    group sdcard_rw
+    oneshot
+    disabled
+    seclabel u:r:savelogmtp:s0
+
+on property:persist.asus.savelogs.complete=1
+    start savelogscomplete
+
+on property:sys.asus.savelogmtp=1
+    start savelogmtp
+
+on property:persist.sys.downloadmode.enable=1
+    write /proc/QPSTInfo 1
+
+on property:persist.sys.downloadmode.enable=0
+    write /proc/QPSTInfo 0
+
+# ASUS_BSP: Check & load devcfg +++
+service check_devcfg /system/bin/init.asus.checkdevcfg.sh
+    class late_start
+    user root
+    oneshot
+    disable
+    seclabel u:r:dumpstate:s0
+
+on property:persist.sys.downloadmode.enable=1
+    start check_devcfg
+
+on property:persist.sys.downloadmode.enable=0
+    start check_devcfg
+
+on property:persist.vendor.modem.restart=*
+    start check_devcfg
+# ASUS_BSP: Check & load devcfg ---
+
+service set_enforce /system/bin/init.asus.setenforce.sh
+    class late_start
+    user root
+    oneshot
+    disable
+    seclabel u:r:dumpstate:s0
+
+on property:sys.asus.setenforce=1
+    start set_enforce
+
+on property:sys.asus.setenforce=0
+    start set_enforce
+
+service tar-evtlog  /system/bin/tarevtlog.sh
+    class late_start
+    user root
+    group sdcard_rw
+    oneshot
+    seclabel u:r:dumpstate:s0
+
+on property:persist.asus.tarevtlog=1
+    start tar-evtlog
+
+on property:debug.asus.clearlog=1
+	start cscclearlog
+
+# check boot completed & tar coredump +++
+service checkboot /system/bin/sh /system/bin/init.asus.checkboot.sh
+    user root
+    group root
+    oneshot
+    disabled
+    seclabel u:r:dumpstate:s0
+
+on property:sys.boot_completed=1
+    start checkboot
+# check boot completed & tar coredump ---
