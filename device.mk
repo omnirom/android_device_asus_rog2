@@ -48,6 +48,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default
 
+# Boot control
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
+
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.sm8150 \
+    libcutils \
+    libgptutils \
+    libz
+
 # Camera
 PRODUCT_PACKAGES += \
     SnapdragonCamera2
