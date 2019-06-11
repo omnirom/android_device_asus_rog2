@@ -1,5 +1,11 @@
 [
   {
+    "remote": "omnirom",
+    "repository": "android_device_qcom_caf-sepolicy",
+    "target_path": "device/qcom/sepolicy",
+    "revision": "android-9.0"
+  },
+  {
     "remote": "github",
     "repository": "android_kernel_asus_zenfone6",
     "target_path": "kernel/asus/zenfon6",
