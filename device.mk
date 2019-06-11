@@ -27,6 +27,10 @@ PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
     system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
+
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
