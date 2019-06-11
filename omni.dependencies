@@ -4,5 +4,11 @@
     "repository": "android_kernel_asus_zenfone6",
     "target_path": "kernel/asus/zenfon6",
     "revision": "android-9.0"
+  },
+  {
+    "remote": "omnirom",
+    "repository": "android_packages_apps_SnapdragonCamera2",
+    "target_path": "packages/apps/SnapdragonCamera2",
+    "revision": "android-9.0"
   }
 ]

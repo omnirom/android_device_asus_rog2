@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default
 
+# Camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera2
+
 # Display
 PRODUCT_PACKAGES += \
     libion \
