@@ -27,6 +27,19 @@ PRODUCT_COPY_FILES += \
     system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
     system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
 
+# A/B
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    vbmeta
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService
