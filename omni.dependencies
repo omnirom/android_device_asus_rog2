@@ -1,2 +1,8 @@
 [
+  {
+    "remote": "github",
+    "repository": "android_kernel_asus_zenfone6",
+    "target_path": "kernel/asus/zenfon6",
+    "revision": "android-9.0"
+  }
 ]
