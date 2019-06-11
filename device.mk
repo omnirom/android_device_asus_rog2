@@ -62,6 +62,12 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 PRODUCT_PACKAGES += \
     SnapdragonCamera2
 
+# Charger images
+PRODUCT_PACKAGES += \
+    omni_charger_res_images \
+    animation.txt \
+    font_charger.png
+
 # Display
 PRODUCT_PACKAGES += \
     libion \
