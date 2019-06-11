@@ -168,6 +168,17 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     libvulkan
 
+# Update engine
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    brillo_update_payload \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
