@@ -1,0 +1,5 @@
+# rootfs
+type asdf_file, file_type;
+type batinfo_file, file_type;
+type voucher_file, file_type;
+type xrom_file, file_type;
