@@ -72,6 +72,10 @@ PRODUCT_PACKAGES += \
     animation.txt \
     font_charger.png
 
+# DeviceParts
+PRODUCT_PACKAGES += \
+    DeviceParts
+
 # Display
 PRODUCT_PACKAGES += \
     libion \
