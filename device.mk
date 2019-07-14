@@ -106,6 +106,10 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msmnile:64
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
