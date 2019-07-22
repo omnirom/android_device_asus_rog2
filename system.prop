@@ -34,6 +34,8 @@ persist.vendor.cne.feature=1
 
 # DPM
 persist.vendor.dpm.feature=10
+persist.vendor.dpmhalservice.loglevel=0
+persist.vendor.dpm.loglevel=0
 
 #Enable virtual display.
 debug.sf.enable_hwc_vds=1
@@ -43,6 +45,9 @@ vendor.bluetooth.soc=cherokee
 
 # Media
 media.settings.xml=/system/etc/media_profiles_vendor.xml
+
+# Netmgr
+persist.vendor.data.mode=concurrent
 
 # Only enable WCG and HDR in Asus system image
 ro.asus.wcg=1
