@@ -124,7 +124,7 @@ BOARD_USES_PRODUCTIMAGE := true
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR := vendor
 
-BOARD_ROOT_EXTRA_FOLDERS := asdf batinfo voucher xrom
+BOARD_ROOT_EXTRA_FOLDERS := ADF APD asdf batinfo voucher xrom
 
 # Platform
 TARGET_BOARD_PLATFORM := msmnile
