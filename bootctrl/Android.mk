@@ -7,5 +7,5 @@ LOCAL_CFLAGS += -Wall -Werror
 LOCAL_SHARED_LIBRARIES += liblog libgptutils libcutils
 LOCAL_HEADER_LIBRARIES := libhardware_headers libsystem_headers
 LOCAL_SRC_FILES := boot_control.cpp
-LOCAL_MODULE := bootctrl.sm8150
+LOCAL_MODULE := bootctrl.msmnile
 include $(BUILD_STATIC_LIBRARY)

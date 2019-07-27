@@ -20,7 +20,7 @@
 #
 DEVICE_PATH := device/asus/zenfone6
 
-BOARD_VENDOR := oneplus
+BOARD_VENDOR := asus
 
 # Architecture
 TARGET_ARCH := arm64
@@ -106,7 +106,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_SOURCE := kernel/asus/zenfone6
+TARGET_KERNEL_SOURCE := kernel/asus/sm8150
 TARGET_KERNEL_CONFIG := vendor/zs630kl_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CLANG_COMPILE := true

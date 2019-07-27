@@ -41,9 +41,9 @@ $(call inherit-product, device/asus/zenfone6/device.mk)
 # Discard inherited values and use our own instead.
 PRODUCT_DEVICE := zenfone6
 PRODUCT_NAME := omni_zenfone6
-PRODUCT_BRAND := Asus
+PRODUCT_BRAND := asus
 PRODUCT_MODEL := ASUS_I01WD
-PRODUCT_MANUFACTURER := Asus
+PRODUCT_MANUFACTURER := asus
 
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=ASUS_I01WD PRODUCT_NAME=WW_I01WD
 
