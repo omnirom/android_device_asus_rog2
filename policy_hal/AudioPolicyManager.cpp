@@ -1452,6 +1452,8 @@ status_t AudioPolicyManagerCustom::getOutputForAttr(const audio_attributes_t *at
         } else {
             ALOGI("%s:: attribute is NULL .. no usage set", __func__);
         }
+    } else if (tConfig.offload_info.channel_mask == AUDIO_CHANNEL_NONE) {
+        tConfig.offload_info.channel_mask = config->channel_mask;
     }
 
     return AudioPolicyManager::getOutputForAttr(attr, output, session, stream,
