@@ -118,6 +118,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Rootdir
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery.fstab:system/etc/fstab.qcom
+
 # Netutils
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0 \
