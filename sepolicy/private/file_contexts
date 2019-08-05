@@ -15,5 +15,8 @@
 /proc/driver/swipeup                          u:object_r:sysfs_gesture:s0
 /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable          u:object_r:sysfs_gesture:s0
 
+# HALs
+/system/bin/hw/android\.hardware\.light@2\.0-service\.asus_msmnile      u:object_r:hal_light_msmnile_exec:s0
+
 # Modules
 /system/lib/modules/wlan\.ko                  u:object_r:system_file:s0
