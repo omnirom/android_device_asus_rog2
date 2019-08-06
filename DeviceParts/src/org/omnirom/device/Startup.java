@@ -66,7 +66,7 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         boolean enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_DOUBLE_SWIPE_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_C_APP), enabled);
 
         // circle -> camera
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_1;
@@ -76,7 +76,7 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_CIRCLE_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_E_APP), enabled);
 
         // down arrow -> flashlight
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_2;
@@ -86,12 +86,17 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_DOWN_ARROW_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_V_APP), enabled);
 
         // up arrow
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_3;
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.TORCH_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
         value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_3);
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_UP_ARROW_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_S_APP), enabled);
 
         // left arrow -> music prev
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_4;
@@ -101,7 +106,7 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_LEFT_ARROW_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_W_APP), enabled);
 
         // right arrow -> music next
         mapping = GestureSettings.DEVICE_GESTURE_MAPPING_5;
@@ -111,17 +116,17 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), mapping, value);
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_RIGHT_ARROW_APP), enabled);
-
-        // down swipe
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_6);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_DOWN_SWIPE_APP), enabled);
+        restore(getGestureFile(GestureSettings.KEY_Z_APP), enabled);
 
         // up swipe
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_7);
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_6);
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(getGestureFile(GestureSettings.KEY_UP_SWIPE_APP), enabled);
+
+        // down swipe
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_7);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_DOWN_SWIPE_APP), enabled);
 
         // left swipe
         value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_8);

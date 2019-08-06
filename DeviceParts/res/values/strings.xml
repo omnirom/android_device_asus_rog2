@@ -58,6 +58,12 @@
     <string name="choose_app">Choose app</string>
     <string name="category_double_swipe_gesture">II gesture</string>
     <string name="offscreen_gesture_title">Offscreen gestures</string>
+    <string name="category_c_gesture">C gesture</string>
+    <string name="category_e_gesture">E gesture</string>
+    <string name="category_s_gesture">S gesture</string>
+    <string name="category_v_gesture">V gesture</string>
+    <string name="category_w_gesture">W gesture</string>
+    <string name="category_z_gesture">Z gesture</string>
     <string name="category_circle_gesture">O gesture</string>
     <string name="category_down_arrow_gesture">V gesture</string>
     <string name="category_up_arrow_gesture">A gesture</string>

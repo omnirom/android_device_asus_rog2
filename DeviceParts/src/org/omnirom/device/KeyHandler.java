@@ -72,63 +72,57 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final boolean DEBUG_SENSOR = true;
 
     protected static final int GESTURE_REQUEST = 1;
-    private static final int GESTURE_WAKELOCK_DURATION = 2000;
+    private static final int GESTURE_WAKELOCK_DURATION = 1000;
 
-    private static final int GESTURE_CIRCLE_SCANCODE = 250;
-    private static final int GESTURE_V_SCANCODE = 252;
-    private static final int GESTURE_II_SCANCODE = 251;
-    private static final int GESTURE_LEFT_V_SCANCODE = 253;
-    private static final int GESTURE_RIGHT_V_SCANCODE = 254;
-    private static final int GESTURE_A_SCANCODE = 255;
-    private static final int GESTURE_RIGHT_SWIPE_SCANCODE = 63;
-    private static final int GESTURE_LEFT_SWIPE_SCANCODE = 64;
-    private static final int GESTURE_DOWN_SWIPE_SCANCODE = 65;
-    private static final int GESTURE_UP_SWIPE_SCANCODE = 66;
+    private static final int KEY_GESTURE_UP_SWIPE = 258;
+    private static final int KEY_GESTURE_DOWN_SWIPE = 259;
+    private static final int KEY_GESTURE_LEFT_SWIPE = 260;
+    private static final int KEY_GESTURE_RIGHT_SWIPE = 261;
+    private static final int KEY_GESTURE_C = 269;
+    private static final int KEY_GESTURE_E = 263;
+    private static final int KEY_GESTURE_S = 267;
+    private static final int KEY_GESTURE_V = 268;
+    private static final int KEY_GESTURE_W = 266;
+    private static final int KEY_GESTURE_Z = 270;
 
     private static final int KEY_DOUBLE_TAP = 143;
     private static final int KEY_HOME = 102;
     private static final int KEY_BACK = 158;
     private static final int KEY_RECENTS = 580;
-    private static final int KEY_SLIDER_TOP = 601;
-    private static final int KEY_SLIDER_CENTER = 602;
-    private static final int KEY_SLIDER_BOTTOM = 603;
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int HANDWAVE_MAX_DELTA_MS = 1000;
     private static final int POCKET_MIN_DELTA_MS = 5000;
-    private static final int FP_GESTURE_LONG_PRESS = 305;
+    private static final int FP_GESTURE_LONG_PRESS = 188;
 
     private static final int[] sSupportedGestures = new int[]{
-        GESTURE_II_SCANCODE,
-        GESTURE_CIRCLE_SCANCODE,
-        GESTURE_V_SCANCODE,
-        GESTURE_A_SCANCODE,
-        GESTURE_LEFT_V_SCANCODE,
-        GESTURE_RIGHT_V_SCANCODE,
-        GESTURE_DOWN_SWIPE_SCANCODE,
-        GESTURE_UP_SWIPE_SCANCODE,
-        GESTURE_LEFT_SWIPE_SCANCODE,
-        GESTURE_RIGHT_SWIPE_SCANCODE,
-        KEY_DOUBLE_TAP,
-        KEY_SLIDER_TOP,
-        KEY_SLIDER_CENTER,
-        KEY_SLIDER_BOTTOM,
+        KEY_GESTURE_C,
+        KEY_GESTURE_E,
+        KEY_GESTURE_V,
+        KEY_GESTURE_S,
+        KEY_GESTURE_W,
+        KEY_GESTURE_Z,
+        KEY_GESTURE_UP_SWIPE,
+        KEY_GESTURE_DOWN_SWIPE,
+        KEY_GESTURE_LEFT_SWIPE,
+        KEY_GESTURE_RIGHT_SWIPE,
+        //KEY_DOUBLE_TAP,
         FP_GESTURE_LONG_PRESS
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
-        GESTURE_II_SCANCODE,
-        GESTURE_CIRCLE_SCANCODE,
-        GESTURE_V_SCANCODE,
-        GESTURE_A_SCANCODE,
-        GESTURE_LEFT_V_SCANCODE,
-        GESTURE_RIGHT_V_SCANCODE,
-        GESTURE_DOWN_SWIPE_SCANCODE,
-        GESTURE_UP_SWIPE_SCANCODE,
-        GESTURE_LEFT_SWIPE_SCANCODE,
-        GESTURE_RIGHT_SWIPE_SCANCODE,
-        KEY_DOUBLE_TAP
+        KEY_GESTURE_C,
+        KEY_GESTURE_E,
+        KEY_GESTURE_V,
+        KEY_GESTURE_S,
+        KEY_GESTURE_W,
+        KEY_GESTURE_Z,
+        KEY_GESTURE_UP_SWIPE,
+        KEY_GESTURE_DOWN_SWIPE,
+        KEY_GESTURE_LEFT_SWIPE,
+        KEY_GESTURE_RIGHT_SWIPE
+        //KEY_DOUBLE_TAP
     };
 
     protected final Context mContext;
@@ -155,8 +149,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean isFpgesture;
     private boolean isOPCameraAvail;
     private boolean mRestoreUser;
-    private boolean mToggleTorch = false;
-    private boolean mTorchState = false;
 
     private SensorEventListener mProximitySensor = new SensorEventListener() {
         @Override
@@ -268,9 +260,7 @@ public class KeyHandler implements DeviceKeyHandler {
         mNoMan = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
-        //mTiltSensor = getSensor(mSensorManager, "oneplus.sensor.op_motion_detect");
         mTiltSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
-        //mPocketSensor = getSensor(mSensorManager, "oneplus.sensor.pocket");
         mPocketSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         IntentFilter systemStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         systemStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -425,30 +415,6 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     }
 
-    private void disableTorch() {
-        if (mTorchState) {
-            mToggleTorch = true;
-            mTorchState = false;
-            toggleTorch();
-        }
-    }
-
-    private void toggleTorch() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                if (mToggleTorch) {
-                    service.toggleCameraFlashState(mTorchState);
-                    mToggleTorch = false;
-                } else {
-                    service.toggleCameraFlash();
-                }
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
-    }
-
     private Intent createIntent(String value) {
         ComponentName componentName = ComponentName.unflattenFromString(value);
         Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -462,8 +428,15 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean launchSpecialActions(String value) {
         if (value.equals(AppSelectListPreference.TORCH_ENTRY)) {
             mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
-            toggleTorch();
-            OmniVibe.performHapticFeedbackLw(HapticFeedbackConstants.LONG_PRESS, false, mContext);
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.toggleCameraFlash();
+                    OmniVibe.performHapticFeedbackLw(HapticFeedbackConstants.LONG_PRESS, false, mContext);
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
+            }
             return true;
         } else if (value.equals(AppSelectListPreference.MUSIC_PLAY_ENTRY)) {
             mGestureWakeLock.acquire(GESTURE_WAKELOCK_DURATION);
@@ -518,34 +491,34 @@ public class KeyHandler implements DeviceKeyHandler {
 
     private String getGestureValueForScanCode(int scanCode) {
         switch(scanCode) {
-            case GESTURE_II_SCANCODE:
+            case KEY_GESTURE_C:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_0, UserHandle.USER_CURRENT);
-            case GESTURE_CIRCLE_SCANCODE:
+            case KEY_GESTURE_E:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_1, UserHandle.USER_CURRENT);
-            case GESTURE_V_SCANCODE:
+            case KEY_GESTURE_V:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_2, UserHandle.USER_CURRENT);
-            case GESTURE_A_SCANCODE:
+            case KEY_GESTURE_S:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_3, UserHandle.USER_CURRENT);
-            case GESTURE_LEFT_V_SCANCODE:
+            case KEY_GESTURE_W:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_4, UserHandle.USER_CURRENT);
-            case GESTURE_RIGHT_V_SCANCODE:
+            case KEY_GESTURE_Z:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
-            case GESTURE_DOWN_SWIPE_SCANCODE:
+            case KEY_GESTURE_UP_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
-            case GESTURE_UP_SWIPE_SCANCODE:
+            case KEY_GESTURE_DOWN_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_7, UserHandle.USER_CURRENT);
-            case GESTURE_LEFT_SWIPE_SCANCODE:
+            case KEY_GESTURE_LEFT_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_8, UserHandle.USER_CURRENT);
-            case GESTURE_RIGHT_SWIPE_SCANCODE:
+            case KEY_GESTURE_RIGHT_SWIPE:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_9, UserHandle.USER_CURRENT);
         }
@@ -594,10 +567,5 @@ public class KeyHandler implements DeviceKeyHandler {
 
     IStatusBarService getStatusBarService() {
         return IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
-    }
-
-    @Override
-    public boolean getCustomProxiIsNear(SensorEvent event) {
-        return event.values[0] == 1;
     }
 }
