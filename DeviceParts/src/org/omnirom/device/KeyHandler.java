@@ -49,6 +49,7 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.provider.Settings.Global;
+import android.provider.Settings.Secure;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.SubscriptionInfo;
@@ -96,6 +97,8 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int POCKET_MIN_DELTA_MS = 5000;
     private static final int FP_GESTURE_LONG_PRESS = 188;
 
+    private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode";
+
     private static final int[] sSupportedGestures = new int[]{
         KEY_GESTURE_C,
         KEY_GESTURE_E,
@@ -107,7 +110,7 @@ public class KeyHandler implements DeviceKeyHandler {
         KEY_GESTURE_DOWN_SWIPE,
         KEY_GESTURE_LEFT_SWIPE,
         KEY_GESTURE_RIGHT_SWIPE,
-        //KEY_DOUBLE_TAP,
+        KEY_DOUBLE_TAP,
         FP_GESTURE_LONG_PRESS
     };
 
@@ -121,8 +124,8 @@ public class KeyHandler implements DeviceKeyHandler {
         KEY_GESTURE_UP_SWIPE,
         KEY_GESTURE_DOWN_SWIPE,
         KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE
-        //KEY_DOUBLE_TAP
+        KEY_GESTURE_RIGHT_SWIPE,
+        KEY_DOUBLE_TAP
     };
 
     protected final Context mContext;
@@ -149,6 +152,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean isFpgesture;
     private boolean isOPCameraAvail;
     private boolean mRestoreUser;
+    private boolean mDoubleTapToWake;
 
     private SensorEventListener mProximitySensor = new SensorEventListener() {
         @Override
@@ -201,6 +205,9 @@ public class KeyHandler implements DeviceKeyHandler {
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.OMNI_DEVICE_FEATURE_SETTINGS),
                     false, this);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.DOUBLE_TAP_TO_WAKE),
+                    false, this);
             update();
             updateDozeSettings();
         }
@@ -224,6 +231,9 @@ public class KeyHandler implements DeviceKeyHandler {
             mUseProxiCheck = Settings.System.getIntForUser(
                     mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1,
                     UserHandle.USER_CURRENT) == 1;
+            mDoubleTapToWake = Settings.Secure.getInt(
+                    mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 1) == 1;
+                    updateDoubleTapToWake();
         }
     }
 
@@ -398,6 +408,13 @@ public class KeyHandler implements DeviceKeyHandler {
         }
         if (mUseTiltCheck) {
             mSensorManager.unregisterListener(mTiltSensorListener, mTiltSensor);
+        }
+    }
+
+    private void updateDoubleTapToWake() {
+        Log.i(TAG, "udateDoubleTapToWake " + mDoubleTapToWake);
+        if (Utils.fileWritable(DT2W_CONTROL_PATH)) {
+            Utils.writeValue(DT2W_CONTROL_PATH, mDoubleTapToWake ? "1" : "0");
         }
     }
 
