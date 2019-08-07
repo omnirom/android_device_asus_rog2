@@ -12,6 +12,12 @@
     "revision": "android-9.0"
   },
   {
+     "remote": "omnirom",
+     "repository": "android_packages_apps_OmniDisplayManager",
+     "target_path": "packages/apps/OmniDisplayManager",
+     "revision": "android-9.0"
+   },
+  {
     "remote": "omnirom",
     "repository": "android_packages_apps_SnapdragonCamera2",
     "target_path": "packages/apps/SnapdragonCamera2",
