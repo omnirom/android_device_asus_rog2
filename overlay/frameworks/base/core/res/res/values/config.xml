@@ -408,4 +408,6 @@
 
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
+
+    <bool name="config_proxiSensorWakupCheck">true</bool>
 </resources>
