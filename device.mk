@@ -115,6 +115,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
 
+# NFC - NQ (NXP)
+PRODUCT_PACKAGES += \
+    Tag \
+    com.android.nfc_extras
+
+PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.1 \
+    android.hardware.nfc@1.0
+
 # Prebuilt
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/zenfone6/prebuilt/system,system) \

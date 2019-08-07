@@ -6,3 +6,6 @@ persist.vendor.dpm.feature=10
 
 # Media
 media.settings.xml=/system/etc/media_profiles_vendor.xml
+
+# system prop for NFC DT
+ro.nfc.port=I2C
