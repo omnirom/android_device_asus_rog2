@@ -138,7 +138,7 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0
 
 PRODUCT_PACKAGES += \
-    vendor.display.config@1.7
+    vendor.display.config@1.5
 
 # Telephony
 PRODUCT_PACKAGES += \
