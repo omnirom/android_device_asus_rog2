@@ -98,6 +98,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int FP_GESTURE_LONG_PRESS = 188;
 
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode";
+    private static final String GOODIX_CONTROL_PATH = "/sys/devices/platform/soc/soc:goodixfp/proximity_state";
 
     private static final int[] sSupportedGestures = new int[]{
         KEY_GESTURE_C,
@@ -159,6 +160,11 @@ public class KeyHandler implements DeviceKeyHandler {
         public void onSensorChanged(SensorEvent event) {
             mProxyIsNear = event.values[0] == 1;
             if (DEBUG_SENSOR) Log.i(TAG, "mProxyIsNear = " + mProxyIsNear + " mProxyWasNear = " + mProxyWasNear);
+            if (mUseProxiCheck) {
+                if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
+                    Utils.writeValue(GOODIX_CONTROL_PATH, mProxyIsNear ? "1" : "0");
+                }
+            }
             if (mUseWaveCheck || mUsePocketCheck) {
                 if (mProxyWasNear && !mProxyIsNear) {
                     long delta = SystemClock.elapsedRealtime() - mProxySensorTimestamp;
@@ -405,9 +411,16 @@ public class KeyHandler implements DeviceKeyHandler {
         if (DEBUG) Log.i(TAG, "Display on");
         if (enableProxiSensor()) {
             mSensorManager.unregisterListener(mProximitySensor, mPocketSensor);
+            enableGoodix();
         }
         if (mUseTiltCheck) {
             mSensorManager.unregisterListener(mTiltSensorListener, mTiltSensor);
+        }
+    }
+
+    private void enableGoodix() {
+        if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
+            Utils.writeValue(GOODIX_CONTROL_PATH, "0");
         }
     }
 
