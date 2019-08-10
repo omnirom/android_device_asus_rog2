@@ -44,3 +44,7 @@ on boot
 
     chown system system /sys/devices/platform/soc/soc:goodixfp/proximity_state
     chmod 0660 /sys/devices/platform/soc/soc:goodixfp/proximity_state
+
+    # Screen Touch
+    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode
+    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode

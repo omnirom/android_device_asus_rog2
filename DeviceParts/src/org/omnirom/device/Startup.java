@@ -47,6 +47,10 @@ public class Startup extends BroadcastReceiver {
     private void maybeImportOldSettings(Context context) {
         boolean imported = Settings.System.getInt(context.getContentResolver(), "omni_device_setting_imported", 0) != 0;
         if (!imported) {
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GLOVE_SWITCH, false);
+            Settings.System.putInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, enabled ? 1 : 0);
+
             Settings.System.putInt(context.getContentResolver(), "omni_device_setting_imported", 1);
         }
     }
@@ -142,5 +146,8 @@ public class Startup extends BroadcastReceiver {
         value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_10);
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(getGestureFile(GestureSettings.FP_GESTURE_LONG_PRESS_APP), enabled);
+
+        enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
+        restore(GloveModeSwitch.getFile(), enabled);
     }
 }

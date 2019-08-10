@@ -28,8 +28,11 @@
     <string name="swap_back_recents_summary"></string>
     <string name="swap_back_recents_title">Swap back and recents button</string>
     <string name="graphics_title">Graphics</string>
+    <string name="screen_title">Screen Sensitivity</string>
     <string name="srgb_mode_summary"></string>
     <string name="srgb_mode_title">sRGB mode</string>
+    <string name="glove_mode_summary"></string>
+    <string name="glove_mode_title">High Touch Sensitivity</string>
     <string name="hbm_mode_summary"></string>
     <string name="hbm_mode_title">High brightness mode</string>
     <string name="adaptive_mode_title">Adaptive mode</string>
@@ -110,6 +113,7 @@
     <string name="panel_category_title">Panel modes</string>
     <string name="panel_category_summary">Modes for panel color correction</string>
     <string name="off_mode_title">Off</string>
+    <string name="tile_glove_mode">High Touch Sensitivity</string>
     <string name="tile_panel_mode">Panel modes</string>
     <string name="tile_hbm_mode">High brightness modes</string>
     <string name="wake_entry">Wakeup</string>

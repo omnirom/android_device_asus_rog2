@@ -43,10 +43,19 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String SLIDER_DEFAULT_VALUE = "2,1,0";
 
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
+    public static final String KEY_GLOVE_SWITCH = "glove";
+
+    private static final String KEY_CATEGORY_SCREEN = "screen";
+    private static TwoStatePreference mGloveModeSwitch;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.main, rootKey);
+
+        mGloveModeSwitch = (TwoStatePreference) findPreference(KEY_GLOVE_SWITCH);
+        mGloveModeSwitch.setEnabled(GloveModeSwitch.isSupported());
+        mGloveModeSwitch.setChecked(GloveModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
 
     }
 
