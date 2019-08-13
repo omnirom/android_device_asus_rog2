@@ -5,14 +5,5 @@ type voucher_file, file_type;
 type xrom_file, file_type;
 
 # Offscreen Gestures
-type fts_gesture_mode, fs_type;
-type fts_gesture_c_mode, fs_type;
-type fts_gesture_e_mode, fs_type;
-type fts_gesture_v_mode, fs_type;
-type fts_gesture_s_mode, fs_type;
-type fts_gesture_w_mode, fs_type;
-type fts_gesture_z_mode, fs_type;
-type fts_gesture_left_mode, fs_type;
-type fts_gesture_right_mode, fs_type;
-type fts_gesture_up_mode, fs_type;
-type fts_gesture_down_mode, fs_type;
+type sysfs_gesture, sysfs_type, fs_type;
+type sysfs_touchscreen, sysfs_type, fs_type;
