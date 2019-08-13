@@ -3,6 +3,8 @@
 /APD(/.*)?              u:object_r:demoapp_file:s0
 /asdf(/.*)?             u:object_r:asdf_file:s0
 /batinfo(/.*)?          u:object_r:demoapp_file:s0
+/bt_firmware(/.*)?      u:object_r:bt_firmware_file:s0
+/firmware(/.*)?         u:object_r:firmware_file:s0
 /voucher(/.*)?          u:object_r:voucher_file:s0
 /xrom(/.*)?             u:object_r:xrom_file:s0
 
