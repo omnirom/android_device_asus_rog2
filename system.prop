@@ -4,8 +4,24 @@ persist.vendor.cne.feature=1
 # DPM
 persist.vendor.dpm.feature=10
 
+#Enable virtual display.
+debug.sf.enable_hwc_vds=1
+
 # Media
 media.settings.xml=/system/etc/media_profiles_vendor.xml
+
+# Only enable WCG and HDR in Asus system image
+ro.asus.wcg=1
+ro.asus.hdr=1
+
+# Property to enable Mag filter
+persist.vendor.sensors.enable.mag_filter=true
+
+# Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
+ro.telephony.default_network=9,9
+
+# system props for the data modules
+persist.vendor.data.mode=concurrent
 
 # system prop for NFC DT
 ro.nfc.port=I2C
