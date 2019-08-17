@@ -50,7 +50,7 @@ public class GloveModeSwitch implements OnPreferenceChangeListener {
     }
 
     public static boolean isCurrentlyEnabled(Context context) {
-        return Utils.getFileValueAsBoolean(getFile(), false);
+        return Utils.getLineValueAsBoolean(getFile(), true);
     }
 
     @Override

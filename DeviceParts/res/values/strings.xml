@@ -31,8 +31,8 @@
     <string name="screen_title">Screen Sensitivity</string>
     <string name="srgb_mode_summary"></string>
     <string name="srgb_mode_title">sRGB mode</string>
-    <string name="glove_mode_summary"></string>
-    <string name="glove_mode_title">High Touch Sensitivity</string>
+    <string name="glove_mode_summary">Increase touch sensitivity when wearing gloves</string>
+    <string name="glove_mode_title">Glove mode</string>
     <string name="hbm_mode_summary"></string>
     <string name="hbm_mode_title">High brightness mode</string>
     <string name="adaptive_mode_title">Adaptive mode</string>
@@ -113,7 +113,7 @@
     <string name="panel_category_title">Panel modes</string>
     <string name="panel_category_summary">Modes for panel color correction</string>
     <string name="off_mode_title">Off</string>
-    <string name="tile_glove_mode">High Touch Sensitivity</string>
+    <string name="tile_glove_mode">Glove mode</string>
     <string name="tile_panel_mode">Panel modes</string>
     <string name="tile_hbm_mode">High brightness modes</string>
     <string name="wake_entry">Wakeup</string>

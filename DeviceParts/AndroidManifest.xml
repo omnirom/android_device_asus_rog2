@@ -76,7 +76,7 @@
         </receiver>
         <service
             android:name="org.omnirom.device.GloveModeTileService"
-            android:icon="@drawable/ic_hbm_tile"
+            android:icon="@drawable/ic_glove_tile"
             android:label="@string/tile_glove_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
