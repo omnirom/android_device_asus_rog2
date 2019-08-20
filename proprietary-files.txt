@@ -9,6 +9,13 @@ lib/com.qualcomm.qti.ant@1.0.so
 lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 
+# Camera
+-priv-app/MotorService/MotorService.apk
+priv-app/MotorService/lib/arm64/libAsusLaserSensorHAL.so
+priv-app/MotorService/lib/arm64/libAsusMotorDriverHAL.so
+priv-app/MotorService/lib/arm64/libjni_laser.so
+priv-app/MotorService/lib/arm64/libjni_motor.so
+
 # CNE
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
