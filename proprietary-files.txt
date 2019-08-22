@@ -10,6 +10,19 @@ lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 
 # Camera
+lib/DataSet/ispDB/ASUS_UNDI.bin
+lib64/DataSet/arch/DIT_List.cfg
+lib64/DataSet/ditSCidGen/msgchk.db
+lib64/DataSet/ispDB/ParameterDB.db
+lib64/libAsusMotorDriverHAL.so
+lib64/libAsusRGBSensorHAL.so
+lib64/libxditk_DIT_MSMv1.so
+lib64/libxditk_DIT_Manager.so
+lib64/libxditk_ISP.so
+lib64/libxditk_arch.so
+lib64/libxditk_ditArchLIB.so
+lib64/libxditk_ditBSP.so
+lib64/libxditk_ditBSP_JNI.so
 -priv-app/MotorService/MotorService.apk
 priv-app/MotorService/lib/arm64/libAsusLaserSensorHAL.so
 priv-app/MotorService/lib/arm64/libAsusMotorDriverHAL.so
