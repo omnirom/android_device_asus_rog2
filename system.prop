@@ -32,6 +32,9 @@ persist.vendor.dpm.feature=10
 #Enable virtual display.
 debug.sf.enable_hwc_vds=1
 
+# FM
+vendor.bluetooth.soc=cherokee
+
 # Media
 media.settings.xml=/system/etc/media_profiles_vendor.xml
 

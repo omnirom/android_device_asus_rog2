@@ -95,6 +95,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
+# FM
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+
+PRODUCT_BOOT_JARS += qcom.fmradio
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/fts_ts.kl:system/usr/keylayout/fts_ts.kl \
