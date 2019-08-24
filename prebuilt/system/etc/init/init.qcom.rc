@@ -8,40 +8,8 @@ on boot
     # Gestures
     chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode
     chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_c_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_c_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_e_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_e_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_v_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_v_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_s_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_s_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_w_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_w_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_z_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_z_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_left_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_left_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_right_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_right_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_up_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_up_mode
-
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_down_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_down_mode
-
     chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode
     chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode
-
     chown system system /sys/devices/platform/soc/soc:goodixfp/proximity_state
     chmod 0660 /sys/devices/platform/soc/soc:goodixfp/proximity_state
 

@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">Oneplus 5</string>
+    <string name="app_name">Zenfone 6</string>
     <string name="category_gestures_title">Device gestures</string>
     <string name="fp_gesture_title">Fingerprint scanner gestures</string>
     <string name="category_vibrator">Vibrator</string>
@@ -22,44 +22,14 @@
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
     <string name="vib_test">Test</string>
     <string name="advanced_settings">Advanced</string>
-    <string name="category_slider">Slider</string>
-    <string name="slider_mode_title">Slider mode</string>
-    <string name="buttons_title">Buttons</string>
-    <string name="swap_back_recents_summary"></string>
-    <string name="swap_back_recents_title">Swap back and recents button</string>
     <string name="graphics_title">Graphics</string>
     <string name="screen_title">Screen Sensitivity</string>
-    <string name="srgb_mode_summary"></string>
-    <string name="srgb_mode_title">sRGB mode</string>
     <string name="glove_mode_summary">Increase touch sensitivity when wearing gloves</string>
     <string name="glove_mode_title">Glove mode</string>
-    <string name="hbm_mode_summary"></string>
-    <string name="hbm_mode_title">High brightness mode</string>
-    <string name="adaptive_mode_title">Adaptive mode</string>
-    <string name="oneplus_mode_title">OnePlus mode</string>
-    <string name="proxi_summary_head">Check proximity sensor for handling gesture and fingerprint sensor</string>
+    <string name="proxi_summary_head">Check proximity sensor for handling fingerprint sensor</string>
     <string name="proxi_title_head">Proximity check</string>
-    <string name="off_screen_gesture_feedback_summary_head">Enable haptic feedback for gestures</string>
-    <string name="off_screen_gesture_feedback_title_head">Haptic feedback</string>
-    <string name="slider_mode_off">Off</string>
-    <string name="slider_mode_flashlight">Flashlight</string>
-    <string name="slider_mode_vibrate">Vibrate</string>
-    <string name="slider_mode_silent">Silent</string>
-    <string name="slider_mode_priority">Priority only</string>
-    <string name="slider_mode_alarm">Alarms only</string>
-    <string name="slider_mode_zen">Do not disturb</string>
-    <string name="slider_mode_title_top">Top position</string>
-    <string name="slider_mode_title_center">Center position</string>
-    <string name="slider_mode_title_bottom">Bottom position</string>
-    <string name="dci_mode_summary"></string>
-    <string name="dci_mode_title">Wide color gammut mode</string>
-    <string name="Night_mode_summary"></string>
-    <string name="Night_mode_title">Night mode</string>
-    <string name="otg_switch_summary">Enable/Disable USB-OTG support</string>
-    <string name="otg_switch_title">USB-OTG support</string>
 
     <string name="choose_app">Choose app</string>
-    <string name="category_double_swipe_gesture">II gesture</string>
     <string name="offscreen_gesture_title">Offscreen gestures</string>
     <string name="category_c_gesture">C gesture</string>
     <string name="category_e_gesture">E gesture</string>
@@ -67,9 +37,6 @@
     <string name="category_v_gesture">V gesture</string>
     <string name="category_w_gesture">W gesture</string>
     <string name="category_z_gesture">Z gesture</string>
-    <string name="category_circle_gesture">O gesture</string>
-    <string name="category_down_arrow_gesture">V gesture</string>
-    <string name="category_up_arrow_gesture">A gesture</string>
     <string name="category_left_arrow_gesture">&lt; gesture</string>
     <string name="category_right_arrow_gesture">&gt; gesture</string>
     <string name="category_gestures_summary">Configure gesture actions</string>
@@ -98,8 +65,8 @@
     <string name="category_fp_right_swipe_gesture">Fingerprint right swipe</string>
     <string name="category_fp_left_swipe_gesture">Fingerprint left swipe</string>
     <string name="category_fp_long_press_gesture">Fingerprint long press</string>
-    <string name="fp_swipe_down_switch_summary_head">Use long press gesture to expand notifications</string>
-    <string name="fp_swipe_down_switch_title_head">Fingerprint long press gesture</string>
+    <string name="fp_swipe_down_switch_summary_head">Use swipe gesture to expand notifications</string>
+    <string name="fp_swipe_down_switch_title_head">Swipe fingerprint for notifications</string>
 
     <string name="doze_category_title">Ambient display</string>
     <string name="doze_category_summary">Wake screen when you receive notifications</string>
@@ -110,12 +77,5 @@
     <string name="pocket_check_summary">Pulse notifications on removal from pocket</string>
     <string name="pocket_check_title">Pocket</string>
     <string name="ambient_display_enable">Ambient display must be enabled in display settings</string>
-
-    <string name="panel_category_title">Panel modes</string>
-    <string name="panel_category_summary">Modes for panel color correction</string>
-    <string name="off_mode_title">Off</string>
-    <string name="tile_glove_mode">Glove mode</string>
-    <string name="tile_panel_mode">Panel modes</string>
-    <string name="tile_hbm_mode">High brightness modes</string>
     <string name="wake_entry">Wakeup</string>
 </resources>

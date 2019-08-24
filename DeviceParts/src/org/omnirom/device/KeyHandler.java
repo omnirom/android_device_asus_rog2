@@ -73,19 +73,9 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final boolean DEBUG_SENSOR = true;
 
     protected static final int GESTURE_REQUEST = 1;
-    private static final int GESTURE_WAKELOCK_DURATION = 1000;
+    private static final int GESTURE_WAKELOCK_DURATION = 2000;
 
-    private static final int KEY_GESTURE_UP_SWIPE = 258;
-    private static final int KEY_GESTURE_DOWN_SWIPE = 259;
-    private static final int KEY_GESTURE_LEFT_SWIPE = 260;
-    private static final int KEY_GESTURE_RIGHT_SWIPE = 261;
-    private static final int KEY_GESTURE_C = 269;
-    private static final int KEY_GESTURE_E = 263;
-    private static final int KEY_GESTURE_S = 267;
-    private static final int KEY_GESTURE_V = 268;
-    private static final int KEY_GESTURE_W = 266;
-    private static final int KEY_GESTURE_Z = 270;
-
+    private static final int FP_GESTURE_LONG_PRESS = 187;
     private static final int KEY_DOUBLE_TAP = 143;
     private static final int KEY_HOME = 102;
     private static final int KEY_BACK = 158;
@@ -95,37 +85,17 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int HANDWAVE_MAX_DELTA_MS = 1000;
     private static final int POCKET_MIN_DELTA_MS = 5000;
-    private static final int FP_GESTURE_LONG_PRESS = 188;
+
 
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode";
     private static final String GOODIX_CONTROL_PATH = "/sys/devices/platform/soc/soc:goodixfp/proximity_state";
 
     private static final int[] sSupportedGestures = new int[]{
-        KEY_GESTURE_C,
-        KEY_GESTURE_E,
-        KEY_GESTURE_V,
-        KEY_GESTURE_S,
-        KEY_GESTURE_W,
-        KEY_GESTURE_Z,
-        KEY_GESTURE_UP_SWIPE,
-        KEY_GESTURE_DOWN_SWIPE,
-        KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE,
         KEY_DOUBLE_TAP,
         FP_GESTURE_LONG_PRESS
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
-        KEY_GESTURE_C,
-        KEY_GESTURE_E,
-        KEY_GESTURE_V,
-        KEY_GESTURE_S,
-        KEY_GESTURE_W,
-        KEY_GESTURE_Z,
-        KEY_GESTURE_UP_SWIPE,
-        KEY_GESTURE_DOWN_SWIPE,
-        KEY_GESTURE_LEFT_SWIPE,
-        KEY_GESTURE_RIGHT_SWIPE,
         KEY_DOUBLE_TAP
     };
 
@@ -338,21 +308,14 @@ public class KeyHandler implements DeviceKeyHandler {
         if (mFPcheck) {
             String value = getGestureValueForFPScanCode(event.getScanCode());
             return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
-        } else {
-            String value = getGestureValueForScanCode(event.getScanCode());
-            return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
         }
+        return false;
     }
 
     @Override
     public boolean isWakeEvent(KeyEvent event){
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
-        }
-        String value = getGestureValueForScanCode(event.getScanCode());
-        if (!TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.WAKE_ENTRY)) {
-            if (DEBUG) Log.i(TAG, "isWakeEvent " + event.getScanCode() + value);
-            return true;
         }
         return event.getScanCode() == KEY_DOUBLE_TAP;
     }
@@ -361,15 +324,6 @@ public class KeyHandler implements DeviceKeyHandler {
     public Intent isActivityLaunchEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return null;
-        }
-        String value = getGestureValueForScanCode(event.getScanCode());
-        if (!TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY)) {
-            if (DEBUG) Log.i(TAG, "isActivityLaunchEvent " + event.getScanCode() + value);
-            if (!launchSpecialActions(value)) {
-                OmniVibe.performHapticFeedbackLw(HapticFeedbackConstants.LONG_PRESS, false, mContext);
-                Intent intent = createIntent(value);
-                return intent;
-            }
         }
         return null;
     }
@@ -518,47 +472,10 @@ public class KeyHandler implements DeviceKeyHandler {
         }
         return false;
     }
-
-    private String getGestureValueForScanCode(int scanCode) {
-        switch(scanCode) {
-            case KEY_GESTURE_C:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_0, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_E:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_1, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_V:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_2, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_S:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_3, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_W:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_4, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_Z:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_UP_SWIPE:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_DOWN_SWIPE:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_7, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_LEFT_SWIPE:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_8, UserHandle.USER_CURRENT);
-            case KEY_GESTURE_RIGHT_SWIPE:
-                return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_9, UserHandle.USER_CURRENT);
-        }
-        return null;
-    }
-
     private String getGestureValueForFPScanCode(int scanCode) {
         if (FP_GESTURE_LONG_PRESS == scanCode) {
             return Settings.System.getStringForUser(mContext.getContentResolver(),
-                   GestureSettings.DEVICE_GESTURE_MAPPING_10, UserHandle.USER_CURRENT);
+                   GestureSettings.DEVICE_GESTURE_MAPPING_0, UserHandle.USER_CURRENT);
         }
         return null;
     }
