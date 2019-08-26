@@ -31,12 +31,12 @@
 
     <string name="choose_app">Choose app</string>
     <string name="offscreen_gesture_title">Offscreen gestures</string>
-    <string name="category_c_gesture">C gesture</string>
-    <string name="category_e_gesture">E gesture</string>
-    <string name="category_s_gesture">S gesture</string>
-    <string name="category_v_gesture">V gesture</string>
-    <string name="category_w_gesture">W gesture</string>
-    <string name="category_z_gesture">Z gesture</string>
+    <string name="category_c_gesture">Letter c</string>
+    <string name="category_e_gesture">Letter e</string>
+    <string name="category_s_gesture">Letter s</string>
+    <string name="category_v_gesture">Letter v</string>
+    <string name="category_w_gesture">Letter w</string>
+    <string name="category_z_gesture">Letter z</string>
     <string name="category_left_arrow_gesture">&lt; gesture</string>
     <string name="category_right_arrow_gesture">&gt; gesture</string>
     <string name="category_gestures_summary">Configure gesture actions</string>

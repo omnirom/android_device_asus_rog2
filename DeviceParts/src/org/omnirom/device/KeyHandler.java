@@ -81,6 +81,13 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_BACK = 158;
     private static final int KEY_RECENTS = 580;
 
+    private static final int KEY_GESTURE_C = 46;
+    private static final int KEY_GESTURE_E = 18;
+    private static final int KEY_GESTURE_S = 31;
+    private static final int KEY_GESTURE_V = 47;
+    private static final int KEY_GESTURE_W = 17;
+    private static final int KEY_GESTURE_Z = 44;
+
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int HANDWAVE_MAX_DELTA_MS = 1000;
@@ -308,14 +315,21 @@ public class KeyHandler implements DeviceKeyHandler {
         if (mFPcheck) {
             String value = getGestureValueForFPScanCode(event.getScanCode());
             return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
+        } else {
+            String value = getGestureValueForScanCode(event.getScanCode());
+            return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
         }
-        return false;
     }
 
     @Override
     public boolean isWakeEvent(KeyEvent event){
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
+        }
+         String value = getGestureValueForScanCode(event.getScanCode());
+        if (!TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.WAKE_ENTRY)) {
+            if (DEBUG) Log.i(TAG, "isWakeEvent " + event.getScanCode() + value);
+            return true;
         }
         return event.getScanCode() == KEY_DOUBLE_TAP;
     }
@@ -324,6 +338,15 @@ public class KeyHandler implements DeviceKeyHandler {
     public Intent isActivityLaunchEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return null;
+        }
+        String value = getGestureValueForScanCode(event.getScanCode());
+        if (!TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY)) {
+            if (DEBUG) Log.i(TAG, "isActivityLaunchEvent " + event.getScanCode() + value);
+            if (!launchSpecialActions(value)) {
+                OmniVibe.performHapticFeedbackLw(HapticFeedbackConstants.LONG_PRESS, false, mContext);
+                Intent intent = createIntent(value);
+                return intent;
+            }
         }
         return null;
     }
@@ -472,6 +495,31 @@ public class KeyHandler implements DeviceKeyHandler {
         }
         return false;
     }
+
+    private String getGestureValueForScanCode(int scanCode) {
+        switch(scanCode) {
+            case KEY_GESTURE_C:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_1, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_E:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_2, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_S:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_3, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_V:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_4, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_W:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
+            case KEY_GESTURE_Z:
+                return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
+        }
+        return null;
+    }
+
     private String getGestureValueForFPScanCode(int scanCode) {
         if (FP_GESTURE_LONG_PRESS == scanCode) {
             return Settings.System.getStringForUser(mContext.getContentResolver(),

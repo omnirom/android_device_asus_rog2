@@ -67,6 +67,33 @@ public class Startup extends BroadcastReceiver {
         boolean enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(getGestureFile(GestureSettings.FP_GESTURE_LONG_PRESS_APP), enabled);
 
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_1);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_C_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_2);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_E_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_3);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_S_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_4);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_V_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_5);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_W_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_6);
+        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(getGestureFile(GestureSettings.KEY_Z_APP), enabled);
+
+        value = Settings.System.getString(context.getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING);
+        restore(getGestureFile(GestureSettings.GESTURE_CONTROL_PATH), value);
+
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
         restore(GloveModeSwitch.getFile(), enabled);
     }

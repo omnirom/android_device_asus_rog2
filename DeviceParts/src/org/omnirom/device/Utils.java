@@ -17,12 +17,16 @@
 */
 package org.omnirom.device;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class Utils {
 
@@ -108,5 +112,35 @@ public class Utils {
             return fileValue;
         }
         return defValue;
+    }
+
+    /**
+     * Writes the given value into the given file
+     *
+     * @return true on success, false on failure
+     */
+    public static boolean writeLine(String fileName, String value) {
+        BufferedWriter writer = null;
+
+        try {
+            writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(value);
+        } catch (FileNotFoundException e) {
+            Log.w("Utils", "No such file " + fileName + " for writing", e);
+            return false;
+        } catch (IOException e) {
+            Log.e("Utils", "Could not write to file " + fileName, e);
+            return false;
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (IOException e) {
+                // Ignored, not much we can do anyway
+            }
+        }
+
+        return true;
     }
 }
