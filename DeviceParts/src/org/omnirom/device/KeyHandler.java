@@ -87,6 +87,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_GESTURE_V = 47;
     private static final int KEY_GESTURE_W = 17;
     private static final int KEY_GESTURE_Z = 44;
+    private static final int KEY_SWIPEUP_GESTURE = 103;
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
@@ -325,6 +326,9 @@ public class KeyHandler implements DeviceKeyHandler {
     public boolean isWakeEvent(KeyEvent event){
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
+        }
+        if (event.getScanCode() == KEY_SWIPEUP_GESTURE) {
+            return true;
         }
          String value = getGestureValueForScanCode(event.getScanCode());
         if (!TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.WAKE_ENTRY)) {

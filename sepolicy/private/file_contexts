@@ -14,6 +14,7 @@
 # Gestures
 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode        u:object_r:sysfs_gesture:s0
 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode      u:object_r:sysfs_gesture:s0
+/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode          u:object_r:sysfs_gesture:s0
 
 # Modules
 /system/lib/modules/wlan\.ko                  u:object_r:vendor_file:s0

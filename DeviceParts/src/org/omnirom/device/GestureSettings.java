@@ -55,6 +55,10 @@ public class GestureSettings extends PreferenceFragment implements
 
     public static final String KEY_PROXI_SWITCH = "proxi";
     public static final String KEY_OFF_SCREEN_GESTURE_FEEDBACK_SWITCH = "off_screen_gesture_feedback";
+    public static final String KEY_SWIPEUP_SWITCH = "swipeup";
+    public static final String KEY_SETTINGS_SWIPEUP_PREFIX = "gesture_setting_";
+
+    public static final String SETTINGS_GESTURE_KEY = KEY_SETTINGS_SWIPEUP_PREFIX + KEY_SWIPEUP_SWITCH;
 
     public static final int KEY_C_ID = 0;
     public static final int KEY_E_ID = 1;
@@ -83,6 +87,7 @@ public class GestureSettings extends PreferenceFragment implements
     public static final String DEVICE_GESTURE_MAPPING_6 = "device_gesture_mapping_6_0";
 
     private TwoStatePreference mProxiSwitch;
+    private TwoStatePreference mSwipeUpSwitch;
     private AppSelectListPreference mFPLongPressApp;
     private AppSelectListPreference mLetterCGesture;
     private AppSelectListPreference mLetterEGesture;
@@ -92,6 +97,7 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterZGesture;
 
     public static final String GESTURE_CONTROL_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode";
+    private static final String SWIPEUP_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode";
 
     private PreferenceCategory fpGestures;
     private boolean mFpDownSwipe;
@@ -149,6 +155,10 @@ public class GestureSettings extends PreferenceFragment implements
         mLetterZGesture.setValue(value);
         mLetterZGesture.setOnPreferenceChangeListener(this);
 
+        mSwipeUpSwitch = (TwoStatePreference) findPreference(KEY_SWIPEUP_SWITCH);
+        mSwipeUpSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+        SETTINGS_GESTURE_KEY, 1) != 0);
+
         new FetchPackageInformationTask().execute();
     }
 
@@ -162,6 +172,11 @@ public class GestureSettings extends PreferenceFragment implements
         if (preference == mProxiSwitch) {
             Settings.System.putInt(getContext().getContentResolver(),
                     Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
+            return true;
+        }
+        if (preference == mSwipeUpSwitch) {
+            Settings.System.putInt(getContext().getContentResolver(), SETTINGS_GESTURE_KEY, mSwipeUpSwitch.isChecked() ? 1 : 0);
+            Utils.writeValue(getFile(), mSwipeUpSwitch.isChecked() ? "1" : "0");
             return true;
         }
         return super.onPreferenceTreeClick(preference);
@@ -206,10 +221,19 @@ public class GestureSettings extends PreferenceFragment implements
         return true;
     }
 
+    public static String getFile() {
+        if (Utils.fileWritable(SWIPEUP_PATH)) {
+            return SWIPEUP_PATH;
+        }
+        return null;
+    }
+
     public static String getGestureFile(String key) {
         switch(key) {
             case GESTURE_CONTROL_PATH:
                 return "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode";
+            case SWIPEUP_PATH:
+                return "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode";
         }
         return null;
     }

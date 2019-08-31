@@ -44,6 +44,12 @@
     <PreferenceCategory
         android:title="@string/offscreen_gesture_title">
 
+        <SwitchPreference
+            android:key="swipeup"
+            android:title="@string/swipe_up_to_wake_up_title"
+            android:summary="@string/swipe_up_to_wake_up_summary"
+            android:persistent="false" />
+
         <org.omnirom.device.AppSelectListPreference
             android:key="c_gesture_app"
             android:title="@string/category_c_gesture"
