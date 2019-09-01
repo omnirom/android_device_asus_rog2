@@ -79,6 +79,25 @@
     <string name="gaming_title">Game Category</string>
     <string name="gaming_browse_summary">launch game genie settings</string>
 
+    <!-- AudioWizard -->
+    <string name="audio_title">Audio Settings</string>
+    <string name="audio_summary">Audio Settings of the device</string>
+    <string name="asus_audiowizard_entry_title">AudioWizard</string>
+    <string name="audiowizard_summary_headset_effect_and_mode">DTS : %1$s, %1$s</string>
+    <string name="outdoor_mode_title">Outdoor mode</string>
+    <string name="audio_wide">Wide</string>
+    <string name="audio_in_front">In Front</string>
+    <string name="audio_traditional">Traditional</string>
+    <string name="mode_normal">Normal</string>
+    <string name="custom_name">Custom</string>
+    <string name="mode_classical">Classical</string>
+    <string name="mode_dance">Dance</string>
+    <string name="mode_jazz">Jazz</string>
+    <string name="mode_pop">Pop</string>
+    <string name="mode_rock">Rock</string>
+    <string name="mode_vocal">Vocal</string>
+    <string name="audio_wizard_tile">AudioWizard</string>
+
     <!-- Display Manager -->
     <string name="display_title">Display</string>
 

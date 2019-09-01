@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <hidden-api-whitelisted-app package="com.asus.maxxaudio"/>
+    <hidden-api-whitelisted-app package="com.asus.maxxaudio.audiowizard"/>
+    <allow-implicit-broadcast action="dts.dtssdk.intent.action.AUDIO_ROUTE_CHANGED"/>
+    <allow-implicit-broadcast action="dts.dtssdk.intent.status.DTS_STATE_CHANGED"/>
+</config>

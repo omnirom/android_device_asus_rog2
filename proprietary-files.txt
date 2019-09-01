@@ -28,6 +28,8 @@ priv-app/ROGAirTrigger/lib/arm64/libpl_droidsonroids_gif.so|8979017CB198255F1CE5
 system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 
 # Audio
+-app/AudioWizard/AudioWizard.apk|228B2CF7920142E57AD655952AE930CA116728F7
+-app/AudioWizardView/AudioWizardView.apk
 system_ext/etc/cdma_call_conf.xml
 system_ext/lib64/libadsprpc_system.so
 system_ext/lib64/libcdsprpc_system.so
