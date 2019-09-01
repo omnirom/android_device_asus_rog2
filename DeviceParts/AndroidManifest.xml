@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="com.asus.focusapplistener.permission.GAME_GENIE_PROVIDER"/>
     <uses-permission android:name="com.asus.gamecenter.permission.mode_change"/>
     <uses-permission android:name="com.asus.hardwarestub.permission.FPS_CENTRAL_CONTROL_SERVICE"/>
@@ -60,6 +61,16 @@
             android:name="org.omnirom.device.DozeSettingsActivity"
             android:exported="false"
             android:label="@string/doze_category_title"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.omnirom.device.AudioSettingsActivity"
+            android:exported="false"
+            android:label="@string/asus_audiowizard_entry_title"
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
