@@ -19,7 +19,7 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
-$(call inherit-product, vendor/asus/zenfone6/device-vendor.mk)
+$(call inherit-product, vendor/asus/zenfone6/zenfone6-vendor.mk)
 $(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 
 #from build treble includes
