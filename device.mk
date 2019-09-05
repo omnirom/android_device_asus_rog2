@@ -161,6 +161,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.display.config@1.5
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
+
 # SP-NDK:
 PRODUCT_PACKAGES += \
     libvulkan
