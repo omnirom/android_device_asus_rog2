@@ -10,19 +10,23 @@ lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
 lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
 
 # Camera
+etc/permissions/privapp-permissions-ASUS_I01WD.xml
 lib/DataSet/ispDB/ASUS_UNDI.bin
-lib64/DataSet/arch/DIT_List.cfg
-lib64/DataSet/ditSCidGen/msgchk.db
-lib64/DataSet/ispDB/ParameterDB.db
 lib64/libAsusMotorDriverHAL.so
 lib64/libAsusRGBSensorHAL.so
-lib64/libxditk_DIT_MSMv1.so
-lib64/libxditk_DIT_Manager.so
-lib64/libxditk_ISP.so
-lib64/libxditk_arch.so
-lib64/libxditk_ditArchLIB.so
-lib64/libxditk_ditBSP.so
-lib64/libxditk_ditBSP_JNI.so
+-priv-app/AsusCamera/AsusCamera.apk
+priv-app/AsusCamera/lib/arm64/libarcsoft_object_tracking.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_object_tracking.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_selfiepano.so
+priv-app/AsusCamera/lib/arm64/libtensorflowlite_jni.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_panorama_burstcapture.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_undistort.so
+priv-app/AsusCamera/lib/arm64/libUndistort.so
+priv-app/AsusCamera/lib/arm64/libmpbase.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
+priv-app/AsusCamera/lib/arm64/libyuv_util.so
+priv-app/AsusCamera/lib/arm64/libbitmap.so
+priv-app/AsusCamera/lib/arm64/libasusundistort.so
 -priv-app/MotorService/MotorService.apk
 priv-app/MotorService/lib/arm64/libAsusLaserSensorHAL.so
 priv-app/MotorService/lib/arm64/libAsusMotorDriverHAL.so
