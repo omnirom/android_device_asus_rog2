@@ -44,9 +44,13 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
     public static final String KEY_GLOVE_SWITCH = "glove";
+    public static final String KEY_SMART_SWITCH = "smart_switch";
+    public static final String KEY_SMART_PATH = "/sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable";
+    public static final String SETTINGS_SMART_KEY = KEY_SETTINGS_PREFIX + KEY_SMART_SWITCH;
 
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static TwoStatePreference mGloveModeSwitch;
+    private static TwoStatePreference mSmartKeySwitch;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -57,15 +61,39 @@ public class DeviceSettings extends PreferenceFragment implements
         mGloveModeSwitch.setChecked(GloveModeSwitch.isCurrentlyEnabled(this.getContext()));
         mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
 
+        mSmartKeySwitch = (TwoStatePreference) findPreference(KEY_SMART_SWITCH);
+        mSmartKeySwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+        SETTINGS_SMART_KEY, 1) != 0);
+
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mSmartKeySwitch) {
+            Settings.System.putInt(getContext().getContentResolver(), SETTINGS_SMART_KEY, mSmartKeySwitch.isChecked() ? 1 : 0);
+            Utils.writeValue(getFile(), mSmartKeySwitch.isChecked() ? "1" : "0");
+            return true;
+        }
         return super.onPreferenceTreeClick(preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return true;
+    }
+
+    public static String getFile() {
+        if (Utils.fileWritable(KEY_SMART_PATH)) {
+            return KEY_SMART_PATH;
+        }
+        return null;
+    }
+
+    public static String getGestureFile(String key) {
+        switch(key) {
+            case KEY_SMART_PATH:
+                return "/sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable";
+        }
+        return null;
     }
 }

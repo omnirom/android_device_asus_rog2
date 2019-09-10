@@ -94,6 +94,9 @@ public class Startup extends BroadcastReceiver {
         value = Settings.System.getString(context.getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING);
         restore(getGestureFile(GestureSettings.GESTURE_CONTROL_PATH), value);
 
+        enabled = Settings.System.getInt(context.getContentResolver(), DeviceSettings.SETTINGS_SMART_KEY, 0) != 0;
+        restore(DeviceSettings.getFile(), enabled);
+
         enabled = Settings.System.getInt(context.getContentResolver(), GestureSettings.SETTINGS_GESTURE_KEY, 0) != 0;
         restore(GestureSettings.getFile(), enabled);
 
