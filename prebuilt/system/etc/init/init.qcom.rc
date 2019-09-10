@@ -1,7 +1,10 @@
 on init
-    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
-    mount none /system/etc/audio_policy_volumes_ZS630KL.xml /vendor/etc/audio_policy_volumes_ZS630KL.xml bind
     mount none /system/etc/fstab.qcom /vendor/etc/fstab.qcom bind
+
+on post-fs
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind
+    mount none /system/etc/audio_policy_volumes_ZS630KL.xml /vendor/etc/audio_policy_volumes_ZS630KL.xml bind
     mount none /system/lib/modules/wlan.ko /vendor/lib/modules/qca_cld3_wlan.ko bind
     mount none /system/lib64/hw/lights.msmnile.so /vendor/lib64/hw/lights.msmnile.so bind
 
