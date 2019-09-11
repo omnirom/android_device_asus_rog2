@@ -1,5 +1,5 @@
-allow platform_app vendor_file:file r_file_perms;
-allow platform_app asus_prop:file r_file_perms;
+#allow platform_app vendor_file:file r_file_perms;
+#allow platform_app asus_prop:file r_file_perms;
 allow platform_app app_data_file:file { execute };
 allow platform_app vendor_camera_data_file:dir { add_name create getattr remove_name rw_file_perms search setattr };
 allow platform_app vendor_camera_data_file:file { create getattr unlink rw_file_perms setattr };

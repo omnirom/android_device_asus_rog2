@@ -78,7 +78,7 @@ PRODUCT_PACKAGES += \
 
 # DeviceParts
 PRODUCT_PACKAGES += \
-    DeviceParts \
+    #DeviceParts \
     OmniDisplayManager
 
 # Display
@@ -97,12 +97,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
 # FM
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio
 
-PRODUCT_BOOT_JARS += qcom.fmradio
+#PRODUCT_BOOT_JARS += qcom.fmradio
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -126,11 +126,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
 
 # NFC - NQ (NXP)
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1 \
     android.hardware.nfc@1.0
 
@@ -160,13 +160,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.display.config@1.5
 
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # SP-NDK:
 PRODUCT_PACKAGES += \
     libvulkan
@@ -174,10 +167,12 @@ PRODUCT_PACKAGES += \
 # Update engine
 PRODUCT_PACKAGES += \
     otapreopt_script \
-    brillo_update_payload \
     update_engine \
     update_engine_sideload \
     update_verifier
+
+PRODUCT_HOST_PACKAGES += \
+    brillo_update_payload
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
