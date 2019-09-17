@@ -35,6 +35,8 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
 # A/B
+AB_OTA_UPDATER := true
+
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
@@ -50,6 +52,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService
+
+# Api
+PRODUCT_SHIPPING_API_LEVEL := 28
 
 # audio
 PRODUCT_PACKAGES += \
@@ -142,6 +147,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_AAPT_CONFIG := xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 # Rootdir
 PRODUCT_COPY_FILES += \
