@@ -84,7 +84,7 @@ PRODUCT_PACKAGES += \
 
 # DeviceParts
 PRODUCT_PACKAGES += \
-    #DeviceParts \
+    DeviceParts \
     OmniDisplayManager
 
 # Display
