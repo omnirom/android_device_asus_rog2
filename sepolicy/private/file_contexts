@@ -17,4 +17,3 @@
 
 # Modules
 /system/lib/modules/wlan\.ko                  u:object_r:system_file:s0
-/system/lib64/hw/lights\.msmnile\.so          u:object_r:system_file:s0
