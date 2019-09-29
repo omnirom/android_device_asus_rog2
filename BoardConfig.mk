@@ -160,10 +160,17 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USES_MKE2FS := true
 
 # Sepolicy
+BOARD_SEPOLICY_DIRS += build/target/board/generic_arm64_ab/sepolicy
 include vendor/omni/sepolicy/sepolicy.mk
-#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
-#BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/public \
+    device/qcom/sepolicy/qva/public
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/private \
+    device/qcom/sepolicy/qva/private
 
 # Treble
 BOARD_VNDK_VERSION := current

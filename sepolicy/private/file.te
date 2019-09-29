@@ -3,12 +3,9 @@ type asdf_file, file_type;
 type demoapp_file, file_type;
 type voucher_file, file_type;
 type xrom_file, file_type;
-type firmware_file, file_type;
-type bt_firmware_file, file_type;
 
 # Offscreen Gestures
 type sysfs_gesture, sysfs_type, fs_type;
 type sysfs_touchscreen, sysfs_type, fs_type;
 
-# vendor camera files
-type vendor_camera_data_file, file_type, data_file_type;
+type system_configs_file, system_file_type, file_type;
