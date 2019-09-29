@@ -151,10 +151,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
-# Rootdir
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery.fstab:system/etc/fstab.qcom
-
 # Netutils
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0 \
