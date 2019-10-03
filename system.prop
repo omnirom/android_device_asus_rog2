@@ -39,6 +39,9 @@ persist.vendor.dpm.feature=10
 persist.vendor.dpmhalservice.loglevel=0
 persist.vendor.dpm.loglevel=0
 
+#enable IZat OptInApp overlay
+persist.vendor.overlay.izat.optin=rro
+
 #Enable virtual display.
 debug.sf.enable_hwc_vds=1
 
