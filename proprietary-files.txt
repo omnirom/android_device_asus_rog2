@@ -1,3 +1,6 @@
+# Android Auto
+-product/priv-app/AndroidAutoStub/AndroidAutoStub.apk;PRESIGNED
+
 # ANT+
 -lib/libantradio.so
 -lib64/libantradio.so
@@ -154,3 +157,6 @@ product/framework/qcrilhook.jar
 # TEMP WEBVIEW
 -product/app/TrichromeLibrary/TrichromeLibrary.apk;PRESIGNED
 -product/app/WebViewGoogle/WebViewGoogle.apk;PRESIGNED
+
+# Wlan
+product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
