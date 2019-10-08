@@ -46,3 +46,18 @@ LOCAL_MODULE_STEM := android.hardware.health@2.0-service.rc
 LOCAL_SRC_FILES := android.hardware.health@2.0-service.oneplus7pro.rc
 
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := healthd_board_msm.cpp healthd_msm_alarm.cpp
+LOCAL_MODULE := libhealthd.msm
+
+LOCAL_CFLAGS := -Werror
+LOCAL_C_INCLUDES := \
+    system/core/healthd/include/healthd/ \
+    system/core/base/include \
+    bootable/recovery \
+    bootable/recovery/minui/include
+
+LOCAL_HEADER_LIBRARIES := libbatteryservice_headers
+
+include $(BUILD_STATIC_LIBRARY)
