@@ -25,11 +25,6 @@ $(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-#from build treble includes
-PRODUCT_COPY_FILES += \
-    system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc \
-    system/core/rootdir/init.zygote32_64.rc:root/init.zygote32_64.rc
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
@@ -57,9 +52,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SHIPPING_API_LEVEL := 28
 
 # audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/audio_policy_volumes_ZS630KL.xml:system/etc/audio_policy_volumes_ZS630KL.xml
@@ -94,9 +86,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libtinyalsa
-
-PRODUCT_PACKAGES += \
-    ld.config.txt
 
 # Exclude vibrator from InputManager
 PRODUCT_COPY_FILES += \
@@ -145,7 +134,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/zenfone6/prebuilt/system,system) \
     $(call find-copy-subdir-files,*,device/asus/zenfone6/prebuilt/root,root)
 
-PRODUCT_AAPT_CONFIG := xxhdpi
+PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Properties
@@ -168,10 +157,6 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-
-# SP-NDK:
-PRODUCT_PACKAGES += \
-    libvulkan
 
 # Telephony
 PRODUCT_PACKAGES += \
