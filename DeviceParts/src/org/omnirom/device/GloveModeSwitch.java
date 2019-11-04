@@ -28,7 +28,7 @@ import org.omnirom.device.DeviceSettings;
 
 public class GloveModeSwitch implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode";
+    private static final String FILE = "/proc/driver/glove";
 
     public static final String SETTINGS_KEY = DeviceSettings.KEY_SETTINGS_PREFIX + DeviceSettings.KEY_GLOVE_SWITCH;
 

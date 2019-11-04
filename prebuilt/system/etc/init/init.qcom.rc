@@ -7,21 +7,6 @@ on post-fs
     mount none /system/lib64/hw/lights.msmnile.so /vendor/lib64/hw/lights.msmnile.so bind
 
 on boot
-    # Gestures
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/dclick_mode
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode
-
-    chown system system /sys/devices/platform/soc/soc:goodixfp/proximity_state
-    chmod 0660 /sys/devices/platform/soc/soc:goodixfp/proximity_state
-
-    # Screen Touch
-    chown system system /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode
-    chmod 0660 /sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode
-
     # Smart Key
     chown system system /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable
     chmod 0660 /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable

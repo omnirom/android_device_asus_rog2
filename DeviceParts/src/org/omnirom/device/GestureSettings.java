@@ -96,8 +96,8 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterWGesture;
     private AppSelectListPreference mLetterZGesture;
 
-    public static final String GESTURE_CONTROL_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode";
-    private static final String SWIPEUP_PATH = "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode";
+    public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
+    private static final String SWIPEUP_PATH = "/proc/driver/swipeup";
 
     private PreferenceCategory fpGestures;
     private boolean mFpDownSwipe;
@@ -231,9 +231,9 @@ public class GestureSettings extends PreferenceFragment implements
     public static String getGestureFile(String key) {
         switch(key) {
             case GESTURE_CONTROL_PATH:
-                return "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode";
+                return "/proc/driver/gesture_type";
             case SWIPEUP_PATH:
-                return "/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode";
+                return "/proc/driver/swipeup";
         }
         return null;
     }

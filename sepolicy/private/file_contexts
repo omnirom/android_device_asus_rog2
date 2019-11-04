@@ -10,9 +10,9 @@
 /system/etc/audio_policy_configuration.xml    u:object_r:system_configs_file:s0
 
 # Gestures
-/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_glove_mode        u:object_r:sysfs_gesture:s0
-/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/fts_gesture_mode      u:object_r:sysfs_gesture:s0
-/sys/devices/platform/soc/c80000.i2c/i2c-4/4-0038/swipeup_mode          u:object_r:sysfs_gesture:s0
+/proc/driver/glove                            u:object_r:sysfs_gesture:s0
+/proc/driver/gesture_type                     u:object_r:sysfs_gesture:s0
+/proc/driver/swipeup                          u:object_r:sysfs_gesture:s0
 /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable          u:object_r:sysfs_gesture:s0
 
 # Modules
