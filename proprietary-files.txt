@@ -154,9 +154,5 @@ product/framework/qcrilhook.jar
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
-# TEMP WEBVIEW
--product/app/TrichromeLibrary/TrichromeLibrary.apk;PRESIGNED
--product/app/WebViewGoogle/WebViewGoogle.apk;PRESIGNED
-
 # Wlan
 product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
