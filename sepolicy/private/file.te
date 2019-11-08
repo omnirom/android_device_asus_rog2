@@ -11,5 +11,3 @@ type sysfs_graphics, sysfs_type, fs_type;
 # Offscreen Gestures
 type sysfs_gesture, sysfs_type, fs_type;
 type sysfs_touchscreen, sysfs_type, fs_type;
-
-type system_configs_file, system_file_type, file_type;

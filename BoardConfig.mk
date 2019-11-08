@@ -88,6 +88,9 @@ TARGET_USES_HWC2 := true
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+
 # FM
 BOARD_HAS_QCA_FM_SOC := "cherokee"
 BOARD_HAVE_QCOM_FM := true
@@ -116,9 +119,6 @@ TARGET_KERNEL_SOURCE := kernel/asus/sm8150
 TARGET_KERNEL_CONFIG := vendor/zs630kl_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CLANG_COMPILE := true
-
-# Modules
-NEED_KERNEL_MODULE_SYSTEM := true
 
 # NFC
 TARGET_USES_NQ_NFC := true
