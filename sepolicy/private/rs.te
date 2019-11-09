@@ -1,0 +1,2 @@
+allow rs surfaceflinger:fd use;
+allow rs sdcardfs:file rw_file_perms;

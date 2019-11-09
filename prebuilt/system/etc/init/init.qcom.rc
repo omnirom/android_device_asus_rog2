@@ -1,7 +1,2 @@
 on post-fs
     mount none /dev/null /vendor/overlay/FrameworksResCommon.apk bind
-
-on boot
-    # Smart Key
-    chown system system /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable
-    chmod 0660 /sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable
