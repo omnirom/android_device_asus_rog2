@@ -65,10 +65,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
-# Camera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera2
-
 # Charger images
 PRODUCT_PACKAGES += \
     omni_charger_res_images \
@@ -154,6 +150,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.5
+
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages \
+    RemovePackages1
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

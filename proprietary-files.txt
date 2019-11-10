@@ -16,7 +16,20 @@ product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 # Camera
 lib/DataSet/ispDB/ASUS_UNDI.bin
 lib/DataSet/ispDB/ASUS_UNDI_ZOOM.bin
-lib64/libAsusRGBSensorHAL.so
+-priv-app/AsusCamera/AsusCamera.apk;PRESIGNED
+priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
+priv-app/AsusCamera/lib/arm64/libbitmap.so
+priv-app/AsusCamera/lib/arm64/libmpbase.so
+priv-app/AsusCamera/lib/arm64/libtensorflowlite_jni.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_selfiepano.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_object_tracking.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_distortion_correction.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_panorama_burstcapture.so
+priv-app/AsusCamera/lib/arm64/libyuv_util.so
+priv-app/AsusCamera/lib/arm64/libUndistort.so
+priv-app/AsusCamera/lib/arm64/libasusundistort.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_object_tracking.so
 -priv-app/MotorService/MotorService.apk
 priv-app/MotorService/lib/arm64/libAsusLaserSensorHAL.so
 priv-app/MotorService/lib/arm64/libAsusMotorDriverHAL.so
@@ -94,6 +107,38 @@ lib64/fm_helium.so
 lib64/libfm-hci.so
 product/lib/vendor.qti.hardware.fm@1.0.so
 product/lib64/vendor.qti.hardware.fm@1.0.so
+
+# Gallery
+-priv-app/AsusGallery/AsusGallery.apk;PRESIGNED
+priv-app/AsusGallery/lib/arm/libmpbase.so
+priv-app/AsusGallery/lib/arm/libjni_filter_show.so
+priv-app/AsusGallery/lib/arm/libtensorflowlite_jni.so
+priv-app/AsusGallery/lib/arm/libjni_face_effect.so
+priv-app/AsusGallery/lib/arm/librs.vignette.so
+priv-app/AsusGallery/lib/arm/libtensorflow_inference.so
+priv-app/AsusGallery/lib/arm/librs.convolve3x3.so
+priv-app/AsusGallery/lib/arm/libpanorenderer.so
+priv-app/AsusGallery/lib/arm/libpano_video_renderer.so
+priv-app/AsusGallery/lib/arm/librsjni_androidx.so
+priv-app/AsusGallery/lib/arm/librsjni.so
+priv-app/AsusGallery/lib/arm/libgif.so
+priv-app/AsusGallery/lib/arm/librs.grey.so
+priv-app/AsusGallery/lib/arm/libarcsoft_beautyshot.so
+priv-app/AsusGallery/lib/arm/librs.saturation.so
+priv-app/AsusGallery/lib/arm/libblur.so
+priv-app/AsusGallery/lib/arm/librs.grad.so
+priv-app/AsusGallery/lib/arm/librs.blur.so
+priv-app/AsusGallery/lib/arm/libRSSupport.so
+priv-app/AsusGallery/lib/arm/libjni_wide_angle_undistort.so
+priv-app/AsusGallery/lib/arm/libgvr.so
+priv-app/AsusGallery/lib/arm/libjni_cvface_api.so
+priv-app/AsusGallery/lib/arm/libcvface_api.so
+priv-app/AsusGallery/lib/arm/libarcsoft_undistort.so
+priv-app/AsusGallery/lib/arm/libopencv_java3.so
+
+# GalleryBurst
+-priv-app/AsusGalleryBurst/AsusGalleryBurst.apk;PRESIGNED
+priv-app/AsusGalleryBurst/lib/arm/libgifencoder.so
 
 # GPS
 etc/permissions/com.qti.location.sdk.xml
