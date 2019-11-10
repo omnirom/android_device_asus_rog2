@@ -112,8 +112,7 @@ PRODUCT_PACKAGES += \
     FrameworksResOverlay
 
 # Health
-PRODUCT_PACKAGES += android.hardware.health@2.0-service.rog2 \
-                    libhealthd.msm
+PRODUCT_PACKAGES += android.hardware.health@2.0-service.rog2
 
 # Input
 PRODUCT_COPY_FILES += \
