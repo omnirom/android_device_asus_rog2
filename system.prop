@@ -65,6 +65,9 @@ ro.asus.hdr=1
 # Property to enable Mag filter
 persist.vendor.sensors.enable.mag_filter=true
 
+#property to latch unsignaled buffer
+debug.sf.latch_unsignaled=1
+
 # Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
 ro.telephony.default_network=9,9
 
