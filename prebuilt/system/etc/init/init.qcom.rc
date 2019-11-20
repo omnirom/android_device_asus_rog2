@@ -1,2 +1,0 @@
-on post-fs
-    mount none /dev/null /vendor/overlay/FrameworksResCommon.apk bind
