@@ -40,12 +40,12 @@ priv-app/MotorService/lib/arm64/libjni_motor.so
 etc/cne/Nexus/ATT/ATT_profiles.xml
 etc/cne/Nexus/ROW/ROW_profiles.xml
 etc/cne/Nexus/VZW/VZW_profiles.xml
-product/framework/com.quicinc.cne.api-V1.1-java.jar
-product/framework/com.quicinc.cne.constants-V1.0-java.jar
-product/framework/com.quicinc.cne.constants-V2.0-java.jar
-product/framework/com.quicinc.cne.constants-V2.1-java.jar
-product/framework/vendor.qti.hardware.data.cne.internal.api-V1.0-java.jar
-product/framework/vendor.qti.hardware.data.cne.internal.constants-V1.0-java.jar
+-product/framework/com.quicinc.cne.api-V1.1-java.jar
+-product/framework/com.quicinc.cne.constants-V1.0-java.jar
+-product/framework/com.quicinc.cne.constants-V2.0-java.jar
+-product/framework/com.quicinc.cne.constants-V2.1-java.jar
+-product/framework/vendor.qti.hardware.data.cne.internal.api-V1.0-java.jar
+-product/framework/vendor.qti.hardware.data.cne.internal.constants-V1.0-java.jar
 product/lib/com.quicinc.cne.api@1.0.so
 product/lib/com.quicinc.cne.api@1.1.so
 product/lib/com.quicinc.cne.constants@1.0.so
@@ -80,14 +80,14 @@ product/lib64/vendor.display.color@1.3.so
 product/lib64/vendor.display.postproc@1.0.so
 
 # DPM
-framework/tcmclient.jar
+-framework/tcmclient.jar
 product/bin/dpmd
 product/etc/dpm/dpm.conf
 product/etc/init/dpmd.rc
 product/etc/permissions/com.qti.dpmframework.xml
 product/etc/permissions/dpmapi.xml
-product/framework/com.qti.dpmframework.jar
-product/framework/dpmapi.jar
+-product/framework/com.qti.dpmframework.jar
+-product/framework/dpmapi.jar
 product/lib/com.qualcomm.qti.dpm.api@1.0.so
 product/lib/libdpmctmgr.so
 product/lib/libdpmfdmgr.so
@@ -145,8 +145,8 @@ etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
 etc/permissions/privapp-permissions-com.qualcomm.location.xml
-framework/com.qti.location.sdk.jar
-framework/izat.xt.srv.jar
+-framework/com.qti.location.sdk.jar
+-framework/izat.xt.srv.jar
 lib64/liblocationservice_jni.so
 lib64/libxt_native.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
@@ -171,7 +171,7 @@ product/lib64/lib-imsvt.so
 product/lib64/lib-imsvtutils.so
 product/lib64/vendor.qti.imsrtpservice@2.0.so
 product/lib64/vendor.qti.imsrtpservice@2.1.so
--product/priv-app/ims/ims.apk
+-product/priv-app/ims/ims.apk|993e75757565d87b8eac95644b789463a667598e
 
 # NFC
 #-app/NQNfcNci/NQNfcNci.apk
@@ -194,10 +194,10 @@ etc/sysconfig/qti_whitelist.xml
 product/etc/permissions/qcrilhook.xml
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml
 product/etc/permissions/telephonyservice.xml
-product/framework/QtiTelephonyServicelibrary.jar
-product/framework/qcrilhook.jar
+-product/framework/QtiTelephonyServicelibrary.jar
+-product/framework/qcrilhook.jar
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 # Wlan
-product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
+-product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
