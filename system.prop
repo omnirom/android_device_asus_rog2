@@ -53,7 +53,7 @@ debug.sf.enable_hwc_vds=1
 vendor.bluetooth.soc=cherokee
 
 # Media
-media.settings.xml=/system/etc/media_profiles_vendor.xml
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # Netmgr
 persist.vendor.data.mode=concurrent

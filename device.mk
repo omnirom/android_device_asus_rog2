@@ -113,10 +113,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.asus_msmnile
 
-# Media
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles_vendor.xml:system/etc/media_profiles_vendor.xml
-
 # NFC - NQ (NXP)
 #PRODUCT_PACKAGES += \
     Tag \
