@@ -11,6 +11,3 @@ type sysfs_graphics, sysfs_type, fs_type;
 # Offscreen Gestures
 type sysfs_gesture, sysfs_type, fs_type;
 type proc_touchscreen, proc_type, sysfs_type, fs_type;
-
-# vendor camera files
-type vendor_camera_data_file, file_type, data_file_type;
