@@ -38,8 +38,6 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/asus/zenfone6/device.mk)
 
-ALLOW_MISSING_DEPENDENCIES := true
-
 # Discard inherited values and use our own instead.
 PRODUCT_DEVICE := zenfone6
 PRODUCT_NAME := omni_zenfone6
