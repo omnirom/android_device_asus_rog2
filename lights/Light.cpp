@@ -83,9 +83,9 @@ static constexpr char kDelayOn[] = "delay_on";
 
 static uint32_t rgbToBrightness(const LightState& state) {
     uint32_t color = state.color & 0x00ffffff;
-    return ((77 * ((color >> 16) & 0xff))
-            + (150 * ((color >> 8) & 0xff))
-            + (29 * (color & 0xff))) >> 8;
+    return ((77 * ((color >> 16) & 0x00ff))
+            + (150 * ((color >> 8) & 0x00ff))
+            + (29 * (color & 0x00ff))) >> 8;
 }
 
 Light::Light() {
@@ -115,20 +115,9 @@ void Light::handleNotification(const LightState& state, size_t index) {
         }
     }
 
-    // Extract brightness from AARRGG
-    uint32_t alpha = (stateToUse.color >> 24) & 0xff;
-
     std::map<std::string, int> colorValues;
     colorValues["red"] = (stateToUse.color >> 16) & 0xff;
     colorValues["green"] = (stateToUse.color >> 8) & 0xff;
-
-    // Scale RG colors if a brightness has been applied by the user
-    if (alpha != 0xff) {
-        for (auto& entry : colorValues) {
-            // For more exact scaling divide by half
-            entry.second = ((entry.second * alpha) / 0xff) / 2;
-        }
-    }
 
     auto makeLedPath = [](const std::string& led, const char op[]) -> std::string {
         return "/sys/class/leds/" + led + "/" + op;
