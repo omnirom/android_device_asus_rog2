@@ -1,6 +1,10 @@
 # rootfs
 type asdf_file, file_type;
+type bat_file, file_type;
+type bt_firmware_file, file_type;
 type demoapp_file, file_type;
+type firmware_file, fs_type, contextmount_type;
+type persist_file, file_type;
 type voucher_file, file_type;
 type xrom_file, file_type;
 
