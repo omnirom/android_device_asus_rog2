@@ -149,8 +149,7 @@ PRODUCT_PACKAGES += \
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
-    RemovePackages \
-    RemovePackages1
+    RemovePackages
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
