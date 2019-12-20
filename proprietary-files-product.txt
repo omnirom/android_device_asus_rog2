@@ -13,11 +13,9 @@ product/lib/vendor.qti.hardware.audiohalext@1.0.so
 product/lib/vendor.qti.hardware.btconfigstore@1.0.so
 
 # Camera
--product/priv-app/seccamservice/seccamservice.apk
 -product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
 product/lib/libQTEEConnector_system.so
-product/lib/libseccam-ipc.so
-product/lib/libseccamservice.so
+product/lib/libimscamera_jni.so
 product/lib/libseccam.so
 product/lib/vendor.qti.hardware.camera.device@1.0.so
 product/lib/vendor.qti.hardware.cvp@1.0.so
@@ -25,18 +23,15 @@ product/lib/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 product/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
 product/lib/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
 product/lib/vendor.qti.hardware.scve.panorama@1.0.so
-product/lib/vendor.qti.hardware.seccam@1.0.so
 product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 product/lib64/libQTEEConnector_system.so
-product/lib64/libseccam-ipc.so
-product/lib64/libseccamservice.so
+product/lib64/libimscamera_jni.so
 product/lib64/libseccam.so
 product/lib64/vendor.qti.hardware.camera.device@1.0.so
 product/lib64/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 product/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 product/lib64/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
 product/lib64/vendor.qti.hardware.scve.panorama@1.0.so
-product/lib64/vendor.qti.hardware.seccam@1.0.so
 product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Display api
