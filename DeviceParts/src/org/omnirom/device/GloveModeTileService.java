@@ -26,6 +26,8 @@ import androidx.preference.PreferenceManager;
 
 @TargetApi(24)
 public class GloveModeTileService extends TileService {
+    public static final String KEY_GLOVE_PATH = "/proc/driver/glove";
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -55,8 +57,8 @@ public class GloveModeTileService extends TileService {
     public void onClick() {
         super.onClick();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final boolean enabled = GloveModeSwitch.isCurrentlyEnabled(this);
-        Utils.writeValue(GloveModeSwitch.getFile(), enabled ? "0" : "1");
-        sharedPrefs.edit().putBoolean(DeviceSettings.KEY_GLOVE_SWITCH, enabled ? false : true).commit();
+        final boolean enabled = DeviceSettings.isCurrentlyEnabled();
+        Utils.writeValue(DeviceSettings.getFile(), enabled ? "1" : "0");
+        sharedPrefs.edit().putBoolean(DeviceSettings.KEY_GLOVE_SWITCH, enabled ? true : false).commit();
     }
 }
