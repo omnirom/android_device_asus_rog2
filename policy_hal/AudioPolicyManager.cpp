@@ -244,18 +244,6 @@ status_t AudioPolicyManagerCustom::setDeviceConnectionStateInt(audio_devices_t d
         // Propagate device availability to Engine
         setEngineDeviceConnectionState(device, state);
 
-        if (!outputs.isEmpty()) {
-            for (size_t i = 0; i < outputs.size(); i++) {
-                sp<SwAudioOutputDescriptor> desc = mOutputs.valueFor(outputs[i]);
-                // close voip output before track invalidation to allow creation of
-                // new voip stream from restoreTrack
-                if ((desc->mFlags == (AUDIO_OUTPUT_FLAG_DIRECT | AUDIO_OUTPUT_FLAG_VOIP_RX)) != 0) {
-                    closeOutput(outputs[i]);
-                    outputs.remove(outputs[i]);
-                }
-            }
-        }
-
         // No need to evaluate playback routing when connecting a remote submix
         // output device used by a dynamic policy of type recorder as no
         // playback use case is affected.
@@ -1476,15 +1464,11 @@ audio_io_handle_t AudioPolicyManagerCustom::getOutputForDevices(
             for (size_t i = 0; i < mOutputs.size(); i++) {
                  sp<SwAudioOutputDescriptor> desc = mOutputs.valueAt(i);
                  if (desc->mFlags == (AUDIO_OUTPUT_FLAG_VOIP_RX | AUDIO_OUTPUT_FLAG_DIRECT)) {
-                     //close voip output if currently open by the same client with different device
-                     if (desc->mDirectClientSession == session &&
-                         desc->devices() != devices) {
-                         closeOutput(desc->mIoHandle);
-                     } else {
+                     if (desc->mDirectClientSession != session) {
                          voip_pcm_already_in_use = true;
                          ALOGD("VoIP PCM already in use");
+                         break;
                      }
-                     break;
                  }
             }
 
