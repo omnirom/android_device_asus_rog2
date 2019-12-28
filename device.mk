@@ -27,7 +27,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlay \
+    vendor/omni/overlay/CarrierConfig
 
 # A/B
 AB_OTA_UPDATER := true
