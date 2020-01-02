@@ -607,4 +607,7 @@
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
+    <!-- Show a custom view for FOD -->
+    <bool name="config_usesFOD">true</bool>
+
 </resources>

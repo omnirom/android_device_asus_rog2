@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += qcom.fmradio
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    omni.biometrics.fingerprint.inscreen@1.0-service.asus_msmnile
+
 # Frameworks
 PRODUCT_PACKAGES += \
     FrameworksResOverlay
