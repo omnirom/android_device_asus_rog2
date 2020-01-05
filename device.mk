@@ -19,7 +19,7 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
-$(call inherit-product, vendor/asus/zenfone6/zenfone6-vendor.mk)
+$(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
 $(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
 
 # Enable updating of APEXes
@@ -129,8 +129,8 @@ PRODUCT_PACKAGES += \
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/asus/zenfone6/prebuilt/system,system) \
-    $(call find-copy-subdir-files,*,device/asus/zenfone6/prebuilt/root,root)
+    $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/system,system) \
+    $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/root,root)
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi

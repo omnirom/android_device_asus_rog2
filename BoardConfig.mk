@@ -18,7 +18,7 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
-DEVICE_PATH := device/asus/zenfone6
+DEVICE_PATH := device/asus/rog2
 
 BOARD_VENDOR := asus
 
@@ -115,7 +115,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/asus/sm8150
-TARGET_KERNEL_CONFIG := vendor/zs630kl_defconfig
+TARGET_KERNEL_CONFIG := vendor/rog2_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_CLANG_COMPILE := true
 
