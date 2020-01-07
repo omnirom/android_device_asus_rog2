@@ -96,8 +96,8 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterWGesture;
     private AppSelectListPreference mLetterZGesture;
 
-    public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
-    private static final String SWIPEUP_PATH = "/proc/driver/swipeup";
+    public static final String GESTURE_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture_type";
+    private static final String SWIPEUP_PATH = "/sys/devices/platform/goodix_ts.0/swipeup";
 
     private PreferenceCategory fpGestures;
     private boolean mFpDownSwipe;
@@ -231,9 +231,9 @@ public class GestureSettings extends PreferenceFragment implements
     public static String getGestureFile(String key) {
         switch(key) {
             case GESTURE_CONTROL_PATH:
-                return "/proc/driver/gesture_type";
+                return "/sys/devices/platform/goodix_ts.0/gesture_type";
             case SWIPEUP_PATH:
-                return "/proc/driver/swipeup";
+                return "/sys/devices/platform/goodix_ts.0/swipeup";
         }
         return null;
     }

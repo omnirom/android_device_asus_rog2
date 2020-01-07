@@ -26,7 +26,7 @@ import androidx.preference.PreferenceManager;
 
 @TargetApi(24)
 public class GloveModeTileService extends TileService {
-    public static final String KEY_GLOVE_PATH = "/proc/driver/glove";
+    public static final String KEY_GLOVE_PATH = "/sys/devices/platform/goodix_ts.0/glove";
 
     @Override
     public void onDestroy() {

@@ -101,7 +101,7 @@ public class DeviceSettings extends PreferenceFragment implements
     public static String getGestureFile(String key) {
         switch(key) {
             case KEY_GLOVE_PATH:
-                return "/proc/driver/glove";
+                return "/sys/devices/platform/goodix_ts.0/gesture/glove";
             case KEY_SMART_PATH:
                 return "/sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable";
         }
