@@ -41,14 +41,6 @@ product/lib/vendor.display.color@1.0.so
 product/lib/vendor.display.color@1.1.so
 product/lib/vendor.display.color@1.2.so
 product/lib/vendor.display.color@1.3.so
-product/lib/vendor.display.config@1.0.so
-product/lib/vendor.display.config@1.1.so
-product/lib/vendor.display.config@1.2.so
-product/lib/vendor.display.config@1.3.so
-product/lib/vendor.display.config@1.4.so
-product/lib/vendor.display.config@1.5.so
-product/lib/vendor.display.config@1.6.so
-product/lib/vendor.display.config@1.7.so
 product/lib/vendor.display.postproc@1.0.so
 product/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 product/lib64/libsdm-disp-apis.qti.so
@@ -57,14 +49,6 @@ product/lib64/vendor.display.color@1.0.so
 product/lib64/vendor.display.color@1.1.so
 product/lib64/vendor.display.color@1.2.so
 product/lib64/vendor.display.color@1.3.so
-product/lib64/vendor.display.config@1.0.so
-product/lib64/vendor.display.config@1.1.so
-product/lib64/vendor.display.config@1.2.so
-product/lib64/vendor.display.config@1.3.so
-product/lib64/vendor.display.config@1.4.so
-product/lib64/vendor.display.config@1.5.so
-product/lib64/vendor.display.config@1.6.so
-product/lib64/vendor.display.config@1.7.so
 product/lib64/vendor.display.postproc@1.0.so
 product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 

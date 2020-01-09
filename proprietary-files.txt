@@ -39,11 +39,6 @@ priv-app/AsusCamera/lib/arm64/libyuv_util.so
 priv-app/AsusCamera/lib/arm64/libUndistort.so
 priv-app/AsusCamera/lib/arm64/libasusundistort.so
 priv-app/AsusCamera/lib/arm64/libarcsoft_object_tracking.so
--priv-app/MotorService/MotorService.apk;PRESIGNED
-priv-app/MotorService/lib/arm64/libAsusLaserSensorHAL.so
-priv-app/MotorService/lib/arm64/libAsusMotorDriverHAL.so
-priv-app/MotorService/lib/arm64/libjni_laser.so
-priv-app/MotorService/lib/arm64/libjni_motor.so
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
