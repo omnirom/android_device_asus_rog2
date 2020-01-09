@@ -193,14 +193,18 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.goodix.hardware.biometrics.fingerprint</name>
-        <version>2.1</version>
+        <name>vendor.ims.airtrigger</name>
+        <version>1.1</version>
         <interface>
-            <name>IGoodixFingerprintDaemon</name>
+            <name>IAirTrigger</name>
             <instance>default</instance>
         </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.ims.colortemp</name>
+        <version>1.0</version>
         <interface>
-            <name>IGoodixFingerprintDaemonExt</name>
+            <name>IColorTemp</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -209,6 +213,22 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0</version>
         <interface>
             <name>IGloveMode</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.ims.twinviewdock</name>
+        <version>1.0</version>
+        <interface>
+            <name>ITwinViewDock</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.ims.wifiantennamode</name>
+        <version>1.0</version>
+        <interface>
+            <name>IWifiantennamode</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -284,6 +304,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>2.0</version>
         <interface>
             <name>IBluetoothAudioProvidersFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.bluetooth_dun</name>
+        <version>1.0</version>
+        <interface>
+            <name>IBluetoothDunServer</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -364,6 +392,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.display.allocator</name>
         <version>1.0</version>
+        <version>3.0</version>
         <interface>
             <name>IQtiAllocator</name>
             <instance>default</instance>
@@ -380,6 +409,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.display.mapper</name>
         <version>2.0</version>
+        <version>3.0</version>
         <interface>
             <name>IQtiMapper</name>
             <instance>default</instance>
@@ -390,6 +420,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0-1</version>
         <interface>
             <name>IFactory</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.fingerprint</name>
+        <version>1.0</version>
+        <interface>
+            <name>IQtiExtendedFingerprint</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -434,6 +472,22 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.mlshal</name>
+        <version>1.0</version>
+        <interface>
+            <name>IMlsDap</name>
+            <instance>mlsdaphal</instance>
+        </interface>
+        <interface>
+            <name>IMlsIon</name>
+            <instance>mlsionhal</instance>
+        </interface>
+        <interface>
+            <name>IMlsVnc</name>
+            <instance>mlsvnchal</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.perf</name>
         <version>2.0</version>
         <interface>
@@ -446,6 +500,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0</version>
         <interface>
             <name>IQdutilsDisp</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.qseecom</name>
+        <version>1.0</version>
+        <interface>
+            <name>IQSEECom</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -532,6 +594,34 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IUimRemoteServiceServer</name>
             <instance>uimRemoteServer0</instance>
             <instance>uimRemoteServer1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.scve.objecttracker</name>
+        <version>1.0</version>
+        <interface>
+            <name>IObjectTracker</name>
+            <instance>objectTracker</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.scve.panorama</name>
+        <version>1.0</version>
+        <interface>
+            <name>IPanoramaStitching</name>
+            <instance>panoStitching</instance>
+        </interface>
+        <interface>
+            <name>IPanoramaTracking</name>
+            <instance>panoTracking</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.seccam</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISecCam</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
