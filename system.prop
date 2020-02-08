@@ -191,7 +191,7 @@ persist.vendor.service.bt.iotinfo.report.enable=true
 # ASUS_BSP "Enable IOT logging"---
 
 #Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.asus.camera,com.google.android.GoogleCamera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.qualcomm.saltproject2,com.asus.camera
 
 # [ASUS BSP] Deka
 ro.asus.camera.preview_beauty=0:1;1:1;2:1;3:1
