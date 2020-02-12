@@ -75,7 +75,6 @@ public class KeyHandler implements DeviceKeyHandler {
     protected static final int GESTURE_REQUEST = 1;
     private static final int GESTURE_WAKELOCK_DURATION = 2000;
 
-    private static final int FP_GESTURE_LONG_PRESS = 187;
     private static final int KEY_DOUBLE_TAP = 143;
     private static final int KEY_HOME = 102;
     private static final int KEY_BACK = 158;
@@ -102,7 +101,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int[] sSupportedGestures = new int[]{
         KEY_DOUBLE_TAP,
         KEY_GOOGLE_APP,
-        FP_GESTURE_LONG_PRESS
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
@@ -511,34 +509,30 @@ public class KeyHandler implements DeviceKeyHandler {
         switch(scanCode) {
             case KEY_GESTURE_C:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_1, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_0, UserHandle.USER_CURRENT);
             case KEY_GESTURE_E:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_2, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_1, UserHandle.USER_CURRENT);
             case KEY_GESTURE_S:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_3, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_2, UserHandle.USER_CURRENT);
             case KEY_GESTURE_V:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_4, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_3, UserHandle.USER_CURRENT);
             case KEY_GESTURE_W:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_4, UserHandle.USER_CURRENT);
             case KEY_GESTURE_Z:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
-                    GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
+                    GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
         }
         return null;
     }
 
     private String getGestureValueForFPScanCode(int scanCode) {
-        if (FP_GESTURE_LONG_PRESS == scanCode) {
-            return Settings.System.getStringForUser(mContext.getContentResolver(),
-                   GestureSettings.DEVICE_GESTURE_MAPPING_0, UserHandle.USER_CURRENT);
-        }
         if (KEY_GOOGLE_APP == scanCode) {
             return Settings.System.getStringForUser(mContext.getContentResolver(),
-                   GestureSettings.DEVICE_GESTURE_MAPPING_7, UserHandle.USER_CURRENT);
+                   GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
         }
         return null;
     }
