@@ -92,8 +92,8 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterZGesture;
     private AppSelectListPreference mSmartKeySwitch;
 
-    public static final String GESTURE_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture_type";
-    private static final String SWIPEUP_PATH = "/sys/devices/platform/goodix_ts.0/swipeup";
+    public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
+    private static final String SWIPEUP_PATH = "/proc/driver/swipeup";
 
     private List<AppSelectListPreference.PackageItem> mInstalledPackages = new LinkedList<AppSelectListPreference.PackageItem>();
     private PackageManager mPm;
@@ -227,11 +227,11 @@ public class GestureSettings extends PreferenceFragment implements
     public static String getGestureFile(String key) {
         switch(key) {
             case GESTURE_CONTROL_PATH:
-                return "/sys/devices/platform/goodix_ts.0/gesture_type";
+                return "/proc/driver/gesture_type";
             case KEY_GOOGLE_APP:
                 return "/sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable";
             case SWIPEUP_PATH:
-                return "/sys/devices/platform/goodix_ts.0/swipeup";
+                return "/proc/driver/swipeup";
         }
         return null;
     }
