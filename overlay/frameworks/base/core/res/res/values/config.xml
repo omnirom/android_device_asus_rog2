@@ -404,9 +404,6 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
-    <!-- Allow automatic adjusting of the screen brightness while dozing in low power state. -->
-    <bool name="config_allowAutoBrightnessWhileDozing">true</bool>
-
     <!-- Default color for notification LED is blue. -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
 
