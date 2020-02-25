@@ -22,6 +22,7 @@ import android.app.Dialog;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -48,6 +49,15 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String SETTINGS_GLOVE_KEY = KEY_SETTINGS_PREFIX + KEY_GLOVE_SWITCH;
 
     private static final String KEY_CATEGORY_SCREEN = "screen";
+    private static final String KEY_FRAME_MODE = "frame_mode_key";
+    public static final String VENDOR_FPS = "vendor.asus.dfps";
+    public static final String TEMP_FPS = "temp_fps";
+
+    public static final String DEFAULT_FPS_VALUE = "60";
+    public static final String FPS_VALUE_90 = "90";
+    public static final String FPS_VALUE_120 = "120";
+
+    private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
 
     @Override
@@ -57,6 +67,13 @@ public class DeviceSettings extends PreferenceFragment implements
         mGloveModeSwitch = (TwoStatePreference) findPreference(KEY_GLOVE_SWITCH);
         mGloveModeSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
         KEY_GLOVE_SWITCH, 0) == 1);
+
+        mFrameModeRate = (ListPreference) findPreference(KEY_FRAME_MODE);
+        mFrameModeRate.setOnPreferenceChangeListener(this);
+        int frameMode = getFrameMode(0);
+        int valueIndex = mFrameModeRate.findIndexOfValue(String.valueOf(frameMode));
+        mFrameModeRate.setValueIndex(valueIndex);
+        mFrameModeRate.setSummary(mFrameModeRate.getEntries()[valueIndex]);
 
     }
 
@@ -72,6 +89,13 @@ public class DeviceSettings extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+		if (preference == mFrameModeRate) {
+            String value = (String) newValue;
+            int frameMode = Integer.valueOf(value);
+            setFrameMode(0, frameMode);
+            int valueIndex = mFrameModeRate.findIndexOfValue(value);
+            mFrameModeRate.setSummary(mFrameModeRate.getEntries()[valueIndex]);
+        }
         return true;
     }
 
@@ -92,5 +116,39 @@ public class DeviceSettings extends PreferenceFragment implements
 
     public static boolean isCurrentlyEnabled() {
         return Utils.getLineValueAsBoolean(getFile(), true);
+    }
+
+    private int getFrameMode(int position) {
+
+        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
+        final String defaultValue = DEFAULT_FPS_VALUE;
+
+        if (value == null) {
+            value = defaultValue;
+        }
+        try {
+            String[] parts = value.split(",");
+            return Integer.valueOf(parts[position]);
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    private void setFrameMode(int position, int fps) {
+
+        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
+        final String defaultValue = DEFAULT_FPS_VALUE;
+
+        if (value == null) {
+            value = defaultValue;
+        }
+        try {
+            String[] parts = value.split(",");
+            parts[position] = String.valueOf(fps);
+            String newValue = TextUtils.join(",", parts);
+            Settings.System.putString(getContext().getContentResolver(), TEMP_FPS, newValue);
+            SystemProperties.set(VENDOR_FPS, newValue);
+        } catch (Exception e) {
+        }
     }
 }
