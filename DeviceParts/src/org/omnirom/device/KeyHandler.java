@@ -95,7 +95,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int POCKET_MIN_DELTA_MS = 5000;
 
 
-    private static final String DT2W_CONTROL_PATH = "/proc/driver/dclick";
+    private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture/dclick";
     private static final String GOODIX_CONTROL_PATH = "/sys/devices/platform/soc/soc:goodixfp/proximity_state";
 
     private static final int[] sSupportedGestures = new int[]{
