@@ -1,2 +1,3 @@
 allow system_app sysfs_gesture:file { rw_file_perms setattr };
 allow system_app proc_touchscreen:file { rw_file_perms setattr };
+allow system_app sysfs_touchscreen:file { rw_file_perms setattr };
