@@ -217,7 +217,7 @@ public class KeyHandler implements DeviceKeyHandler {
                     mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1,
                     UserHandle.USER_CURRENT) == 1;
             mDoubleTapToWake = Settings.Secure.getInt(
-                    mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 1) == 1;
+                    mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 0) != 0;
                     updateDoubleTapToWake();
         }
     }
