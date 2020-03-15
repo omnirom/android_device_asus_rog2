@@ -64,4 +64,19 @@
             android:persistent="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="category_gaming"
+        android:title="@string/gaming_title">
+
+        <Preference
+            android:key="game_toolbar_app"
+            android:title="@string/gaming_title"
+            android:summary="@string/gaming_browse_summary"
+            android:persistent="false" >
+            <intent android:action="com.asus.gamewidget.action.SETTINGS"
+                    android:targetPackage="com.asus.gamewidget"/>
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

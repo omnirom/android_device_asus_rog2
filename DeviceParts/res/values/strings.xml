@@ -76,6 +76,9 @@
     <string name="refresh_rate_title">Refresh rate</string>
     <string name="summary_placeholder"> </string>
 
+    <string name="gaming_title">Game Genie</string>
+    <string name="gaming_browse_summary">Lunch game genie settings</string>
+
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Sound</string>
     <string name="vibrate_mode">Vibrate</string>

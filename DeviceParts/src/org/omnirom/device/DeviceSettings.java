@@ -19,6 +19,8 @@ package org.omnirom.device;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,6 +48,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
+    public static final String KEY_GAME_GENIE = "game_toolbar_app";
     public static final String VENDOR_FPS = "vendor.asus.dfps";
     public static final String TEMP_FPS = "temp_fps";
 
@@ -55,6 +58,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
+    private static Preference mGameGenie;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -71,6 +75,9 @@ public class DeviceSettings extends PreferenceFragment implements
         int valueIndex = mFrameModeRate.findIndexOfValue(String.valueOf(frameMode));
         mFrameModeRate.setValueIndex(valueIndex);
         mFrameModeRate.setSummary(mFrameModeRate.getEntries()[valueIndex]);
+
+        mGameGenie = findPreference(KEY_GAME_GENIE);
+        mGameGenie.setEnabled(GameGenie.isGameGenieExist(this.getContext()));
 
     }
 
