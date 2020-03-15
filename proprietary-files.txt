@@ -1,6 +1,23 @@
 # Android Auto
 -product/priv-app/AndroidAutoStub/AndroidAutoStub.apk;PRESIGNED
 
+# Asus Game
+-app/FocusAppListener/FocusAppListener.apk;PRESIGNED
+-app/GameBroadcasterService/GameBroadcasterService.apk;PRESIGNED
+-app/HardwareStub/HardwareStub.apk;PRESIGNED
+etc/hardcore_default.json
+etc/hardcore_X1.json
+etc/hardcore_X2.json
+etc/hardcore_X3.json
+etc/permissions/asus.software.gamewidget.zenui.rog2.xml
+etc/permissions/asus.software.zenui.rog.xml
+etc/permissions/asus.software.zenui.xml
+etc/sysconfig/ims-hiddenapi-package-whitelist.xml
+-priv-app/GameBroadcaster/GameBroadcaster.apk;PRESIGNED
+priv-app/GameBroadcaster/lib/arm64/libJniModule.so
+-priv-app/ROGGameCenter/ROGGameCenter.apk;PRESIGNED
+-priv-app/PowerSaving2/PowerSaving2.apk;PRESIGNED
+
 # ANT+
 -lib/libantradio.so
 -lib64/libantradio.so
