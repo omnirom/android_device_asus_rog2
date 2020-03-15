@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INJECT_EVENTS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.asus.focusapplistener.permission.GAME_GENIE_PROVIDER"/>
+    <uses-permission android:name="com.asus.hardwarestub.permission.FPS_CENTRAL_CONTROL_SERVICE"/>
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
