@@ -18,6 +18,9 @@
 
 #include "FingerprintInscreen.h"
 #include <hidl/HidlTransportSupport.h>
+#include <fstream>
+
+#define FOD_ENABLE_PATH "/sys/devices/platform/goodix_ts.0/gesture/aod_enable"
 
 namespace vendor {
 namespace omni {
@@ -27,11 +30,21 @@ namespace inscreen {
 namespace V1_0 {
 namespace implementation {
 
+/*
+ * Write value to path and close file.
+ */
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
+
 Return<void> FingerprintInscreen::onStartEnroll() {
     return Void();
 }
 
 Return<void> FingerprintInscreen::onFinishEnroll() {
+    set(FOD_ENABLE_PATH, 1);
     return Void();
 }
 
@@ -44,10 +57,12 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    set(FOD_ENABLE_PATH, 1);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
+    set(FOD_ENABLE_PATH, 0);
     return Void();
 }
 
