@@ -303,4 +303,3 @@ ro.asus.poweroffalarm_support=1
 # Extra Asus
 ro.build.asus.sku=WW
 ro.vendor.qti.va_aosp.support=1
-persist.asus.fp.wakeup=true
