@@ -3,3 +3,6 @@ hal_server_domain(hal_fod_asus_msmnile, hal_omni_fod)
 
 type hal_fod_asus_msmnile_exec, system_file_type, exec_type, file_type;
 init_daemon_domain(hal_fod_asus_msmnile)
+
+# Allow hal_fod_asus_msmnile to read and write to sysfs_fod
+allow hal_fod_asus_msmnile sysfs_fod:file rw_file_perms;
