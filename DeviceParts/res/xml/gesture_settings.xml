@@ -20,16 +20,6 @@
         android:defaultValue="true" />
 
     <PreferenceCategory
-        android:title="@string/smart_google">
-
-        <org.omnirom.device.AppSelectListPreference
-            android:key="smart_switch"
-            android:title="@string/smart_key_title"
-            android:persistent="false"/>
-
-     </PreferenceCategory>
-
-    <PreferenceCategory
         android:title="@string/offscreen_gesture_title">
 
         <SwitchPreference
