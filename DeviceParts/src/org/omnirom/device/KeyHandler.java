@@ -86,7 +86,6 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_GESTURE_V = 47;
     private static final int KEY_GESTURE_W = 17;
     private static final int KEY_GESTURE_Z = 44;
-    private static final int KEY_GOOGLE_APP = 0x248;
     private static final int KEY_SWIPEUP_GESTURE = 103;
 
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
@@ -96,16 +95,13 @@ public class KeyHandler implements DeviceKeyHandler {
 
 
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture/dclick";
-    private static final String GOODIX_CONTROL_PATH = "/sys/devices/platform/soc/soc:goodixfp/proximity_state";
 
     private static final int[] sSupportedGestures = new int[]{
-        KEY_DOUBLE_TAP,
-        KEY_GOOGLE_APP,
+        KEY_DOUBLE_TAP
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
-        KEY_DOUBLE_TAP,
-        KEY_GOOGLE_APP
+        KEY_DOUBLE_TAP
     };
 
     protected final Context mContext;
@@ -138,12 +134,8 @@ public class KeyHandler implements DeviceKeyHandler {
         @Override
         public void onSensorChanged(SensorEvent event) {
             mProxyIsNear = event.values[0] == 1;
+
             if (DEBUG_SENSOR) Log.i(TAG, "mProxyIsNear = " + mProxyIsNear + " mProxyWasNear = " + mProxyWasNear);
-            if (mUseProxiCheck) {
-                if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
-                    Utils.writeValue(GOODIX_CONTROL_PATH, mProxyIsNear ? "1" : "0");
-                }
-            }
             if (mUseWaveCheck || mUsePocketCheck) {
                 if (mProxyWasNear && !mProxyIsNear) {
                     long delta = SystemClock.elapsedRealtime() - mProxySensorTimestamp;
@@ -273,24 +265,9 @@ public class KeyHandler implements DeviceKeyHandler {
     public boolean handleKeyEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
+        } else {
+            return ArrayUtils.contains(sSupportedGestures, event.getScanCode());
         }
-
-        isFpgesture = false;
-
-        if (DEBUG) Log.i(TAG, "nav_code= " + event.getScanCode());
-        int fpcode = event.getScanCode();
-        mFPcheck = canHandleKeyEvent(event);
-        String value = getGestureValueForFPScanCode(fpcode);
-        if (mFPcheck && mDispOn && !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY)){
-            isFpgesture = true;
-            if (!launchSpecialActions(value) && !isCameraLaunchEvent(event)) {
-                    OmniVibe.performHapticFeedbackLw(HapticFeedbackConstants.LONG_PRESS, false, mContext);
-                    Intent intent = createIntent(value);
-                    if (DEBUG) Log.i(TAG, "intent = " + intent);
-                    mContext.startActivity(intent);
-            }
-        }
-        return isFpgesture;
     }
 
     @Override
@@ -314,13 +291,8 @@ public class KeyHandler implements DeviceKeyHandler {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
         }
-        if (mFPcheck) {
-            String value = getGestureValueForFPScanCode(event.getScanCode());
-            return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
-        } else {
-            String value = getGestureValueForScanCode(event.getScanCode());
-            return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
-        }
+        String value = getGestureValueForScanCode(event.getScanCode());
+        return !TextUtils.isEmpty(value) && value.equals(AppSelectListPreference.CAMERA_ENTRY);
     }
 
     @Override
@@ -329,10 +301,6 @@ public class KeyHandler implements DeviceKeyHandler {
             return false;
         }
         if (event.getScanCode() == KEY_SWIPEUP_GESTURE) {
-            return true;
-        }
-        String SmartKey = getGestureValueForFPScanCode(event.getScanCode());
-        if (event.getScanCode() == KEY_GOOGLE_APP && SmartKey.equals(AppSelectListPreference.WAKE_ENTRY)) {
             return true;
         }
          String value = getGestureValueForScanCode(event.getScanCode());
@@ -397,16 +365,9 @@ public class KeyHandler implements DeviceKeyHandler {
         if (DEBUG) Log.i(TAG, "Display on");
         if (enableProxiSensor()) {
             mSensorManager.unregisterListener(mProximitySensor, mPocketSensor);
-            enableGoodix();
         }
         if (mUseTiltCheck) {
             mSensorManager.unregisterListener(mTiltSensorListener, mTiltSensor);
-        }
-    }
-
-    private void enableGoodix() {
-        if (Utils.fileWritable(GOODIX_CONTROL_PATH)) {
-            Utils.writeValue(GOODIX_CONTROL_PATH, "0");
         }
     }
 
@@ -525,14 +486,6 @@ public class KeyHandler implements DeviceKeyHandler {
             case KEY_GESTURE_Z:
                 return Settings.System.getStringForUser(mContext.getContentResolver(),
                     GestureSettings.DEVICE_GESTURE_MAPPING_5, UserHandle.USER_CURRENT);
-        }
-        return null;
-    }
-
-    private String getGestureValueForFPScanCode(int scanCode) {
-        if (KEY_GOOGLE_APP == scanCode) {
-            return Settings.System.getStringForUser(mContext.getContentResolver(),
-                   GestureSettings.DEVICE_GESTURE_MAPPING_6, UserHandle.USER_CURRENT);
         }
         return null;
     }
