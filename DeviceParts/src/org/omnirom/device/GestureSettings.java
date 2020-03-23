@@ -72,7 +72,6 @@ public class GestureSettings extends PreferenceFragment implements
     public static final String KEY_V_APP = "v_gesture_app";
     public static final String KEY_W_APP = "w_gesture_app";
     public static final String KEY_Z_APP = "z_gesture_app";
-    public static final String KEY_GOOGLE_APP = "smart_switch";
 
     public static final String DEVICE_GESTURE_MAPPING_0 = "device_gesture_mapping_0_0";
     public static final String DEVICE_GESTURE_MAPPING_1 = "device_gesture_mapping_1_0";
@@ -80,7 +79,6 @@ public class GestureSettings extends PreferenceFragment implements
     public static final String DEVICE_GESTURE_MAPPING_3 = "device_gesture_mapping_3_0";
     public static final String DEVICE_GESTURE_MAPPING_4 = "device_gesture_mapping_4_0";
     public static final String DEVICE_GESTURE_MAPPING_5 = "device_gesture_mapping_5_0";
-    public static final String DEVICE_GESTURE_MAPPING_6 = "device_gesture_mapping_6_0";
 
     private TwoStatePreference mProxiSwitch;
     private TwoStatePreference mSwipeUpSwitch;
@@ -90,7 +88,6 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterVGesture;
     private AppSelectListPreference mLetterWGesture;
     private AppSelectListPreference mLetterZGesture;
-    private AppSelectListPreference mSmartKeySwitch;
 
     public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
     private static final String SWIPEUP_PATH = "/sys/devices/platform/goodix_ts.0/gesture/swipeup";
@@ -142,12 +139,6 @@ public class GestureSettings extends PreferenceFragment implements
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_5);
         mLetterZGesture.setValue(value);
         mLetterZGesture.setOnPreferenceChangeListener(this);
-
-        mSmartKeySwitch = (AppSelectListPreference) findPreference(KEY_GOOGLE_APP);
-        mSmartKeySwitch.setEnabled(isGestureSupported(KEY_GOOGLE_APP));
-        value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_6);
-        mSmartKeySwitch.setValue(value);
-        mSmartKeySwitch.setOnPreferenceChangeListener(this);
 
         mSwipeUpSwitch = (TwoStatePreference) findPreference(KEY_SWIPEUP_SWITCH);
         mSwipeUpSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
@@ -208,11 +199,6 @@ public class GestureSettings extends PreferenceFragment implements
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
             setGestureEnabled(KEY_Z_ID, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_5, value);
-        } else if (preference == mSmartKeySwitch) {
-            String value = (String) newValue;
-            boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabledGoogle(KEY_GOOGLE_APP, !gestureDisabled);
-            Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_6, value);
         }
         return true;
     }
@@ -228,8 +214,6 @@ public class GestureSettings extends PreferenceFragment implements
         switch(key) {
             case GESTURE_CONTROL_PATH:
                 return "/proc/driver/gesture_type";
-            case KEY_GOOGLE_APP:
-                return "/sys/devices/platform/soc/soc:asustek_googlekey/googlekey_enable";
             case SWIPEUP_PATH:
                 return "/sys/devices/platform/goodix_ts.0/gesture/swipeup";
         }
@@ -270,10 +254,6 @@ public class GestureSettings extends PreferenceFragment implements
 
     private boolean isGestureSupported(String key) {
         return Utils.fileWritable(getGestureFile(key));
-    }
-
-    private void setGestureEnabledGoogle(String key, boolean enabled) {
-        Utils.writeValue(getGestureFile(key), enabled ? "1" : "0");
     }
 
     @Override
@@ -329,7 +309,6 @@ public class GestureSettings extends PreferenceFragment implements
             mLetterVGesture.setPackageList(mInstalledPackages);
             mLetterWGesture.setPackageList(mInstalledPackages);
             mLetterZGesture.setPackageList(mInstalledPackages);
-            mSmartKeySwitch.setPackageList(mInstalledPackages);
         }
     }
 }
