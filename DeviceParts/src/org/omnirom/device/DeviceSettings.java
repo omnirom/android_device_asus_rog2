@@ -81,7 +81,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		if (preference == mFrameModeRate) {
+        if (preference == mFrameModeRate) {
             String value = (String) newValue;
             int frameMode = Integer.valueOf(value);
             setFrameMode(0, frameMode);
