@@ -198,6 +198,13 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.2-service.rog2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/29/etc/vintf/manifest.xml
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 

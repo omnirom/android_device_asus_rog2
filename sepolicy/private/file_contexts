@@ -18,3 +18,7 @@
 # Vendor overlay
 /(product|system/product)/vendor_overlay/[0-9]+/etc(/.*)?	u:object_r:vendor_configs_file:s0
 /(product|system/product)/vendor_overlay/[0-9]+/lib(64)?/hw	u:object_r:vendor_hal_file:s0
+
+# Vibrator
+/sys/class/leds/vibrator(/.*)? u:object_r:sysfs_vibrator:s0
+/system/bin/hw/android\.hardware\.vibrator@1\.2-service\.rog2 u:object_r:hal_omni_vibrator_exec:s0
