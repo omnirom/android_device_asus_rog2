@@ -64,29 +64,65 @@ public class Startup extends BroadcastReceiver {
 
     public static void restoreAfterUserSwitch(Context context) {
 
-        String value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_0);
-        boolean enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_C_APP), enabled);
+        // C Gesture
+        String mapping = GestureSettings.DEVICE_GESTURE_MAPPING_0;
+        String value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        boolean enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_C_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_1);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_E_APP), enabled);
+        // E Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_1;
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_E_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_2);
+        // S Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_2;
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
         enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_S_APP), enabled);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_S_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_3);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_V_APP), enabled);
+        // V Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_3;
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_V_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_4);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_W_APP), enabled);
+        // W Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_4;
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_W_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), GestureSettings.DEVICE_GESTURE_MAPPING_5);
-        enabled = !TextUtils.isEmpty(value) && !value.equals(AppSelectListPreference.DISABLED_ENTRY);
-        restore(getGestureFile(GestureSettings.KEY_Z_APP), enabled);
+        // Z Gesture
+        mapping = GestureSettings.DEVICE_GESTURE_MAPPING_5;
+        value = Settings.System.getString(context.getContentResolver(), mapping);
+        if (TextUtils.isEmpty(value)) {
+            value = AppSelectListPreference.DISABLED_ENTRY;
+            Settings.System.putString(context.getContentResolver(), mapping, value);
+        }
+        enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
+        restore(GestureSettings.getGestureFile(GestureSettings.KEY_Z_APP), enabled);
 
         value = Settings.System.getString(context.getContentResolver(), DeviceSettings.TEMP_FPS);
         if (TextUtils.isEmpty(value)) {
@@ -94,15 +130,8 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
             SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
         } else {
-	    Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
+        Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
         SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
-        }
-
-        value = Settings.System.getString(context.getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING);
-        if (TextUtils.isEmpty(value)) {
-            return;
-        } else {
-        restore(getGestureFile(GestureSettings.GESTURE_CONTROL_PATH), value);
         }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;

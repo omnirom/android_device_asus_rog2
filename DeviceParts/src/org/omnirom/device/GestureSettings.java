@@ -60,12 +60,6 @@ public class GestureSettings extends PreferenceFragment implements
 
     public static final String SETTINGS_GESTURE_KEY = KEY_SETTINGS_SWIPEUP_PREFIX + KEY_SWIPEUP_SWITCH;
 
-    public static final int KEY_C_ID = 0;
-    public static final int KEY_E_ID = 1;
-    public static final int KEY_S_ID = 2;
-    public static final int KEY_V_ID = 3;
-    public static final int KEY_W_ID = 4;
-    public static final int KEY_Z_ID = 5;
     public static final String KEY_C_APP = "c_gesture_app";
     public static final String KEY_E_APP = "e_gesture_app";
     public static final String KEY_S_APP = "s_gesture_app";
@@ -89,7 +83,6 @@ public class GestureSettings extends PreferenceFragment implements
     private AppSelectListPreference mLetterWGesture;
     private AppSelectListPreference mLetterZGesture;
 
-    public static final String GESTURE_CONTROL_PATH = "/proc/driver/gesture_type";
     private static final String SWIPEUP_PATH = "/sys/devices/platform/goodix_ts.0/gesture/swipeup";
 
     private List<AppSelectListPreference.PackageItem> mInstalledPackages = new LinkedList<AppSelectListPreference.PackageItem>();
@@ -105,37 +98,37 @@ public class GestureSettings extends PreferenceFragment implements
                 Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1) != 0);
 
         mLetterCGesture = (AppSelectListPreference) findPreference(KEY_C_APP);
-        mLetterCGesture.setEnabled(true);
+        mLetterCGesture.setEnabled(isGestureSupported(KEY_C_APP));
         String value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_0);
         mLetterCGesture.setValue(value);
         mLetterCGesture.setOnPreferenceChangeListener(this);
 
         mLetterEGesture = (AppSelectListPreference) findPreference(KEY_E_APP);
-        mLetterEGesture.setEnabled(true);
+        mLetterEGesture.setEnabled(isGestureSupported(KEY_E_APP));
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_1);
         mLetterEGesture.setValue(value);
         mLetterEGesture.setOnPreferenceChangeListener(this);
 
         mLetterSGesture = (AppSelectListPreference) findPreference(KEY_S_APP);
-        mLetterSGesture.setEnabled(true);
+        mLetterSGesture.setEnabled(isGestureSupported(KEY_S_APP));
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_2);
         mLetterSGesture.setValue(value);
         mLetterSGesture.setOnPreferenceChangeListener(this);
 
         mLetterVGesture = (AppSelectListPreference) findPreference(KEY_V_APP);
-        mLetterVGesture.setEnabled(true);
+        mLetterVGesture.setEnabled(isGestureSupported(KEY_V_APP));
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_3);
         mLetterVGesture.setValue(value);
         mLetterVGesture.setOnPreferenceChangeListener(this);
 
         mLetterWGesture = (AppSelectListPreference) findPreference(KEY_W_APP);
-        mLetterWGesture.setEnabled(true);
+        mLetterWGesture.setEnabled(isGestureSupported(KEY_W_APP));
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_4);
         mLetterWGesture.setValue(value);
         mLetterWGesture.setOnPreferenceChangeListener(this);
 
         mLetterZGesture = (AppSelectListPreference) findPreference(KEY_Z_APP);
-        mLetterZGesture.setEnabled(true);
+        mLetterZGesture.setEnabled(isGestureSupported(KEY_Z_APP));
         value = Settings.System.getString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_5);
         mLetterZGesture.setValue(value);
         mLetterZGesture.setOnPreferenceChangeListener(this);
@@ -172,32 +165,32 @@ public class GestureSettings extends PreferenceFragment implements
         if (preference == mLetterCGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_C_ID, !gestureDisabled);
+            setGestureEnabled(KEY_C_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_0, value);
         } else if (preference == mLetterEGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_E_ID, !gestureDisabled);
+            setGestureEnabled(KEY_E_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_1, value);
         } else if (preference == mLetterSGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_S_ID, !gestureDisabled);
+            setGestureEnabled(KEY_S_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_2, value);
         } else if (preference == mLetterVGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_V_ID, !gestureDisabled);
+            setGestureEnabled(KEY_W_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_3, value);
         } else if (preference == mLetterWGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_W_ID, !gestureDisabled);
+            setGestureEnabled(KEY_W_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_4, value);
         } else if (preference == mLetterZGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_Z_ID, !gestureDisabled);
+            setGestureEnabled(KEY_Z_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_5, value);
         }
         return true;
@@ -212,44 +205,27 @@ public class GestureSettings extends PreferenceFragment implements
 
     public static String getGestureFile(String key) {
         switch(key) {
-            case GESTURE_CONTROL_PATH:
-                return "/proc/driver/gesture_type";
+            case KEY_C_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_c";
+            case KEY_E_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_e";
+            case KEY_S_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_s";
+            case KEY_V_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_v";
+            case KEY_W_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_w";
+            case KEY_Z_APP:
+                return "/sys/devices/platform/goodix_ts.0/gesture/gesture_z";
             case SWIPEUP_PATH:
                 return "/sys/devices/platform/goodix_ts.0/gesture/swipeup";
         }
         return null;
     }
 
-    private static final int KEY_MASK_GESTURE_CONTROL = 0x40;
-    private static final int[] ALL_GESTURE_MASKS = {
-        0x04, // c gesture mask
-        0x08, // e gesture mask
-        0x10, // s gesture mask
-        0x01, // v gesture mask
-        0x20, // w gesture mask
-        0x02, // z gesture mask
-    };
-
-    private void setGestureEnabled(int id, boolean enabled) {
-        Log.i("GestureSettings", "setGestureEnabled called with key=" +id+ ",enabled=" +enabled);
-        int gestureMode = Integer.parseInt(Utils.readLine(GESTURE_CONTROL_PATH));
-        int mask = ALL_GESTURE_MASKS[id];
-
-        if (enabled)
-            gestureMode |= mask;
-        else
-            gestureMode &= ~mask;
-
-        if (gestureMode != 0)
-            gestureMode |= KEY_MASK_GESTURE_CONTROL;
-
-        String gestureType = String.format("%7s", Integer.toBinaryString(gestureMode)).replace(' ', '0');
-        Log.i("GestureSettings", "gestureType=" +gestureType);
-
-        String gestureTypeMapping = Settings.System.getString(getContext().getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING);
-        Settings.System.putString(getContext().getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING, gestureType);
-
-        Utils.writeLine(GESTURE_CONTROL_PATH, gestureType);
+    private void setGestureEnabled(String key, boolean enabled) {
+      Log.e("GestureSettings", "setGestureEnabled called with key="+key+", enabled="+enabled);
+      Utils.writeValue(getGestureFile(key), enabled ? "1" : "0");
     }
 
     private boolean isGestureSupported(String key) {

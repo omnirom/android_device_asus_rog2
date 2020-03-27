@@ -96,11 +96,23 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture/dclick";
 
     private static final int[] sSupportedGestures = new int[]{
-        KEY_DOUBLE_TAP
+        KEY_DOUBLE_TAP,
+        KEY_GESTURE_C,
+        KEY_GESTURE_E,
+        KEY_GESTURE_S,
+        KEY_GESTURE_V,
+        KEY_GESTURE_W,
+        KEY_GESTURE_Z
     };
 
     private static final int[] sProxiCheckedGestures = new int[]{
-        KEY_DOUBLE_TAP
+        KEY_DOUBLE_TAP,
+        KEY_GESTURE_C,
+        KEY_GESTURE_E,
+        KEY_GESTURE_S,
+        KEY_GESTURE_V,
+        KEY_GESTURE_W,
+        KEY_GESTURE_Z
     };
 
     protected final Context mContext;
