@@ -1,0 +1,1 @@
+type hal_omni_vibrator_hwservice, hwservice_manager_type;
