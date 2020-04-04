@@ -190,6 +190,10 @@ PRODUCT_HOST_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    vendor.omni.hardware.vibratorcontrol@1.0
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 

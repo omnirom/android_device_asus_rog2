@@ -1,0 +1,8 @@
+# HwBinder IPC from client to server
+binder_call(hal_vibrator_control_client, hal_vibrator_control_server)
+
+add_hwservice(hal_vibrator_control_server, hal_vibrator_control_hwservice)
+allow hal_vibrator_control_client hal_vibrator_control_hwservice:hwservice_manager find;
+
+# Allow binder communication with platform_app
+binder_call(hal_vibrator_control, platform_app)

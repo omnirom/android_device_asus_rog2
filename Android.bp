@@ -1,3 +1,8 @@
 soong_namespace {
     imports: ["hardware/qcom/bootctrl"],
 }
+
+hidl_package_root {
+    name: "Hidl",
+    path: "device/asus/rog2/Hidl",
+}

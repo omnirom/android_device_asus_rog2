@@ -159,6 +159,7 @@ TARGET_USES_MKE2FS := true
 
 # Sepolicy
 include vendor/omni/sepolicy/sepolicy.mk
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
