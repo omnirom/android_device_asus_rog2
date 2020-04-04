@@ -1,0 +1,1 @@
+type hal_vibrator_control_hwservice, hwservice_manager_type;

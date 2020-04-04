@@ -1,0 +1,35 @@
+package vendor.omni.hardware.vibratorcontrol@1.0;
+
+interface IVibratorcontrol {
+
+	setChannel(uint8_t nChannel);
+
+	getChannel() generates (uint8_t nChannel);
+
+	setVmax(uint8_t nChannel, uint16_t nVmax);
+
+	getVmax(uint8_t nChannel) generates (uint16_t nVmax);
+
+	mem_play(uint8_t nChannel, uint8_t num);
+
+	rtp_play(uint8_t nChannel, uint16_t num);
+
+	rtp_play_repeat(uint8_t nChannel, uint16_t num, uint8_t repeat);
+
+	rtp_play_break(uint8_t nChannel, bool disable);
+
+	getStatus0(uint8_t nChannel) generates (uint8_t status);
+
+	getStatus1(uint8_t nChannel) generates (uint8_t status);
+
+	set_Immrvibe_Actuator_enable(uint8_t nActuatorIndex);
+
+	get_Immrvibe_Actuator_enable() generates (uint8_t nActuatorIndex);
+
+	set_airtrigger_tap_level(uint8_t level);
+
+	set_airtrigger_tap_waveform(uint8_t channel, uint8_t trigger_r, uint8_t break_r, uint8_t trigger_f, uint8_t break_f);
+
+	set_trigger_tap(uint8_t channel, uint8_t trigger_gpio, uint8_t pressed, uint8_t level);
+
+};
