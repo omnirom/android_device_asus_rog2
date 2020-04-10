@@ -1,0 +1,54 @@
+package vendor.ims.airtrigger@1.1;
+
+struct SlideConfig {
+	Bar id;
+	int32_t enable;
+	int32_t distance;
+	int32_t force;
+	int32_t enable_vibration;
+	int32_t vibration_intensity;
+};
+
+struct SqueezeConfig {
+	Squeeze id;
+	int32_t enable;
+	int32_t threshold;
+	int32_t short_duration;
+	int32_t long_duration;
+	int32_t up_rate;
+	int32_t up_total;
+	int32_t drop_rate;
+	int32_t drop_total;
+};
+
+struct SwipeConfig {
+	Bar id;
+	int32_t enable;
+	int32_t velocity;
+	int32_t len;
+};
+
+struct TabConfig {
+	Bar id;
+	int32_t enable;
+	int32_t threshold;
+	int32_t min_position;
+	int32_t max_position;
+	int32_t delta_release_force;
+	int32_t delta_tap_force;
+	int32_t slope_window;
+	int32_t slope_release_force;
+	int32_t slope_tap_force;
+	int32_t enable_vibration;
+	int32_t vibration_intensity;
+};
+
+enum Squeeze : int32_t {
+    ID_1 = 1,
+    ID_2 = 2,
+};
+
+enum Bar : int32_t {
+    ID_1 = 1,
+    ID_2 = 2,
+};

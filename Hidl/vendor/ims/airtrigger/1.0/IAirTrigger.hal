@@ -1,0 +1,16 @@
+package vendor.ims.airtrigger@1.0;
+
+interface IAirTrigger {
+
+    getBarSqueezeConfig() generates (SqueezeConfig config);
+
+    getBarTabConfig(uint32_t id) generates (TabConfig config);
+
+    isEnabled(int32_t mode) generates (bool ret);
+
+    setBarSqueezeConfig(SqueezeConfig config);
+
+    setBarTabConfig(TabConfig config);
+
+    setEnable(int32_t mode, bool enable);
+};
