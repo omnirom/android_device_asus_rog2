@@ -1,0 +1,13 @@
+hidl_interface {
+    name: "vendor.ims.airtrigger@1.0",
+    root: "vendor.ims",
+    owner: "omni",
+    srcs: [
+        "types.hal",
+        "IAirTrigger.hal",
+    ],
+    interfaces: [
+        "android.hidl.base@1.0",
+    ],
+    gen_java: true,
+}

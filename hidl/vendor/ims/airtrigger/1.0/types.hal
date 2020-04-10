@@ -1,0 +1,38 @@
+package vendor.ims.airtrigger@1.0;
+
+struct SqueezeConfig {
+	int32_t enable;
+	int32_t threshold;
+	int32_t short_limit;
+	int32_t short_duration;
+	int32_t long_duration;
+	int32_t up_rate;
+	int32_t up_total;
+	int32_t drop_rate;
+	int32_t drop_total;
+};
+
+struct TabConfig {
+	Bar id;
+	int32_t enable;
+	int32_t threshold;
+	int32_t fup_threshold;
+	int32_t duration;
+};
+
+enum Bar : int32_t {
+    ID_1 = 1,
+    ID_2 = 2,
+    ID_3 = 3,
+};
+
+enum Mode : int32_t {
+    GLOBAL = 0,
+    SENSITIVE = 1,
+    RAWDATA = 2,
+};
+
+enum Value : int32_t {
+    DEFAULT = -1,
+    IGNORE = -2,
+};

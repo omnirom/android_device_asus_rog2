@@ -47,6 +47,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     omnipreopt_script
 
+# AirTrigger
+PRODUCT_PACKAGES += \
+    vendor.ims.airtrigger@1.0 \
+    vendor.ims.airtrigger@1.1
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService
