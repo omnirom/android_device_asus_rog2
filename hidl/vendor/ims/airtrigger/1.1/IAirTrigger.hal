@@ -1,0 +1,24 @@
+package vendor.ims.airtrigger@1.1;
+
+import @1.0::IAirTrigger;
+import @1.0::SqueezeConfig;
+import @1.0::TabConfig;
+
+interface IAirTrigger extends @1.0::IAirTrigger {
+
+    getBarSlideConfig(uint32_t id) generates (SlideConfig config);
+
+    getBarSqueezeConfig_1_1(uint32_t id) generates (SqueezeConfig config);
+
+    getBarSwipeConfig(uint32_t id) generates (SwipeConfig config);
+
+    getBarTabConfig_1_1(uint32_t id) generates (TabConfig config); //
+
+    oneway setBarSlideConfig(SlideConfig config);
+
+    oneway setBarSqueezeConfig_1_1(SqueezeConfig config);
+
+    oneway setBarSwipeConfig(SwipeConfig config);
+
+    oneway setBarTabConfig_1_1(TabConfig config);
+};
