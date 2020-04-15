@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:height="4dp" android:width="88dp" android:viewportWidth="264" android:viewportHeight="12">
+    <path android:fillColor="@drawable/asus_grip_sensor_hotkey_2__0" android:pathData="M252,12l-240,0l-12,-12l264,0l-12,12z"/>
+</vector>

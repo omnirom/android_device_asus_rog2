@@ -3,7 +3,11 @@ allow platform_app asus_prop:file { getattr map open read };
 allow platform_app app_data_file:file { execute };
 allow platform_app vendor_asus_prop:file { getattr map open read };
 allow platform_app asus_dongle_prop:file { getattr map open read };
+<<<<<<< HEAD
 allow platform_app privapp_data_file:file { execute };
 allow platform_app rs_exec:file { execute execute_no_trans r_file_perms };
 allow platform_app sysfs_kgsl:dir { search r_file_perms };
 allow platform_app sysfs_kgsl:file { r_file_perms };
+=======
+allow platform_app privapp_data_file:file { execute };
+>>>>>>> d2ecdd9e... rog2: Add AirTriggers Control (with asus, 5, with sysfs)

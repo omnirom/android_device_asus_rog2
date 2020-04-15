@@ -9,6 +9,8 @@ android_app {
         "androidx.core_core",
         "androidx.preference_preference",
         "OmniLib",
+        "vendor.ims.airtrigger-V1.0-java",
+        "vendor.ims.airtrigger-V1.1-java",
     ],
 
     srcs: [

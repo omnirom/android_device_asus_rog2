@@ -88,6 +88,26 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int KEY_GESTURE_Z = 44;
     private static final int KEY_SWIPEUP_GESTURE = 103;
 
+    private static final int KEYCODE_GRIP_AVAILABLE_SQUEEZE = 866;
+    private static final int KEYCODE_GRIP_CANCEL_SQUEEZE = 855;
+    private static final int KEYCODE_GRIP_GAME_MODE = 852;
+    private static final int KEYCODE_GRIP_GAME_MODE_DISABLE_GESTURE = 878;
+    private static final int KEYCODE_GRIP_GLOBAL_MODE = 851;
+    private static final int KEYCODE_GRIP_L1_LONG_PRESS_END = 857;
+    private static final int KEYCODE_GRIP_L1_RAW_DATA = 848;
+    private static final int KEYCODE_GRIP_L1_TAP = 843;
+    private static final int KEYCODE_GRIP_LONG_SQUEEZE = 847;
+    private static final int KEYCODE_GRIP_R1_LONG_PRESS_END = 858;
+    private static final int KEYCODE_GRIP_R1_RAW_DATA = 849;
+    private static final int KEYCODE_GRIP_R1_TAP = 844;
+    private static final int KEYCODE_GRIP_R2_LONG_PRESS_BEGIN = 856;
+    private static final int KEYCODE_GRIP_R2_LONG_PRESS_END = 859;
+    private static final int KEYCODE_GRIP_R2_RAW_DATA = 850;
+    private static final int KEYCODE_GRIP_R2_TAP = 845;
+    private static final int KEYCODE_GRIP_SETTING_MODE = 853;
+    private static final int KEYCODE_GRIP_SHORT_SQUEEZE = 846;
+    private static final int KEYCODE_GRIP_START_SQUEEZE = 854;
+
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int HANDWAVE_MAX_DELTA_MS = 1000;

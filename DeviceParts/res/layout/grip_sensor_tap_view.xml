@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView android:id="@+id/tap_left"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/gripsensor_left_tap_view_margin_left"
+               android:layout_marginTop="@dimen/gripsensor_tap_view_margin_top"
+               android:src="@drawable/asus_grip_sensor_hotkey_1"
+               android:layout_alignParentLeft="true"/>
+
+    <ImageView android:id="@+id/tap_shadow_left"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/gripsensor_left_tap_view_shadow_margin_left"
+               android:src="@drawable/grip_sensor_tap_left"
+               android:layout_alignParentLeft="true"/>
+
+    <ImageView android:id="@+id/tap_right"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/gripsensor_right_tap_view_margin_left"
+               android:layout_marginTop="@dimen/gripsensor_tap_view_margin_top"
+               android:src="@drawable/asus_grip_sensor_hotkey_2"
+               android:layout_alignParentLeft="true"/>
+
+    <ImageView android:id="@+id/tap_shadow_right"
+               android:visibility="gone"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="@dimen/gripsensor_right_tap_view_shadow_margin_left"
+               android:src="@drawable/grip_sensor_tap_right"
+               android:layout_alignParentLeft="true"/>
+</RelativeLayout>

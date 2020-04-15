@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/grip_tutorial"
+        android:selectable="false"
+        android:key="tutorial"/>
+
+    <org.omnirom.device.widget.MasterSwitchPreference
+            android:key="gripsensor_lightpress_trigger_hotkey"
+            android:persistent="false" />
+
+    <org.omnirom.device.gripsensor.RadioPreference
+        android:title="@string/gripsensor_lightpress_trigger"
+        android:key="pref_short_squeeze"/>
+
+    <org.omnirom.device.gripsensor.RadioPreference
+        android:title="@string/gripsensor_heavypress_trigger"
+        android:key="pref_long_squeeze"/>
+</PreferenceScreen>

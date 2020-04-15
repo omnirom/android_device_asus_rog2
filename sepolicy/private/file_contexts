@@ -11,6 +11,9 @@
 /voucher(/.*)?          u:object_r:voucher_file:s0
 /xrom(/.*)?             u:object_r:xrom_file:s0
 
+# Grip
+/proc/driver/grip_.*    u:object_r:proc_driver_grip_sensor:s0
+
 # HALs
 /system/bin/hw/omni\.biometrics\.fingerprint\.inscreen@1\.0-service\.asus_msmnile	u:object_r:hal_fod_asus_msmnile_exec:s0
 

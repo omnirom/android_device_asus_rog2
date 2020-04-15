@@ -23,16 +23,25 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import org.omnirom.device.gripsensor.GripSensorSettings;
 
 public class DeviceSettingsActivity extends Activity {
 
     private DeviceSettings mDeviceSettingsFragment;
+
+    @Override
+    public Intent getIntent() {
+        Intent intent = new Intent(super.getIntent());
+        intent.putExtra(":device:show_fragment", GripSensorSettings.class.getName());
+        return intent;
+    }
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {

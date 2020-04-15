@@ -30,12 +30,14 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
+import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -46,6 +48,8 @@ import android.widget.ListView;
 import android.util.Log;
 import java.util.Map;
 
+import org.omnirom.device.gripsensor.AirTriggerUtils;
+
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -55,12 +59,22 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
     public static final String KEY_GAME_GENIE = "game_toolbar_app";
+    public static final String KEY_MAIN_GRIP = "grip_sensor";
+    public static final String KEY_AIR_TRIGGER = "air_trigger_enable";
     public static final String FPS = "fps";
 
     protected static final String DEFAULT_FPS_VALUE = "60";
+    public static final String GRIP_PATH = "/proc/driver/grip_en";
+    public static final String GRIP_PATH_2 = "/proc/driver/grip_raw_en";
+    public static final String GRIP_PATH_3 = "/proc/driver/grip_tap_sense_en";
+    public static final String GRIP_TAP_PATH = "/proc/driver/grip_tap1_en";
+    public static final String GRIP_TAP2_PATH = "/proc/driver/grip_tap2_en";
+    public static final String GRIP_VIB_PATH = "/proc/driver/grip_tap1_vib_en";
+    public static final String GRIP_VIB2_PATH = "/proc/driver/grip_tap2_vib_en";
 
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
+    private static SwitchPreference mGripSensorPreference;
     private static Preference mGameGenie;
 
     private static final String SURFACE_FLINGER_SERVICE_KEY = "SurfaceFlinger";
@@ -85,6 +99,11 @@ public class DeviceSettings extends PreferenceFragment implements
         mFrameModeRate.setSummary(mFrameModeRate.getEntry());
         mFrameModeRate.setOnPreferenceChangeListener(this);
 
+        mGripSensorPreference = (SwitchPreference) findPreference(KEY_MAIN_GRIP);
+        mGripSensorPreference.setChecked(Settings.Global.getInt(getContext().getContentResolver(),
+        KEY_AIR_TRIGGER, 0) == 1);
+        mGripSensorPreference.setOnPreferenceChangeListener(this);
+
         mGameGenie = findPreference(KEY_GAME_GENIE);
         mGameGenie.setEnabled(GameGenie.isGameGenieExist(this.getContext()));
 
@@ -92,6 +111,17 @@ public class DeviceSettings extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mGripSensorPreference) {
+            SystemProperties.set("persist.asus.hardware.gripsensor", "1");
+            Utils.writeValue(GRIP_PATH, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_PATH_2, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_PATH_3, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_TAP_PATH, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_TAP2_PATH, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_VIB_PATH, mGripSensorPreference.isChecked() ? "1" : "0");
+            Utils.writeValue(GRIP_VIB2_PATH, mGripSensorPreference.isChecked() ? "1" : "0");
+            return true;
+        }
         return super.onPreferenceTreeClick(preference);
     }
 
@@ -103,6 +133,18 @@ public class DeviceSettings extends PreferenceFragment implements
             mFrameModeRate.setSummary(mFrameModeRate.getEntries()[index]);
             changeFps(getContext(), value);
             Settings.System.putInt(getContext().getContentResolver(), FPS, value);
+        }
+        if (preference == mGripSensorPreference) {
+            Boolean enabled = (Boolean) newValue;
+            Settings.Global.putInt(getContext().getContentResolver(), KEY_AIR_TRIGGER, enabled ? 1 : 0);
+            boolean activate = Settings.Global.getInt(getContext().getContentResolver(),
+                                                      KEY_AIR_TRIGGER, 1) == 1;
+            if (activate) {
+                AirTriggerUtils.getInstance(getContext()).setMainSwitchEnable(true);
+            } else {
+                AirTriggerUtils.getInstance(getContext()).setMainSwitchEnable(false);
+                notifySwitchOff("org.omnirom.device.NOTIFY_AIRTRIGGER_SWITCH_OFF");
+            }
         }
         return true;
     }
@@ -122,5 +164,13 @@ public class DeviceSettings extends PreferenceFragment implements
                // intentional no-op
         }
             Settings.System.putInt(context.getContentResolver(), DeviceSettings.FPS, fps);
+    }
+
+    private void notifySwitchOff(String str) {
+        Log.d("GripSensorEnabler", "notifySwitchOff");
+        Intent intent = new Intent();
+        intent.setAction(str);
+        intent.setPackage("org.omnirom.device");
+        getContext().sendBroadcastAsUser(intent, UserHandle.CURRENT);
     }
 }
