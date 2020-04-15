@@ -80,4 +80,19 @@
     <string name="volume_mode">Sound</string>
     <string name="vibrate_mode">Vibrate</string>
     <string name="mute_mode">Mute</string>
+
+    <!-- Grip Settings -->
+    <string name="grip_category_title">AirTriggers</string>
+    <string name="grip_category_on">On</string>
+    <string name="grip_category_off">Off</string>
+    <string name="grip_squeeze_title">Squeeze force level</string>
+    <string name="grip_summary_left">Force level for left button</string>
+    <string name="grip_summary_right">Force level for right button</string>
+    <string name="category_airtrigger">Squeeze gesture</string>
+    <string name="category_grip_tap_force">Gaming force</string>
+    <string name="category_grip_tap_force_both">Force for left and right buttons</string>
+    <string name="gripsensor_single_point_strength_adjust">Button tap force level</string>
+    <string name="grip_category_summary">Ultrasonic buttons are located on the phone frame used for AirTriggers gestures</string>
+    <string name="tutorial_airtrigger">Ultrasonic buttons are located on the phone frame used for AirTriggers gestures</string>
+    <string name="landscape_tap_tutorial_desc">Press and hold both buttons in landscape mode to enter Armoury Crate</string>
 </resources>
