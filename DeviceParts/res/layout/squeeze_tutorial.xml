@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:paddingLeft="?android:attr/listPreferredItemPaddingStart"
+            android:paddingRight="?android:attr/listPreferredItemPaddingEnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+    <org.omnirom.device.gripsensor.GifView
+            android:layout_gravity="center"
+            android:id="@+id/tutorial_gif"
+            android:layout_width="270dp"
+            android:layout_height="270dp"/>
+
+    <TextView android:textSize="15sp"
+            android:gravity="center"
+            android:id="@+id/instructions_text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+</LinearLayout>

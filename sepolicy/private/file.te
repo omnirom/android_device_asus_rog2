@@ -8,6 +8,9 @@ type persist_file, file_type;
 type voucher_file, file_type;
 type xrom_file, file_type;
 
+# Grip
+type proc_driver_grip_sensor, proc_type, sysfs_type, fs_type;
+
 # Lights
 type sysfs_rg_led, sysfs_type, fs_type;
 type sysfs_graphics, sysfs_type, fs_type;

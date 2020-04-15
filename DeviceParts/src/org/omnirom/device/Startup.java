@@ -17,14 +17,17 @@
 */
 package org.omnirom.device;
 
+import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemProperties;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
+import org.omnirom.device.gripsensorservice.GripSensorService;
 
 public class Startup extends BroadcastReceiver {
     private static void restore(String file, boolean enabled) {
@@ -60,6 +63,7 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent bootintent) {
         maybeImportOldSettings(context);
         restoreAfterUserSwitch(context);
+        GripSensorService.enqueueWork(context, new Intent(context, GripSensorService.class));
     }
 
     public static void restoreAfterUserSwitch(Context context) {

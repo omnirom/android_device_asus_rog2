@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="com.asus.focusapplistener.permission.GAME_GENIE_PROVIDER"/>
     <uses-permission android:name="com.asus.hardwarestub.permission.FPS_CENTRAL_CONTROL_SERVICE"/>
+    <permission android:name="org.omnirom.device.gripsensor.PROVIDER" android:protectionLevel="signatureOrSystem"/>
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
@@ -47,6 +48,26 @@
             android:name="org.omnirom.device.GestureSettingsActivity"
             android:exported="false"
             android:label="@string/category_gestures_title"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.omnirom.device.gripsensor.GripSensorSettingsActivity"
+            android:exported="false"
+            android:label="@string/grip_category_title"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.omnirom.device.GripTapForceActivity"
+            android:exported="false"
+            android:label="@string/category_grip_tap_force"
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -95,6 +116,67 @@
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <activity android:theme="@style/Transparent"
+                  android:name="org.omnirom.device.TileActivity"
+                  android:taskAffinity=""
+                  android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:label="@string/grip_category_title"
+                  android:name="org.omnirom.device.gripsensor.AirTriggerActivity"
+                  android:taskAffinity=""
+                  android:parentActivityName="org.omnirom.device.gripsensor.GripSensorSettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.omnirom.device.AIR_TRIGGER_SETTING_PAGE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="org.omnirom.device.gripsensor.AirTriggerReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="org.omnirom.device.SYSTEMUI_AIR_TRIGGER_ON"/>
+                <action android:name="org.omnirom.device.SYSTEMUI_AIR_TRIGGER_OFF"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="org.omnirom.device.gripsensor.GripStrengthAdjustActivity" android:launchMode="singleTop" android:screenOrientation="portrait"/>
+        <activity android:name="org.omnirom.device.gripsensor.TapStrengthAdjustActivity" android:exported="true" android:launchMode="singleTop" android:screenOrientation="landscape"/>
+        <activity android:name="org.omnirom.device.gripsensor.AsusSetupGripStrengthAdjustActivity" android:launchMode="singleTop"/>
+
+        <service android:name="org.omnirom.device.gripsensorservice.GripSensorService"
+                 android:permission="android.permission.BIND_JOB_SERVICE"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:process="com.asus.services">
+            <intent-filter>
+                <action android:name="org.omnirom.device.GRIP_SENSOR_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <provider android:name="org.omnirom.device.gripsensor.GripProvider"
+                 android:permission="org.omnirom.device.gripsensor.PROVIDER"
+                 android:exported="true"
+                 android:process="com.asus.services"
+                 android:authorities="org.omnirom.device.gripsensor"/>
+
+        <service android:label="@string/grip_category_title"
+                 android:icon="@drawable/asus_ep_statusicon_air_trigger_zen6"
+                 android:name="org.omnirom.device.gripsensorservice.DevelopmentTiles$SwitchTile"
+                 android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
     </application>

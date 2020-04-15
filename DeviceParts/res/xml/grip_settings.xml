@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2020 The OmniROM Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <org.omnirom.device.widget.MasterSwitchPreference
+        android:key="grip_sensor"
+        android:title="@string/grip_category_title"
+        android:summary="@string/grip_category_summary_key"
+        android:persistent="false" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/grip_tutorial"
+        android:selectable="false"
+        android:key="tutorial_grip"/>
+
+    <PreferenceCategory
+        android:key="key_trigger_category"
+        android:title="@string/category_airtrigger">
+
+        <org.omnirom.device.widget.MasterSwitchPreference
+            android:title="@string/gripsensor_lightpress_trigger"
+            android:key="gripsensor_lightpress_trigger_unlock"
+            android:persistent="false" />
+
+        <org.omnirom.device.widget.MasterSwitchPreference
+            android:title="@string/gripsensor_heavypress_trigger"
+            android:key="gripsensor_heavypress_trigger_unlock"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+        <Preference android:title="@string/gripsensor_grip_strength_adjust"
+                android:key="gripsensor_grip_strength_adjust">
+            <intent android:targetPackage="org.omnirom.device"
+                android:targetClass="org.omnirom.device.gripsensor.GripStrengthAdjustActivity"/>
+        </Preference>
+
+    <PreferenceCategory
+        android:persistent="false"
+        android:title="@string/category_grip_tap_force"
+        android:key="game_tap_adjust">
+            <Preference
+                android:title="@string/gripsensor_single_point_strength_adjust"
+                android:key="gripsensor_single_point_strength_adjust">
+
+                <intent android:targetPackage="org.omnirom.device"
+                    android:targetClass="org.omnirom.device.gripsensor.TapStrengthAdjustActivity"/>
+            </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

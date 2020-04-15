@@ -44,6 +44,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="key_grip_category"
+        android:title="@string/grip_category_title">
+
+    <Preference
+        android:key="grip_category"
+        android:title="@string/grip_category_title"
+        android:summary="@string/grip_category_summary"
+        android:persistent="false" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.device"
+                android:targetClass="org.omnirom.device.gripsensor.GripSensorSettingsActivity" />
+    </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="frame_mode_main"
         android:title="@string/category_frame_rate">
         <ListPreference
