@@ -141,5 +141,36 @@ public class Startup extends BroadcastReceiver {
 
         enabled = Settings.System.getInt(context.getContentResolver(), GestureSettings.SETTINGS_GESTURE_KEY, 0) != 0;
         restore(GestureSettings.getFile(), enabled);
+
+        String gripvalue = Settings.System.getString(context.getContentResolver(), GripSensorSettings.GRIP_PATH);
+        if (TextUtils.isEmpty(gripvalue)) {
+            gripvalue = GripSensorSettings.DEFAULT_GRIP_VALUE;
+            Utils.writeValue(GripSensorSettings.GRIP_PATH, "1");
+            Utils.writeValue(GripSensorSettings.GRIP_PATH_2, "1");
+            Utils.writeValue(GripSensorSettings.GRIP_PATH_3, "1");
+            Utils.writeValue(GripSensorSettings.GRIP_PATH_4, "1");
+        }
+
+        GripTapForcePreference.restore(context);
+        GripTapForceRightPreference.restore(context);
+        Utils.writeValue("/proc/driver/grip_squeeze_short_dur", "100");
+        Utils.writeValue("/proc/driver/grip_squeeze_long_dur", "600");
+        Utils.writeValue("/proc/driver/grip_squeeze_up_rate", "255");
+        Utils.writeValue("/proc/driver/grip_squeeze_drop_rate", "255");
+        Utils.writeValue("/proc/driver/grip_tap1_vib_en", "1");
+        Utils.writeValue("/proc/driver/grip_tap2_vib_en", "1");
+        
+
+        //~ String griptapvalue = Settings.System.getString(context.getContentResolver(), GripTapForcePreference.GRIP_TAPFORCE_KEY_L);
+        //~ if (TextUtils.isEmpty(griptapvalue)) {
+            //~ griptapvalue = GripTapForcePreference.DEFAULT_VALUE;
+            //~ Utils.writeValue(GripTapForcePreference.TAP_FORCE_LEFT, GripTapForcePreference.DEFAULT_VALUE);
+        //~ }
+
+        //~ String griptapvalueright = Settings.System.getString(context.getContentResolver(), GripTapForcePreference.GRIP_TAPFORCE_KEY_R);
+        //~ if (TextUtils.isEmpty(griptapvalueright)) {
+            //~ griptapvalueright = GripTapForcePreference.DEFAULT_VALUE;
+            //~ Utils.writeValue(GripTapForcePreference.TAP_FORCE_RIGHT, GripTapForcePreference.DEFAULT_VALUE);
+        //~ }
     }
 }

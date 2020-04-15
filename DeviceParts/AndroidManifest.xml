@@ -52,6 +52,26 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="org.omnirom.device.GripSensorSettingsActivity"
+            android:exported="false"
+            android:label="@string/grip_category_title"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.omnirom.device.GripTapForceActivity"
+            android:exported="false"
+            android:label="@string/category_grip_tap_force"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="org.omnirom.device.DozeSettingsActivity"
             android:exported="false"
             android:label="@string/doze_category_title"
