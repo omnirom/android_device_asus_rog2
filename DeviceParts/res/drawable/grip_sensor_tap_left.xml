@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+             android:dither="true" android:shape="rectangle">
+
+    <size android:height="@dimen/gripsensor_tap_view_shadow_height"
+          android:width="@dimen/gripsensor_tap_view_shadow_width"/>
+
+    <gradient android:startColor="@color/grip_sensor_tap_left_color"
+              android:endColor="@android:color/transparent"
+              android:angle="0"
+              android:type="radial"
+              android:centerX="0.5"
+              android:centerY="0"
+              android:gradientRadius="0"/>
+</shape>

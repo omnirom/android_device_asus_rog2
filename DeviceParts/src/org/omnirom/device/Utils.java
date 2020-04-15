@@ -17,7 +17,18 @@
 */
 package org.omnirom.device;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.SystemProperties;
 import android.util.Log;
+import android.widget.SeekBar;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -142,5 +153,36 @@ public class Utils {
         }
 
         return true;
+    }
+
+    public static boolean isCNSKU() {
+        String str = SystemProperties.get("ro.build.asus.sku", "");
+        return str.toLowerCase().startsWith("bby") || str.toLowerCase().startsWith("cn");
+    }
+
+    public static int dockingType(Context context) {
+        Intent registerReceiver;
+        if (context == null || (registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.DOCK_EVENT"))) == null) {
+            return 0;
+        }
+        return registerReceiver.getIntExtra("android.intent.extra.DOCK_STATE", -1);
+    }
+
+    public static void tintSeekbar(Context context, SeekBar seekBar, int i) {
+        if (seekBar != null) {
+            seekBar.getThumb().setColorFilter(i, PorterDuff.Mode.SRC_IN);
+            seekBar.setProgressTintList(ColorStateList.valueOf(i));
+            ColorStateList valueOf = ColorStateList.valueOf(-7829368);
+            //~ if (isLightStatusBar(context)) {
+            valueOf = ColorStateList.valueOf(ContextCompat.getColor(context, R.color.seekbar_bg_color));
+            //~ }
+            seekBar.setProgressBackgroundTintList(valueOf);
+        }
+    }
+
+    public static Drawable tintDrawable(Drawable drawable, int i) {
+        Drawable wrap = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTintList(wrap, ColorStateList.valueOf(i));
+        return wrap;
     }
 }

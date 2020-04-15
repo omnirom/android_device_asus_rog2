@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="?android:attr/listPreferredItemPaddingStart" android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
+    <TextView android:textSize="20dp" android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="344dp" android:layout_height="match_parent">
+            <ScrollView android:layout_width="match_parent" android:layout_height="650px">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gripsensor_grip_strength_low" android:layout_alignParentLeft="true"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gripsensor_grip_strength_high" android:layout_alignParentRight="true"/>
+                    </RelativeLayout>
+                    <org.omnirom.device.gripsensor.SqueezeLevelSeekBar android:id="@+id/seek_bar" android:layout_width="match_parent" android:layout_height="45dp" android:thumb="@drawable/grip_seekbar_default_thumb_bg"/>
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:id="@+id/txt_low" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13dp" android:layout_alignParentLeft="true"/>
+                        <TextView android:id="@+id/txt_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="13dp" android:layout_alignParentRight="true"/>
+                    </RelativeLayout>
+                    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@+id/ll_desc" android:layout_width="match_parent" android:layout_height="@dimen/tap_adjust_desc_height" android:layout_marginTop="5dp">
+                        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@+id/ll_intro" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40dp" android:layout_marginTop="0dp" android:layout_centerHorizontal="true">
+                            <TextView android:textSize="13dp" android:gravity="center" android:id="@+id/txt_intro_old" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/intro_pressure_old" android:drawablePadding="8dp" android:layout_weight="1" android:layout_centerHorizontal="true"/>
+                            <TextView android:textSize="13dp" android:gravity="center" android:id="@+id/txt_intro_new" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/intro_pressure_new" android:drawablePadding="8dp" android:layout_weight="1" android:layout_centerHorizontal="true"/>
+                        </LinearLayout>
+                        <TextView android:textSize="15dp" android:gravity="center" android:id="@+id/txt_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:text="@string/gripsensor_tap_strength_adjust_desc"/>
+                        <CheckBox android:textSize="15dp" android:id="@+id/ckb_level_up" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="@string/ckb_increase_sensitivity" android:layout_centerHorizontal="true"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+            <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@+id/button_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5px">
+                <org.omnirom.device.widget.CustomSettingsButton android:gravity="center" android:id="@+id/cancel_button" android:layout_width="160dp" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+                <org.omnirom.device.widget.CustomSettingsButton android:gravity="center" android:id="@+id/done_button" android:layout_width="160dp" android:layout_height="wrap_content" android:text="@string/btn_next" android:layout_weight="1" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginStart="24dp">
+            <ImageView android:id="@+id/img_left_right_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

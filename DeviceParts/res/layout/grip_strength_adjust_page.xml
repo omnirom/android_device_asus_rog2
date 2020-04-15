@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent" android:layout_height="@dimen/gripsensor_btn_margin_top">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:paddingStart="?android:attr/listPreferredItemPaddingStart" android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
+            <TextView android:textSize="20dp" android:id="@+id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/gripsensor_grip_strength_adjust_title"/>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gripsensor_grip_strength_low" android:layout_alignParentLeft="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/gripsensor_grip_strength_high" android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <org.omnirom.device.gripsensor.SqueezeLevelSeekBar android:id="@+id/seek_bar" android:layout_width="match_parent" android:layout_height="50dp" android:thumb="@drawable/grip_seekbar_default_thumb_bg"/>
+            </FrameLayout>
+            <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:id="@+id/txt_low" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="13dp" android:layout_alignParentLeft="true"/>
+                <TextView android:id="@+id/txt_high" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="13dp" android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@+id/ll_intro" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true">
+                    <TextView android:textSize="13dp" android:gravity="center" android:id="@+id/txt_intro_old" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/intro_pressure_old" android:drawablePadding="8dp" android:layout_weight="1" android:layout_centerHorizontal="true"/>
+                    <TextView android:textSize="13dp" android:gravity="center" android:id="@+id/txt_intro_new" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/intro_pressure_new" android:drawablePadding="8dp" android:layout_weight="1" android:layout_centerHorizontal="true"/>
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:textSize="15dp" android:gravity="center" android:id="@+id/txt_desc" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gripsensor_noti_margin_top" android:text="@string/gripsensor_grip_strength_adjust_desc" android:paddingStart="?android:attr/listPreferredItemPaddingStart" android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"/>
+            <org.omnirom.device.gripsensor.GifView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/tutorial_gif" android:layout_width="270dp" android:layout_height="270dp" android:layout_marginTop="@dimen/gripsensor_gif_margin_top" android:src="@drawable/ic_asus_pic_settings_grip_sensor_gif"/>
+            <ImageView android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/img_tutorial" android:visibility="gone" android:layout_width="270dp" android:layout_height="270dp" android:layout_marginTop="@dimen/gripsensor_gif_margin_top" android:src="@drawable/asus_pic_settings_grip_sensor"/>
+            <TextView android:textSize="14sp" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/gripsensor_desc_margin_top" android:text="@string/grip_notifi_release"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@+id/button_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gripsensor_btn_margin_top" android:layout_centerHorizontal="true">
+        <org.omnirom.device.widget.CustomSettingsButton android:gravity="center" android:id="@+id/cancel_button" android:layout_width="160dp" android:layout_height="50dp" android:text="@string/cancel" android:layout_weight="1" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+        <org.omnirom.device.widget.CustomSettingsButton android:gravity="center" android:id="@+id/done_button" android:layout_width="160dp" android:layout_height="50dp" android:text="@string/btn_apply" android:layout_weight="1" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/img_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gripsensor_hint_margin_top" android:src="@drawable/grip_sensor_hint_left" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:alpha="0.6" android:scaleY="2"/>
+        <ImageView android:id="@+id/img_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/gripsensor_hint_margin_top" android:src="@drawable/grip_sensor_hint_right" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:alpha="0.6" android:scaleY="2"/>
+    </RelativeLayout>
+</RelativeLayout>

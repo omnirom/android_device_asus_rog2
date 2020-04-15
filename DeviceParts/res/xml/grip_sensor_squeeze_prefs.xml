@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/squeeze_tutorial"
+        android:selectable="false" android:key="tutorial"/>
+
+    <SwitchPreference
+        android:singleLine="false"
+        android:title="@string/pref_squeeze_allow_screen_off"
+        android:key="allow_screen_off"/>
+
+    <PreferenceCategory
+        android:title="@string/category_all_can_use"
+        android:key="category_all_can_use"/>
+
+    <PreferenceCategory
+        android:title="@string/category_unlock_use"
+        android:key="category_unlock_use"/>
+</PreferenceScreen>

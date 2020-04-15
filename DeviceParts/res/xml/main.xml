@@ -68,9 +68,27 @@
         android:key="category_gaming"
         android:title="@string/gaming_title">
 
+        <SwitchPreference
+            android:key="grip_sensor"
+            android:title="@string/grip_category_title"
+            android:summaryOn="@string/grip_summary_on"
+            android:summaryOff="@string/grip_summary_off"
+            android:persistent="false" />
+
+        <Preference
+            android:key="grip_category"
+            android:dependency="grip_sensor"
+            android:title="@string/grip_lunch_title"
+            android:summary="@string/grip_category_summary"
+            android:persistent="false" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.device"
+                android:targetClass="org.omnirom.device.gripsensor.GripSensorSettingsActivity" />
+        </Preference>
+
         <Preference
             android:key="game_toolbar_app"
-            android:title="@string/gaming_title"
+            android:title="@string/game_genie_title"
             android:summary="@string/gaming_browse_summary"
             android:persistent="false" >
             <intent android:action="com.asus.gamewidget.action.SETTINGS"

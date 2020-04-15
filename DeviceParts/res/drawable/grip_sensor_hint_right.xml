@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:dither="true" android:shape="rectangle">
+    <size android:height="@dimen/gripsensor_height" android:width="@dimen/gripsensor_width"/>
+    <gradient android:startColor="@color/settings_default_color" android:endColor="@android:color/transparent" android:angle="0" android:type="radial" android:centerX="1" android:centerY="0.5" android:gradientRadius="150"/>
+</shape>
