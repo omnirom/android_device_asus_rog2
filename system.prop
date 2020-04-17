@@ -300,6 +300,28 @@ audio.wizard.default.mode=smart
 # [ASUS BSP] for Poweroff Alarm Support
 ro.asus.poweroffalarm_support=1
 
+# lkmd
+
+ro.lmk.use_minfree_levels=true
+ro.lmk.use_psi=false
+ro.lmk.low=1001
+ro.lmk.medium=800
+ro.lmk.critical=200
+ro.lmk.kill_heaviest_task=true
+ro.lmk.upgrade_pressure=100
+ro.lmk.downgrade_pressure=100
+
+vendor.iop.enable_uxe=0
+
+
+# ASUS_BSP_Vibrator +++
+#setting property
+ro.asus.scale_low_max_amp=95
+ro.asus.scale_none_max_amp=200
+#end
+# ASUS_BSP_Vibrator ---
+
 # Extra Asus
+
 ro.build.asus.sku=WW
 ro.vendor.qti.va_aosp.support=1
