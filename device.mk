@@ -211,6 +211,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml
 
+# WiFi
+PRODUCT_PACKAGES += \
+    WifiOverlay
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl \
