@@ -27,4 +27,6 @@
     <integer name="config_maxVisibleNotificationIcons">8</integer>
     <integer name="config_maxVisibleNotificationIconsWhenDark">9</integer>
 
+    <bool name="keyguard_security_container_force_bottom_margin">true</bool>
+
 </resources>
