@@ -8,3 +8,6 @@ allow init { system_file vendor_file }:file mounton;
 
 # Allow init to mount vendor configs
 allow init vendor_configs_file:dir mounton;
+
+# Vendor init
+allow init property_socket:sock_file write;

@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FrameworksResOverlay
 
+# Init
+PRODUCT_PACKAGES += \
+    libinit_rog2
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/goodix_ts.idc:system/usr/idc/goodix_ts.idc \
