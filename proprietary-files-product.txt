@@ -49,6 +49,7 @@ product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 -product/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk
 product/etc/permissions/embms.xml
 product/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
+product/etc/permissions/lpa.xml
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
 -product/framework/embmslibrary.jar
