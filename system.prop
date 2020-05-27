@@ -325,3 +325,4 @@ ro.asus.scale_none_max_amp=200
 
 ro.build.asus.sku=WW
 ro.vendor.qti.va_aosp.support=1
+persist.sys.fflag.override.settings_network_and_internet_v2=true
