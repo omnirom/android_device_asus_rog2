@@ -13,73 +13,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.vibrator@1.2-service.rog2"
+#define LOG_TAG "vibrator@1.2-rog2"
 
 #include <android/hardware/vibrator/1.2/IVibrator.h>
-#include <hidl/HidlSupport.h>
+#include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
-#include <utils/Errors.h>
-#include <utils/StrongPointer.h>
 
 #include "Vibrator.h"
 
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
+
 using android::hardware::vibrator::V1_2::IVibrator;
 using android::hardware::vibrator::V1_2::implementation::Vibrator;
-using namespace android;
 
-static constexpr char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
-static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
-static constexpr char STATE_PATH[] = "/sys/class/leds/vibrator/state";
-static constexpr char EFFECT_INDEX_PATH[] = "/sys/class/leds/vibrator/lp_trigger_effect";
-static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/scale";
-
-status_t registerVibratorService() {
-    // ostreams below are required
-    std::ofstream activate{ACTIVATE_PATH};
-    if (!activate) {
-        ALOGE("Failed to open %s (%d): %s", ACTIVATE_PATH, errno, strerror(errno));
-    }
-
-    std::ofstream duration{DURATION_PATH};
-    if (!duration) {
-        ALOGE("Failed to open %s (%d): %s", DURATION_PATH, errno, strerror(errno));
-    }
-
-    std::ofstream state{STATE_PATH};
-    if (!state) {
-        ALOGE("Failed to open %s (%d): %s", STATE_PATH, errno, strerror(errno));
-    }
-
-    std::ofstream effect{EFFECT_INDEX_PATH};
-    if (!state) {
-        ALOGE("Failed to open %s (%d): %s", EFFECT_INDEX_PATH, errno, strerror(errno));
-    }
-
-    std::ofstream scale{SCALE_PATH};
-    if (!scale) {
-        ALOGE("Failed to open %s (%d): %s", SCALE_PATH, errno, strerror(errno));
-    }
-
-    state << 1 << std::endl;
-    if (!state) {
-        ALOGE("Failed to set state (%d): %s", errno, strerror(errno));
-    }
-
-    sp<IVibrator> vibrator = new Vibrator(std::move(activate), std::move(duration),
-        std::move(effect), std::move(scale));
-
-    return vibrator->registerAsService();
-}
+using android::OK;
+using android::status_t;
 
 int main() {
-    configureRpcThreadpool(1, true);
-    status_t status = registerVibratorService();
+    android::sp<Vibrator> service = new Vibrator();
 
+    configureRpcThreadpool(1, true);
+
+    status_t status = service->registerAsService();
     if (status != OK) {
-        return status;
+        LOG(ERROR) << "Cannot register Vibrator HAL service.";
+        return 1;
     }
 
+    LOG(INFO) << "Vibrator HAL service ready.";
+
     joinRpcThreadpool();
+
+    LOG(ERROR) << "Vibrator HAL service failed to join thread pool.";
+    return 1;
 }

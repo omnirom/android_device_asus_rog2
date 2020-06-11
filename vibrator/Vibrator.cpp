@@ -18,6 +18,7 @@
 
 #include <log/log.h>
 
+#include <android-base/logging.h>
 #include <hardware/hardware.h>
 #include <hardware/vibrator.h>
 #include <cutils/properties.h>
@@ -29,6 +30,11 @@
 #include <iostream>
 #include <fstream>
 
+static constexpr char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
+static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
+static constexpr char STATE_PATH[] = "/sys/class/leds/vibrator/state";
+static constexpr char EFFECT_INDEX_PATH[] = "/sys/class/leds/vibrator/lp_trigger_effect";
+static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/scale";
 
 namespace android {
 namespace hardware {
@@ -58,22 +64,32 @@ static uint8_t amplitudeToScale(uint8_t amplitude, uint8_t maximum) {
                       (AMP_ATTENUATE_STEP_SIZE));
 }
 
-Vibrator::Vibrator(std::ofstream&& activate, std::ofstream&& duration, std::ofstream&& effect,
-        std::ofstream&& scale) :
-    mActivate(std::move(activate)),
-    mDuration(std::move(duration)),
-    mEffectIndex(std::move(effect)),
-    mScale(std::move(scale))
+/*
+ * Write value to path and close file.
+ */
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+
+    if (!file.is_open()) {
+        LOG(ERROR) << "Unable to open: " << path << " (" <<  strerror(errno) << ")";
+        return;
+    }
+
+    file << value;
+}
+
+Vibrator::Vibrator()
 {}
 
 Return<Status> Vibrator::on(uint32_t timeoutMs, uint32_t effectIndex) {
-    mEffectIndex << effectIndex << std::endl;
-    mDuration << timeoutMs << std::endl;
-    mActivate << 1 << std::endl;
+    set(STATE_PATH, 1);
+    set(DURATION_PATH, timeoutMs);
+    set(EFFECT_INDEX_PATH, effectIndex);
+    set(ACTIVATE_PATH, 1);
 
     return Status::OK;
 }
-
 
 // Methods from ::android::hardware::vibrator::V1_1::IVibrator follow.
 Return<Status> Vibrator::on(uint32_t timeoutMs) {
@@ -81,30 +97,21 @@ Return<Status> Vibrator::on(uint32_t timeoutMs) {
 }
 
 Return<Status> Vibrator::off()  {
-    mActivate << 0 << std::endl;
-    if (!mActivate) {
-        ALOGE("Failed to turn vibrator off (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
-    }
+    set(ACTIVATE_PATH, 0);
     return Status::OK;
 }
 
 Return<bool> Vibrator::supportsAmplitudeControl()  {
-    return (mScale ? true : false);
+    return true;
 }
 
 Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
-    if (!amplitude) {
+    if (amplitude == 0) {
         return Status::BAD_VALUE;
     }
 
     int32_t scale = amplitudeToScale(amplitude, UINT8_MAX);
-
-    mScale << scale << std::endl;
-    if (!mScale) {
-        ALOGE("Failed to set amplitude (%d): %s", errno, strerror(errno));
-        return Status::UNKNOWN_ERROR;
-    }
+    set(SCALE_PATH, scale);
 
     return Status::OK;
 }
@@ -121,7 +128,7 @@ Return<void> Vibrator::perform_1_1(V1_1::Effect_1_1 effect, EffectStrength stren
 
 Return<void> Vibrator::perform_1_2(Effect effect, EffectStrength strength,
         perform_cb _hidl_cb) {
-    return performEffect(effect, strength, _hidl_cb);
+    return performEffect(static_cast<Effect>(effect), strength, _hidl_cb);
 }
 
 Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength,
