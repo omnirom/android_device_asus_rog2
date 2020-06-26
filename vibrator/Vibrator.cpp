@@ -34,7 +34,6 @@ static constexpr char ACTIVATE_PATH[] = "/sys/class/leds/vibrator/activate";
 static constexpr char DURATION_PATH[] = "/sys/class/leds/vibrator/duration";
 static constexpr char STATE_PATH[] = "/sys/class/leds/vibrator/state";
 static constexpr char EFFECT_INDEX_PATH[] = "/sys/class/leds/vibrator/lp_trigger_effect";
-static constexpr char SCALE_PATH[] = "/sys/class/leds/vibrator/scale";
 
 namespace android {
 namespace hardware {
@@ -45,24 +44,17 @@ namespace implementation {
 using Status = ::android::hardware::vibrator::V1_0::Status;
 using EffectStrength = ::android::hardware::vibrator::V1_0::EffectStrength;
 
-static constexpr uint32_t WAVEFORM_TICK_EFFECT_INDEX = 2;
-static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 15;
+static constexpr uint32_t WAVEFORM_TICK_EFFECT_MS = 30;
 
-static constexpr uint32_t WAVEFORM_CLICK_EFFECT_INDEX = 3;
-static constexpr uint32_t WAVEFORM_CLICK_EFFECT_MS = 11;
+static constexpr uint32_t WAVEFORM_CLICK_EFFECT_MS = 20;
 
-static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_INDEX = 4;
-static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 15;
+static constexpr uint32_t WAVEFORM_HEAVY_CLICK_EFFECT_MS = 35;
 
-static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_INDEX = 7;
-static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_MS = 130;
+static constexpr uint32_t WAVEFORM_DOUBLE_CLICK_EFFECT_MS = 35;
 
-static constexpr float AMP_ATTENUATE_STEP_SIZE = 0.125f;
+static constexpr uint32_t WAVEFORM_POP_EFFECT_MS = 20;
 
-static uint8_t amplitudeToScale(uint8_t amplitude, uint8_t maximum) {
-    return std::round((-20 * std::log10(amplitude / static_cast<float>(maximum))) /
-                      (AMP_ATTENUATE_STEP_SIZE));
-}
+static constexpr uint32_t WAVEFORM_THUD_EFFECT_MS = 25;
 
 /*
  * Write value to path and close file.
@@ -79,41 +71,29 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
-Vibrator::Vibrator()
-{}
+Vibrator::Vibrator() {
+    set(EFFECT_INDEX_PATH, 1);
+}
 
-Return<Status> Vibrator::on(uint32_t timeoutMs, uint32_t effectIndex) {
+// Methods from ::android::hardware::vibrator::V1_1::IVibrator follow.
+Return<Status> Vibrator::on(uint32_t timeoutMs) {
     set(STATE_PATH, 1);
     set(DURATION_PATH, timeoutMs);
-    set(EFFECT_INDEX_PATH, effectIndex);
     set(ACTIVATE_PATH, 1);
 
     return Status::OK;
 }
 
-// Methods from ::android::hardware::vibrator::V1_1::IVibrator follow.
-Return<Status> Vibrator::on(uint32_t timeoutMs) {
-    return on(timeoutMs, 0);
-}
-
 Return<Status> Vibrator::off()  {
-    set(ACTIVATE_PATH, 0);
     return Status::OK;
 }
 
-Return<bool> Vibrator::supportsAmplitudeControl()  {
-    return true;
+Return<bool> Vibrator::supportsAmplitudeControl() {
+    return false;
 }
 
-Return<Status> Vibrator::setAmplitude(uint8_t amplitude) {
-    if (amplitude == 0) {
-        return Status::BAD_VALUE;
-    }
-
-    int32_t scale = amplitudeToScale(amplitude, UINT8_MAX);
-    set(SCALE_PATH, scale);
-
-    return Status::OK;
+Return<Status> Vibrator::setAmplitude(uint8_t) {
+    return Status::UNSUPPORTED_OPERATION;
 }
 
 Return<void> Vibrator::perform(V1_0::Effect effect, EffectStrength strength,
@@ -131,50 +111,37 @@ Return<void> Vibrator::perform_1_2(Effect effect, EffectStrength strength,
     return performEffect(static_cast<Effect>(effect), strength, _hidl_cb);
 }
 
-Return<void> Vibrator::performEffect(Effect effect, EffectStrength strength,
+Return<void> Vibrator::performEffect(Effect effect, EffectStrength,
         perform_cb _hidl_cb) {
+    set(ACTIVATE_PATH, 0);
     Status status = Status::OK;
     uint32_t timeMs;
-    uint32_t effectIndex;
 
     switch (effect) {
     case Effect::TICK:
-        effectIndex = WAVEFORM_TICK_EFFECT_INDEX;
         timeMs = WAVEFORM_TICK_EFFECT_MS;
         break;
     case Effect::CLICK:
-        effectIndex = WAVEFORM_CLICK_EFFECT_INDEX;
         timeMs = WAVEFORM_CLICK_EFFECT_MS;
         break;
     case Effect::HEAVY_CLICK:
-        effectIndex = WAVEFORM_HEAVY_CLICK_EFFECT_INDEX;
         timeMs = WAVEFORM_HEAVY_CLICK_EFFECT_MS;
         break;
     case Effect::DOUBLE_CLICK:
-        effectIndex = WAVEFORM_DOUBLE_CLICK_EFFECT_INDEX;
         timeMs = WAVEFORM_DOUBLE_CLICK_EFFECT_MS;
         break;
-    default:
-        _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
-        return Void();
-    }
-
-    switch (strength) {
-    case EffectStrength::LIGHT:
-        effectIndex -= 1;
+    case Effect::POP:
+        timeMs = WAVEFORM_POP_EFFECT_MS;
         break;
-    case EffectStrength::MEDIUM:
-        break;
-    case EffectStrength::STRONG:
-        effectIndex += 1;
+    case Effect::THUD:
+        timeMs = WAVEFORM_THUD_EFFECT_MS;
         break;
     default:
         _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
         return Void();
     }
 
-    setAmplitude(UINT8_MAX); // Always set full-scale for non-ringtone constants
-    on(timeMs, effectIndex);
+    on(timeMs);
     _hidl_cb(status, timeMs);
 
     return Void();
