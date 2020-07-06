@@ -16,8 +16,8 @@
 cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "omni.biometrics.fingerprint.inscreen@1.0-service.asus_msmnile",
-    init_rc: ["omni.biometrics.fingerprint.inscreen@1.0-service.asus_msmnile.rc"],
+    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.asus_msmnile",
+    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.asus_msmnile.rc"],
     srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     shared_libs: [
         "libbase",
@@ -27,6 +27,6 @@ cc_binary {
         "liblog",
         "libhwbinder",
         "libutils",
-        "vendor.omni.biometrics.fingerprint.inscreen@1.0",
+        "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
     ],
 }
