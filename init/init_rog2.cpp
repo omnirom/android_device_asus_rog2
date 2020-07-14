@@ -67,7 +67,7 @@ void vendor_load_properties()
     LOG(INFO) << "Starting custom init";
 
     name = android::base::GetProperty("ro.product.vendor.name", "");
-    country = android::base::GetProperty("gsm.operator.iso-country", "");
+    country = android::base::GetProperty("ro.boot.country_code", "");
     LOG(INFO) << name;
     if (name == "WW_I001D") {
         property_override("ro.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
@@ -78,16 +78,15 @@ void vendor_load_properties()
         property_override("ro.product.system.name", "WW_I001D");
         property_override("ro.product.vendor.model", "ASUS_I001DA");
         property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
-        if (country == "in" || country == "in,*") {
+        if (country == "IN") {
             property_override("ro.product.model", "ASUS_I001DE");
             property_override("ro.product.system.model", "ASUS_I001DE");
             property_override("ro.product.vendor.model", "ASUS_I001DE");
             property_override("ro.config.versatility", "IN");
         }
-        if (country == "us" || country == "us,*") {
+        if (country == "US") {
             property_override("ro.product.model", "ASUS_I001D");
             property_override("ro.product.system.model", "ASUS_I001D");
-            property_override("ro.product.system.name", "WW_I001D");
             property_override("ro.product.vendor.model", "ASUS_I001D");
             property_override("ro.config.versatility", "US");
         }
