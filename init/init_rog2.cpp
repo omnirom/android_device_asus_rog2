@@ -70,9 +70,9 @@ void vendor_load_properties()
     country = android::base::GetProperty("ro.boot.country_code", "");
     LOG(INFO) << name;
     if (name == "WW_I001D") {
-        property_override("ro.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.build.description", "WW_I001D-user 10 QKQ1.190825.002 17.0240.2004.9-0 release-keys");
+        property_override("ro.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.system.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.build.description", "WW_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
         property_override("ro.product.model", "ASUS_I001DA");
         property_override("ro.product.system.model", "ASUS_I001DA");
         property_override("ro.product.system.name", "WW_I001D");
@@ -92,9 +92,9 @@ void vendor_load_properties()
         }
     }
     if (name == "RU_I001D") {
-        property_override("ro.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.build.description", "RU_I001D-user 10 QKQ1.190825.002 17.0240.2004.9-0 release-keys");
+        property_override("ro.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.system.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.build.description", "RU_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
         property_override("ro.product.model", "ASUS_I001DB");
         property_override("ro.product.system.model", "ASUS_I001DB");
         property_override("ro.product.system.name", "RU_I001D");
@@ -103,9 +103,9 @@ void vendor_load_properties()
         property_override("ro.config.versatility", "RU");
     }
     if (name == "EU_I001D") {
-        property_override("ro.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.build.description", "EU_I001D-user 10 QKQ1.190825.002 17.0240.2004.9-0 release-keys");
+        property_override("ro.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.system.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.build.description", "EU_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
         property_override("ro.product.model", "ASUS_I001DC");
         property_override("ro.product.system.model", "ASUS_I001DC");
         property_override("ro.product.system.name", "EU_I001D");
@@ -114,9 +114,9 @@ void vendor_load_properties()
         property_override("ro.config.versatility", "EU");
     }
     if (name == "CN_I001D") {
-        property_override("ro.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2004.9-0:user/release-keys");
-        property_override("ro.build.description", "CN_I001D-user 10 QKQ1.190825.002 17.0240.2004.9-0 release-keys");
+        property_override("ro.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.system.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
+        property_override("ro.build.description", "CN_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
         property_override("ro.product.model", "ASUS_I001DD");
         property_override("ro.product.system.model", "ASUS_I001DD");
         property_override("ro.product.system.name", "CN_I001D");
