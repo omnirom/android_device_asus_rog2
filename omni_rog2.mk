@@ -54,9 +54,12 @@ PRODUCT_SYSTEM_NAME := WW_I001D
 OMNI_PRODUCT_PROPERTIES += \
     ro.build.product=ZS660KL
 
-VENDOR_RELEASE := 10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys
-BUILD_FINGERPRINT := asus/WW_I001D/ASUS_I001_1:$(VENDOR_RELEASE)
-OMNI_BUILD_FINGERPRINT := asus/WW_I001D/ASUS_I001_1:$(VENDOR_RELEASE)
-OMNI_PRIVATE_BUILD_DESC := "'QKQ1.190825.002.WW_Phone-17.0240.2007.27-0'"
+# Blacklist properties set by custom/vendor init
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
+    ro.build.description \
+    ro.build.display.id \
+    ro.build.fingerprint \
+    ro.system.build.fingerprint
 
+# Security patch level from stock
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2020-07-05

@@ -60,69 +60,78 @@ void property_override(const std::string& name, const std::string& value)
     }
 }
 
+void property_override_dual(char const prop[], char const system_prop[],
+    const std::string& value)
+{
+    property_override(prop, value);
+    property_override(system_prop, value);
+}
+
 void vendor_load_properties()
 {
     std::string name;
     std::string country;
+    std::string build_id;
+    std::string build_number;
+    std::ostringstream fp;
+    std::string fingerprint;
+    std::ostringstream desc;
+    std::string description;
+    std::ostringstream disp;
+    std::string display_id;
+    std::string region;
+
     LOG(INFO) << "Starting custom init";
 
     name = android::base::GetProperty("ro.product.vendor.name", "");
+    region = name.substr (0,2);
     country = android::base::GetProperty("ro.boot.country_code", "");
+
     LOG(INFO) << name;
+
+    // These should be the only things to change for OTA updates
+    build_id = "QKQ1.190825.002";
+    build_number = "17.0240.2007.27-0";
+
+    // Create the correct stock props based on the above values
+    desc << name << "-user 10 " << build_id << " " << build_number << " release-keys";
+    description = desc.str();
+
+    disp << build_id << "." << region << "_Phone-" << build_number;
+    display_id = disp.str();
+
+    fp << "asus/" << name << "/ASUS_I001_1:10/" << build_id << "/" << build_number << ":user/release-keys";
+    fingerprint = fp.str();
+
+    // These properties are the same for all variants
+    property_override("ro.build.description", description);
+    property_override("ro.build.display.id", display_id);
+    property_override_dual("ro.build.fingerprint", "ro.system.build.fingerprint", fingerprint);
+    property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
+
+    // Set below properties based on variant name
     if (name == "WW_I001D") {
-        property_override("ro.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/WW_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.build.description", "WW_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
-        property_override("ro.product.model", "ASUS_I001DA");
-        property_override("ro.product.system.model", "ASUS_I001DA");
-        property_override("ro.product.system.name", "WW_I001D");
-        property_override("ro.product.vendor.model", "ASUS_I001DA");
-        property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
+        // Set properties for IN and US variants
         if (country == "IN") {
-            property_override("ro.product.model", "ASUS_I001DE");
-            property_override("ro.product.system.model", "ASUS_I001DE");
-            property_override("ro.product.vendor.model", "ASUS_I001DE");
+            property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DE");
             property_override("ro.config.versatility", "IN");
-        }
-        if (country == "US") {
-            property_override("ro.product.model", "ASUS_I001D");
-            property_override("ro.product.system.model", "ASUS_I001D");
-            property_override("ro.product.vendor.model", "ASUS_I001D");
+        } else if (country == "US") {
             property_override("ro.config.versatility", "US");
-        }
+        } else {
+            property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DA");
+		}
+    } else {
+        property_override("ro.product.system.name", name);
+        property_override("ro.config.versatility", region);
     }
     if (name == "RU_I001D") {
-        property_override("ro.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/RU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.build.description", "RU_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
-        property_override("ro.product.model", "ASUS_I001DB");
-        property_override("ro.product.system.model", "ASUS_I001DB");
-        property_override("ro.product.system.name", "RU_I001D");
-        property_override("ro.product.vendor.model", "ASUS_I001DB");
-        property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
-        property_override("ro.config.versatility", "RU");
+        property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DB");
     }
     if (name == "EU_I001D") {
-        property_override("ro.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/EU_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.build.description", "EU_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
-        property_override("ro.product.model", "ASUS_I001DC");
-        property_override("ro.product.system.model", "ASUS_I001DC");
-        property_override("ro.product.system.name", "EU_I001D");
-        property_override("ro.product.vendor.model", "ASUS_I001DC");
-        property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
-        property_override("ro.config.versatility", "EU");
+        property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DC");
     }
     if (name == "CN_I001D") {
-        property_override("ro.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.system.build.fingerprint", "asus/CN_I001D/ASUS_I001_1:10/QKQ1.190825.002/17.0240.2007.27-0:user/release-keys");
-        property_override("ro.build.description", "CN_I001D-user 10 QKQ1.190825.002 17.0240.2007.27-0 release-keys");
-        property_override("ro.product.model", "ASUS_I001DD");
-        property_override("ro.product.system.model", "ASUS_I001DD");
-        property_override("ro.product.system.name", "CN_I001D");
-        property_override("ro.product.vendor.model", "ASUS_I001DD");
-        property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
-        property_override("ro.config.versatility", "CN");
+        property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DD");
     }
 }
 }
