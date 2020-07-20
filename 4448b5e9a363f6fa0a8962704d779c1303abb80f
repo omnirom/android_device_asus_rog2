@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de4231d8_387bf8b1",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2020-07-20T18:32:49Z",
+      "side": 0,
+      "message": "you need to keep this",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecd9cf63_2b723dd9",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2020-07-20T18:32:49Z",
+      "side": 0,
+      "message": "and this.Bootloop for me. Needed for early init",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f623930_14ba6c2c",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2020-07-20T18:32:49Z",
+      "side": 0,
+      "message": "not problem. If we want to show our build display id, why not, or keep it for show same as stock :)",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    }
+  ]
+}
