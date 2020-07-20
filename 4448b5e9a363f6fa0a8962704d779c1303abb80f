@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aedfc6f6_3e17c2c3",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2020-07-20T19:05:34Z",
+      "side": 0,
+      "message": "okay - but I will separate the build id and build number like I did in the init so that only those values will need to be changed, and it won\u0027t have to be changed for all of the below values. I had it that way locally for a while before deciding to go the blacklist route. At least it\u0027s an easy solution.",
+      "parentUuid": "de4231d8_387bf8b1",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ecd9cf63_2b723dd9",
         "filename": "omni_rog2.mk",
         "patchSetId": 5
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "3c209bbe_cbb99b77",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2020-07-20T19:05:34Z",
+      "side": 0,
+      "message": "will add this back",
+      "parentUuid": "ecd9cf63_2b723dd9",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f623930_14ba6c2c",
         "filename": "omni_rog2.mk",
         "patchSetId": 5
@@ -47,6 +83,24 @@
       "writtenOn": "2020-07-20T18:32:49Z",
       "side": 0,
       "message": "not problem. If we want to show our build display id, why not, or keep it for show same as stock :)",
+      "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08c5c688_730232fe",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2020-07-20T19:05:34Z",
+      "side": 0,
+      "message": "This doesn\u0027t go to display.id, though - it goes to build.description. And the build description isn\u0027t in this same format. If you want to override display.id, I\u0027m not sure that\u0027s possible here, but it can be done in the custom init. I can add that back if you want, but this field is wrong either way. I can update this to use the same format as what\u0027s being done in the custom init file so that it actually matches the default ro.build.description you\u0027ve been using.",
+      "parentUuid": "7f623930_14ba6c2c",
       "revId": "4448b5e9a363f6fa0a8962704d779c1303abb80f",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": true

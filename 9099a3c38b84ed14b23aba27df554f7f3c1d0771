@@ -16,6 +16,24 @@
       "revId": "9099a3c38b84ed14b23aba27df554f7f3c1d0771",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "037d3883_19d8d595",
+        "filename": "omni_rog2.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2020-07-20T19:05:34Z",
+      "side": 1,
+      "message": "okay, will remove",
+      "parentUuid": "161f0b96_90323229",
+      "revId": "9099a3c38b84ed14b23aba27df554f7f3c1d0771",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
     }
   ]
 }
