@@ -17,6 +17,24 @@
       "revId": "d4d0c8166a756b8555d6f1829a3caefa2390457f",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe42121_daa9411e",
+        "filename": "init/init_rog2.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000092
+      },
+      "writtenOn": "2020-07-21T14:36:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2551e9f_37e75152",
+      "revId": "d4d0c8166a756b8555d6f1829a3caefa2390457f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
     }
   ]
 }
