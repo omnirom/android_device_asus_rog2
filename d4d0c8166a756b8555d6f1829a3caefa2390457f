@@ -1,4 +1,22 @@
 {
   "pushCert": "certificate version 0.1\npusher Captain Throwback \u003ccaptainthrowback@hotmail.com\u003e 1595290171 -0400\npushee ssh://gerrit.omnirom.org:29418/android_device_asus_rog2\nnonce 1595290171-BE7BCF322B97B95FC014E352811E4C479AFACD5A\n\n0000000000000000000000000000000000000000 d4d0c8166a756b8555d6f1829a3caefa2390457f refs/for/android-10\n-----BEGIN PGP SIGNATURE-----\n\niQJRBAABCgA7FiEEIR80H9xllVq2v4t7WD+ML+Epy5gFAl8WMjsdHGNhcHRhaW50\naHJvd2JhY2tAaG90bWFpbC5jb20ACgkQWD+ML+Epy5g4zw/+KWjEopxmXyj+Q5q4\nTZueD9b8lgMzQeCqs/5uRgy1gYAf4fo+3Xb/VTnPja29NBR/uQFefdQTj804dlHp\ncdlnqGQ61vHwSCrvr8dcgmQB/3vgOjrn0AJswHyLOVZNjWNLylABbT3pZKng238q\nI3iQi29izm6F5O6j/XgPVpxUy4nf3TBCj6BU3CCsRx0sKsZg8p/OCqLLVEC27G4z\nVLuxM3ooqM2xwDopOEULnQnAymIgWsMfcjBTiYShNT3srPSKwxP4mQVPYV2+mVf1\nnB/g6zmhhY5VKKxMPesfiKfzr5TBv5+oe53oxVri4aMDG/mCmpMOzhkGqNsGgyUw\nBYaIj5C8l+8jzgv8tFT8OITsS77hPRx9d48DXyFWAkoF+JukUt73XTftE3FgpYJn\n1XilXovzc1gYzJFV6Ci5dYlbUnIZ0pUYbXIytkT1873BUaShkDX91Nz+lFZKLoQr\nqcG0qCIBTLV3QWXNPCfg8G6dTZiBcGVf5FWrSrCjcEHPhHV9uMpFMnzSL1WYQnQY\n+YztzldnYmJbCtDL1ThFzEG6JNE44CVmazH3kcl3/eAm/f6g70T+pi0xkZw0KfBX\n+/2IS44ynf336USa6FGQiJrfyL3AQXEm3i/7t6RNAxFgKgHLvTuQm0wEx2nCONUb\nemMkJENfe7wFDh1AVZ3maoG6XyY\u003d\n\u003dxrVj\n-----END PGP SIGNATURE-----\n",
-  "comments": []
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2551e9f_37e75152",
+        "filename": "init/init_rog2.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1002322
+      },
+      "writtenOn": "2020-07-21T05:45:42Z",
+      "side": 1,
+      "message": "just use the good indentation and we are good",
+      "revId": "d4d0c8166a756b8555d6f1829a3caefa2390457f",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": true
+    }
+  ]
 }
