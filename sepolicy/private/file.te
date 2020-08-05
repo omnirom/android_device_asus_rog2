@@ -13,5 +13,8 @@ type sysfs_gesture, sysfs_type, fs_type;
 type proc_touchscreen, proc_type, sysfs_type, fs_type;
 type sysfs_touchscreen, sysfs_type, fs_type;
 
+# Files in userdata
+type qmipriod_data_file, file_type, data_file_type;
+
 # FOD
 type sysfs_fod, sysfs_type, fs_type;
