@@ -19,6 +19,7 @@ package org.omnirom.device;
 
 import android.util.Log;
 
+import android.os.SystemProperties;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -142,5 +143,10 @@ public class Utils {
         }
 
         return true;
+    }
+
+    public static boolean isCNSKU() {
+        String str = SystemProperties.get("ro.build.asus.sku", "");
+        return str.toLowerCase().startsWith("bby") || str.toLowerCase().startsWith("cn");
     }
 }

@@ -1,7 +1,7 @@
 # Asus Game
-#-app/FocusAppListener/FocusAppListener.apk
-#-app/GameBroadcasterService/GameBroadcasterService.apk
-#-app/HardwareStub/HardwareStub.apk
+-app/FocusAppListener/FocusAppListener.apk
+-app/GameBroadcasterService/GameBroadcasterService.apk
+-app/HardwareStub/HardwareStub.apk|3334D7F7940A56495547617F0923592561F7FDBB
 etc/hardcore_default.json
 etc/hardcore_X1.json
 etc/hardcore_X2.json
@@ -10,9 +10,13 @@ etc/permissions/asus.software.gamewidget.zenui.rog2.xml
 etc/permissions/asus.software.zenui.rog.xml
 etc/permissions/asus.software.zenui.xml
 etc/sysconfig/ims-hiddenapi-package-whitelist.xml
-#-priv-app/GameBroadcaster/GameBroadcaster.apk
-#priv-app/GameBroadcaster/lib/arm64/libJniModule.so
-#-priv-app/ROGGameCenter/ROGGameCenter.apk
+-priv-app/GameBroadcaster/GameBroadcaster.apk
+priv-app/GameBroadcaster/lib/arm64/libJniModule.so
+-priv-app/ROGGameCenter/ROGGameCenter.apk|E15EBC3B2BA8BB119387D355063142689A4918D8
+-priv-app/PowerSaving2/PowerSaving2.apk
+# Picked from ROG3
+-priv-app/ROGAirTrigger/ROGAirTrigger.apk|2F249826B61FADF055D21E8D732831FBD4F0A983
+priv-app/ROGAirTrigger/lib/arm64/libpl_droidsonroids_gif.so|BECEE8F07DC2A1262F7EB4D977EA8D3A92D5FAED
 
 # ANT+
 -lib/libantradio.so
