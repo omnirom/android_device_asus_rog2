@@ -30,12 +30,14 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
+import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -55,13 +57,26 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
     public static final String KEY_GAME_GENIE = "game_toolbar_app";
+    private static final String KEY_CATEGORY_GAMING = "category_gaming";
     public static final String FPS = "fps";
 
     protected static final String DEFAULT_FPS_VALUE = "60";
+    private static final String ACTION_AIR_TRIGGER_OFF = "com.asus.airtriggers.SYSTEMUI_AIR_TRIGGER_OFF";
+    private static final String ACTION_AIR_TRIGGER_ON = "com.asus.airtriggers.SYSTEMUI_AIR_TRIGGER_ON";
+    private static final String AIRTRIGGER_PACKAGE_NAME = "com.asus.airtriggers";
+    private static final String FIELD_AIR_TRIGGER_ENABLE = "air_trigger_enable";
+    public static final String KEY_AIRTRIGGER = "grip_sensor_apk";
+    public static final String KEY_AIRTRIGGER_PREF = "grip_sensor_pref";
+    private static final String TAG = "AirTriggerApkPreferenceController";
+
+    private Airtrigger mAirtrigger;
 
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
+    private static Preference mAirtriggerPref;
+    private static Preference mGameCategory;
     private static Preference mGameGenie;
+    private static SwitchPreference mGripSensorPreference;
 
     private static final String SURFACE_FLINGER_SERVICE_KEY = "SurfaceFlinger";
     private static final String SURFACE_COMPOSER_INTERFACE_KEY = "android.ui.ISurfaceComposer";
@@ -88,10 +103,21 @@ public class DeviceSettings extends PreferenceFragment implements
         mGameGenie = findPreference(KEY_GAME_GENIE);
         mGameGenie.setEnabled(GameGenie.isGameGenieExist(this.getContext()));
 
+        mAirtriggerPref = findPreference(KEY_AIRTRIGGER_PREF);
+        mGameCategory = findPreference(KEY_CATEGORY_GAMING);
+
+        mGripSensorPreference = (SwitchPreference) findPreference(KEY_AIRTRIGGER);
+        mGripSensorPreference.setChecked(Settings.Global.getInt(getContext().getContentResolver(),
+        FIELD_AIR_TRIGGER_ENABLE, 0) == 1);
+        mGripSensorPreference.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mAirtriggerPref) {
+            mAirtrigger.startAirTriggerSettings(this.getContext());
+        }
         return super.onPreferenceTreeClick(preference);
     }
 
@@ -103,6 +129,9 @@ public class DeviceSettings extends PreferenceFragment implements
             mFrameModeRate.setSummary(mFrameModeRate.getEntries()[index]);
             changeFps(getContext(), value);
             Settings.System.putInt(getContext().getContentResolver(), FPS, value);
+        }
+        if (preference == mGripSensorPreference) {
+            notifySwitchState(((Boolean) newValue).booleanValue());
         }
         return true;
     }
@@ -122,5 +151,13 @@ public class DeviceSettings extends PreferenceFragment implements
                // intentional no-op
         }
             Settings.System.putInt(context.getContentResolver(), DeviceSettings.FPS, fps);
+    }
+
+    private void notifySwitchState(boolean z) {
+        Log.d(TAG, "notifySwitchState enabled=" + z);
+        Intent intent = new Intent();
+        intent.setAction(z ? ACTION_AIR_TRIGGER_ON : ACTION_AIR_TRIGGER_OFF);
+        intent.setPackage(AIRTRIGGER_PACKAGE_NAME);
+        getContext().sendBroadcastAsUser(intent, UserHandle.CURRENT);
     }
 }
