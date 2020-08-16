@@ -76,11 +76,15 @@
     <string name="refresh_rate_title">Refresh rate</string>
     <string name="summary_placeholder"> </string>
 
-    <string name="gaming_title">Game Genie</string>
+    <string name="gaming_title">Game Category</string>
     <string name="gaming_browse_summary">Lunch game genie settings</string>
 
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Sound</string>
     <string name="vibrate_mode">Vibrate</string>
     <string name="mute_mode">Mute</string>
+
+    <string name="asus_advanced_settings_gripsensor">AirTriggers</string>
+    <string name="grip_category_title">Lunch AirTriggers</string>
+    <string name="grip_category_summary">Settings of your Grip Sensor</string>
 </resources>

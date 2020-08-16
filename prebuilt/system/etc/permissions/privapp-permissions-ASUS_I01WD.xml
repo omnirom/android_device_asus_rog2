@@ -26,6 +26,11 @@
         <permission name="android.permission.DEVICE_POWER"/>
     </privapp-permissions>
 
+    <privapp-permissions package="com.asus.airtriggers">
+        <permission name="android.permission.READ_SEARCH_INDEXABLES"/>
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+    </privapp-permissions>
+
     <!-- Additional permissions on top of privapp-permissions-platform.xml -->
     <privapp-permissions package="com.asus.gamewidget">
         <permission name="com.asus.permission.MANAGE_APP_ASPECT"/>

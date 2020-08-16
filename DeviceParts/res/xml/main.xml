@@ -68,6 +68,20 @@
         android:key="category_gaming"
         android:title="@string/gaming_title">
 
+        <SwitchPreference
+            android:key="grip_sensor_apk"
+            android:title="@string/asus_advanced_settings_gripsensor"
+            android:persistent="false" />
+
+        <Preference
+            android:key="grip_sensor_pref"
+            android:title="@string/grip_category_title"
+            android:summary="@string/grip_category_summary"
+            android:persistent="false" >
+            <intent android:action="asus.intent.action.AIRTRIGGER"
+                    android:targetPackage="com.asus.airtriggers"/>
+        </Preference>
+
         <Preference
             android:key="game_toolbar_app"
             android:title="@string/gaming_title"

@@ -12,10 +12,12 @@
     <uses-permission android:name="com.asus.hardwarestub.permission.FPS_CENTRAL_CONTROL_SERVICE"/>
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+    <protected-broadcast android:name="com.asus.airtriggers.SYSTEMUI_AIR_TRIGGER_ON" />
+    <protected-broadcast android:name="com.asus.airtriggers.SYSTEMUI_AIR_TRIGGER_OFF" />
 
     <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="26" />
+        android:minSdkVersion="28"
+        android:targetSdkVersion="29" />
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/advanced_settings"
@@ -96,6 +98,10 @@
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
+        </service>
+
+        <service android:name="org.omnirom.device.GripSensorServiceMain"
+                 android:permission="AsusGripSensorHelperService">
         </service>
     </application>
 </manifest>
