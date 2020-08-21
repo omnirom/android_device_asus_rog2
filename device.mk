@@ -213,6 +213,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
+    TetheringOverlay \
     WifiOverlay
 
 # WiFi Display
