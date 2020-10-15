@@ -41,7 +41,7 @@ namespace android {
 namespace init {
 
 using android::base::GetProperty;
-using android::init::property_set;
+using ::android::base::SetProperty;
 
 void property_override(const std::string& name, const std::string& value)
 {
