@@ -1323,12 +1323,14 @@ status_t AudioPolicyManagerCustom::checkAndSetVolume(IVolumeCurves &curves,
     VolumeSource btScoVolSrc = toVolumeSource(AUDIO_STREAM_BLUETOOTH_SCO);
     bool isVoiceVolSrc = callVolSrc == volumeSource;
     bool isBtScoVolSrc = btScoVolSrc == volumeSource;
+    float curCallVolSrc = Volume::DbToAmpl(outputDesc->getCurVolume(callVolSrc));
+    bool  forceChange = curCallVolSrc == 0.0 && index != 0;
 
     audio_policy_forced_cfg_t forceUseForComm =
             mEngine->getForceUse(AUDIO_POLICY_FORCE_FOR_COMMUNICATION);
     // do not change in call volume if bluetooth is connected and vice versa
     if ((callVolSrc != btScoVolSrc) &&
-            ((isVoiceVolSrc && forceUseForComm == AUDIO_POLICY_FORCE_BT_SCO) ||
+            ((isVoiceVolSrc && forceUseForComm == AUDIO_POLICY_FORCE_BT_SCO && !forceChange) ||
              (isBtScoVolSrc && forceUseForComm != AUDIO_POLICY_FORCE_BT_SCO))) {
         ALOGV("checkAndSetVolume() cannot set stream %d volume with force use = %d for comm",
              volumeSource, forceUseForComm);
