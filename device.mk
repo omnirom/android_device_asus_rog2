@@ -139,10 +139,6 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.asus_msmnile
-
 # NFC - NQ (NXP)
 #PRODUCT_PACKAGES += \
     Tag \
