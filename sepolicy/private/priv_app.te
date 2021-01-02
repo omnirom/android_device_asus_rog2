@@ -10,5 +10,5 @@ allow priv_app {
     radio_data_file
     system_app_data_file
     voucher_file
-    xrom_file    
+    xrom_file
 }:dir getattr;
