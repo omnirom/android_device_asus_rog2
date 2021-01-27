@@ -132,6 +132,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/goodix_ts.kcm:system/usr/keychars/goodix_ts.kcm \
     $(LOCAL_PATH)/keylayout/goodix_ts.kl:system/usr/keylayout/goodix_ts.kl
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
+    libhidltransport \
+    libhwbinder
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
@@ -166,9 +173,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vndk_package
-
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
