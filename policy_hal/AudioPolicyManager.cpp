@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021 The Linux Foundation. All rights reserved.
  * Not a contribution.
  *
  * Copyright (C) 2009 The Android Open Source Project
@@ -1500,7 +1500,8 @@ audio_io_handle_t AudioPolicyManagerCustom::getOutputForDevices(
             }
         } else if ((config->channel_mask == 1 || config->channel_mask == 3) &&
                    (config->sample_rate == 8000 || config->sample_rate == 16000 ||
-                    config->sample_rate == 32000 || config->sample_rate == 48000)) {
+                    config->sample_rate == 32000 || config->sample_rate == 48000) &&
+                   (mEngine->getPhoneState() != AUDIO_MODE_IN_CALL)) {
             *flags = (audio_output_flags_t)(AUDIO_OUTPUT_FLAG_VOIP_RX |
                                                AUDIO_OUTPUT_FLAG_DIRECT);
             ALOGV("Set VoIP and Direct output flags for PCM format");
