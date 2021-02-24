@@ -45,6 +45,8 @@ product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 -product/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk
 product/etc/permissions/embms.xml
 product/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
 product/etc/permissions/lpa.xml
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
@@ -52,8 +54,9 @@ product/etc/permissions/UimGbaManager.xml
 -product/framework/uimgbalibrary.jar
 -product/framework/uimgbamanagerlibrary.jar
 -product/framework/uimlpalibrary.jar
--product/framework/uimservicelibrary.jar
--product/framework/qti-telephony-common.jar|c22616791b85fe249cb23bf5a332f919f1b5471f
+-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|C22616791B85FE249CB23BF5A332F919F1B5471F
+-product/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+-product/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
 -product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -76,6 +79,8 @@ product/lib/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 product/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 product/lib/vendor.qti.latency@2.0.so
 product/lib/vendor.qti.voiceprint@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.1.so
 product/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 product/lib64/vendor.qti.hardware.data.latency@1.0.so
 product/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
@@ -93,7 +98,7 @@ product/lib64/vendor.qti.latency@2.0.so
 product/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
--product/priv-app/ims/ims.apk|411603cd3e3ae8b2658b56e5c91d74ff9f1dc8c2
+-product/priv-app/ims/ims.apk|411603CD3E3AE8B2658B56E5C91D74FF9F1DC8C2
 lib/libdiag_system.so
 lib64/libdiag_system.so
 -product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
@@ -101,10 +106,10 @@ lib64/libdiag_system.so
 -product/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
 -product/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 -product/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
--product/framework/uimservicelibrary.jar
+-product/framework/uimservicelibrary.jar:system_ext/framework/uimservicelibrary.jar
 -product/framework/vendor.qti.ims.callinfo-V1.0-java.jar
 -product/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
-product/etc/permissions/UimService.xml
+product/etc/permissions/UimService.xml:system_ext/etc/permissions/UimService.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
 product/etc/permissions/com.qualcomm.qti.imscmservice-V2.2-java.xml
