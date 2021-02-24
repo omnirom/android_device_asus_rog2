@@ -53,7 +53,7 @@ product/etc/permissions/UimGbaManager.xml
 -product/framework/uimgbamanagerlibrary.jar
 -product/framework/uimlpalibrary.jar
 -product/framework/uimservicelibrary.jar
--product/framework/qti-telephony-common.jar|c22616791b85fe249cb23bf5a332f919f1b5471f
+-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|C22616791B85FE249CB23BF5A332F919F1B5471F
 -product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -93,7 +93,7 @@ product/lib64/vendor.qti.latency@2.0.so
 product/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
--product/priv-app/ims/ims.apk|411603cd3e3ae8b2658b56e5c91d74ff9f1dc8c2
+-product/priv-app/ims/ims.apk|411603CD3E3AE8B2658B56E5C91D74FF9F1DC8C2
 lib/libdiag_system.so
 lib64/libdiag_system.so
 -product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
