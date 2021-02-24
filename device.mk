@@ -142,6 +142,8 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
+PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
@@ -213,6 +215,10 @@ PRODUCT_COPY_FILES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libnl \
+    libwfds
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 include vendor/qcom/opensource/display-commonsys-intf/config/display-product-system.mk

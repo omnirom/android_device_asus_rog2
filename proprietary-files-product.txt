@@ -53,7 +53,9 @@ product/etc/permissions/UimGbaManager.xml
 -product/framework/uimgbamanagerlibrary.jar
 -product/framework/uimlpalibrary.jar
 -product/framework/uimservicelibrary.jar
--product/framework/qti-telephony-common.jar|c22616791b85fe249cb23bf5a332f919f1b5471f
+-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|C22616791B85FE249CB23BF5A332F919F1B5471F
+-product/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+-product/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
 -product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -61,6 +63,8 @@ product/etc/permissions/UimGbaManager.xml
 -product/framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
 -product/framework/vendor.qti.latency-V2.0-java.jar
 -product/framework/vendor.qti.voiceprint-V1.0-java.jar
+product/lib64/vendor.qti.hardware.data.connection@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.1.so
 product/lib/vendor.qti.hardware.data.dynamicdds@1.0.so
 product/lib/vendor.qti.hardware.data.latency@1.0.so
 product/lib/vendor.qti.hardware.radio.qtiradio@1.0.so
@@ -77,6 +81,8 @@ product/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 product/lib/vendor.qti.latency@2.0.so
 product/lib/vendor.qti.voiceprint@1.0.so
 product/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
+product/lib64/vendor.qti.data.factory@1.0.so
+product/lib64/vendor.qti.data.factory@2.0.so
 product/lib64/vendor.qti.hardware.data.latency@1.0.so
 product/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
 product/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
