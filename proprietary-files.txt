@@ -1,10 +1,7 @@
-# Android Auto
--product/priv-app/AndroidAutoStub/AndroidAutoStub.apk;PRESIGNED
-
 # Asus Game
--app/FocusAppListener/FocusAppListener.apk;PRESIGNED
--app/GameBroadcasterService/GameBroadcasterService.apk;PRESIGNED
--app/HardwareStub/HardwareStub.apk;PRESIGNED
+#-app/FocusAppListener/FocusAppListener.apk
+#-app/GameBroadcasterService/GameBroadcasterService.apk
+#-app/HardwareStub/HardwareStub.apk
 etc/hardcore_default.json
 etc/hardcore_X1.json
 etc/hardcore_X2.json
@@ -13,9 +10,9 @@ etc/permissions/asus.software.gamewidget.zenui.rog2.xml
 etc/permissions/asus.software.zenui.rog.xml
 etc/permissions/asus.software.zenui.xml
 etc/sysconfig/ims-hiddenapi-package-whitelist.xml
--priv-app/GameBroadcaster/GameBroadcaster.apk;PRESIGNED
-priv-app/GameBroadcaster/lib/arm64/libJniModule.so
--priv-app/ROGGameCenter/ROGGameCenter.apk;PRESIGNED
+#-priv-app/GameBroadcaster/GameBroadcaster.apk
+#priv-app/GameBroadcaster/lib/arm64/libJniModule.so
+#-priv-app/ROGGameCenter/ROGGameCenter.apk
 
 # ANT+
 -lib/libantradio.so
@@ -82,6 +79,9 @@ product/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
 product/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so
 product/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so
 
+# Device
+-product/app/DeviceInfo/DeviceInfo.apk
+
 # DPM
 -framework/tcmclient.jar
 product/bin/dpmd
@@ -111,57 +111,15 @@ lib64/libfm-hci.so
 product/lib/vendor.qti.hardware.fm@1.0.so
 product/lib64/vendor.qti.hardware.fm@1.0.so
 
-# Gallery
--priv-app/AsusGallery/AsusGallery.apk;PRESIGNED
-priv-app/AsusGallery/lib/arm/libmpbase.so
-priv-app/AsusGallery/lib/arm/libjni_filter_show.so
-priv-app/AsusGallery/lib/arm/libtensorflowlite_jni.so
-priv-app/AsusGallery/lib/arm/libjni_face_effect.so
-priv-app/AsusGallery/lib/arm/librs.vignette.so
-priv-app/AsusGallery/lib/arm/libtensorflow_inference.so
-priv-app/AsusGallery/lib/arm/librs.convolve3x3.so
-priv-app/AsusGallery/lib/arm/libpanorenderer.so
-priv-app/AsusGallery/lib/arm/libpano_video_renderer.so
-priv-app/AsusGallery/lib/arm/librsjni_androidx.so
-priv-app/AsusGallery/lib/arm/librsjni.so
-priv-app/AsusGallery/lib/arm/libgif.so
-priv-app/AsusGallery/lib/arm/librs.grey.so
-priv-app/AsusGallery/lib/arm/libarcsoft_beautyshot.so
-priv-app/AsusGallery/lib/arm/librs.saturation.so
-priv-app/AsusGallery/lib/arm/libblur.so
-priv-app/AsusGallery/lib/arm/librs.grad.so
-priv-app/AsusGallery/lib/arm/librs.blur.so
-priv-app/AsusGallery/lib/arm/libRSSupport.so
-priv-app/AsusGallery/lib/arm/libjni_wide_angle_undistort.so
-priv-app/AsusGallery/lib/arm/libgvr.so
-priv-app/AsusGallery/lib/arm/libjni_cvface_api.so
-priv-app/AsusGallery/lib/arm/libcvface_api.so
-priv-app/AsusGallery/lib/arm/libarcsoft_undistort.so
-priv-app/AsusGallery/lib/arm/libopencv_java3.so
-
-# GalleryBurst
--priv-app/AsusGalleryBurst/AsusGalleryBurst.apk;PRESIGNED
-priv-app/AsusGalleryBurst/lib/arm/libgifencoder.so
-
-# GalleryBurst Video Editor
-etc/videoeditor/Soothing.mfim
-etc/videoeditor/Charming.mfim
-etc/videoeditor/Energetic.mfim
-etc/videoeditor/Lively.mfim
-etc/videoeditor/Graceful.mfim
-etc/videoeditor/Happy.mfim
-etc/videoeditor/Dynamic.mfim
-
 # GPS
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
-etc/permissions/privapp-permissions-com.qualcomm.location.xml
 -framework/com.qti.location.sdk.jar
 -framework/izat.xt.srv.jar
 lib64/liblocationservice_jni.so
 lib64/libxt_native.so
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk|E7030FDF4BA94894FF34FED5A0E5FD8300AADEDF
 product/lib64/vendor.qti.gnss@1.0.so
 product/lib64/vendor.qti.gnss@1.1.so
 product/lib64/vendor.qti.gnss@1.2.so
@@ -302,7 +260,6 @@ etc/sensors/proto/sns_motion_detect.proto
 etc/sensors/proto/sns_ambient_temperature.proto
 
 # Telephony
-etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 etc/sysconfig/qti_whitelist.xml
 product/etc/permissions/qcrilhook.xml
@@ -313,58 +270,8 @@ product/etc/permissions/telephonyservice.xml
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
-# Wfd
-bin/wfdservice
-etc/init/wfdservice.rc
-etc/wfdconfigsink.xml
--framework/WfdCommon.jar
--priv-app/WfdService/WfdService.apk
-lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-lib/libFileMux.so
-lib/libmmparser_lite.so
-lib/libmmosal.so
-lib/libmmrtpdecoder.so
-lib/libmmrtpencoder.so
-lib/libOmxMux.so
-lib/libwfdaac.so
-lib/libwfdavenhancements.so
-lib/libwfdcommonutils.so
-lib/libwfdconfigutils.so
-lib/libwfdclient.so
-lib/libwfdmminterface.so
-lib/libwfdmmsink.so
-lib/libwfdrtsp.so
-lib/libwfdservice.so
-lib/libwfdsm.so
-lib/libwfdsinksm.so
-lib/libwfduibcinterface.so
-lib/libwfduibcsink.so
-lib/libwfduibcsinkinterface.so
-lib/libwfduibcsrc.so
-lib/libwfduibcsrcinterface.so
-lib/libwfdmmsrc_system.so
-lib64/libFileMux.so
-lib64/libmmparser_lite.so
-lib64/libmmrtpdecoder.so
-lib64/libmmrtpencoder.so
-lib64/libmmosal.so
-lib64/libwfdclient.so
-lib64/libwfdcommonutils.so
-lib64/libwfdconfigutils.so
-lib64/libwfdmminterface.so
-lib64/libwfdmmsink.so
-lib64/libwfdnative.so
-lib64/libwfdrtsp.so
-lib64/libwfdsinksm.so
-lib64/libwfdsm.so
-lib64/libwfduibcinterface.so
-lib64/libwfduibcsinkinterface.so
-lib64/libwfduibcsink.so
-lib64/libwfduibcsrcinterface.so
-lib64/libwfduibcsrc.so
-product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
-product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
-product/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
 
 # Wlan
 -product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
+product/lib64/vendor.qti.hardware.data.iwlan@1.0.so
+product/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
