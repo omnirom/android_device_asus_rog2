@@ -2,28 +2,17 @@
 -product/app/PowerOffAlarm/PowerOffAlarm.apk
 -product/framework/vendor.qti.hardware.alarm-V1.0-java.jar
 product/lib64/vendor.qti.hardware.alarm@1.0.so
-product/lib/vendor.qti.hardware.alarm@1.0.so
 
 # Bluetooth
 product/lib64/vendor.qti.hardware.audiohalext@1.0.so
-product/lib/vendor.qti.hardware.audiohalext@1.0.so
 
 # Camera
 -product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
-product/lib/libQTEEConnector_system.so
-product/lib/libimscamera_jni.so
-product/lib/libseccam.so
-product/lib/vendor.qti.hardware.camera.device@1.0.so
-product/lib/vendor.qti.hardware.cvp@1.0.so
-product/lib/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
-product/lib/vendor.qti.hardware.scve.objecttracker@1.0.so
-product/lib/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
-product/lib/vendor.qti.hardware.scve.panorama@1.0.so
-product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 product/lib64/libQTEEConnector_system.so
-product/lib64/libimscamera_jni.so
 product/lib64/libseccam.so
 product/lib64/vendor.qti.hardware.camera.device@1.0.so
+product/lib64/vendor.qti.hardware.cvp@1.0.so
+product/lib64/vendor.qti.hardware.cvp@1.0-adapter-helper.so
 product/lib64/vendor.qti.hardware.scve.objecttracker@1.0-adapter-helper.so
 product/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 product/lib64/vendor.qti.hardware.scve.panorama@1.0-adapter-helper.so
@@ -45,6 +34,8 @@ product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 -product/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk
 product/etc/permissions/embms.xml
 product/etc/permissions/embms-noship_product_privapp_permissions_qti.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
+product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
 product/etc/permissions/lpa.xml
 product/etc/permissions/UimGba.xml
 product/etc/permissions/UimGbaManager.xml
@@ -52,8 +43,10 @@ product/etc/permissions/UimGbaManager.xml
 -product/framework/uimgbalibrary.jar
 -product/framework/uimgbamanagerlibrary.jar
 -product/framework/uimlpalibrary.jar
--product/framework/uimservicelibrary.jar
--product/framework/qti-telephony-common.jar|c22616791b85fe249cb23bf5a332f919f1b5471f
+# https://git.rip/dumps/redmi/curtana/-/blob/qssi-user-11-RKQ1.200826.002-V12.0.1.0.RJWINXM-release-keys/system_ext/framework/qti-telephony-common.jar
+-product/framework/qti-telephony-common.jar|C4D8A8B797EBCC7C73384CE3A10BA9E94FB1B460
+-product/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+-product/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
 -product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V1.0-java.jar
 -product/framework/vendor.qti.data.factory-V2.0-java.jar
@@ -76,6 +69,8 @@ product/lib/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 product/lib/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 product/lib/vendor.qti.latency@2.0.so
 product/lib/vendor.qti.voiceprint@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.0.so
+product/lib64/vendor.qti.hardware.data.connection@1.1.so
 product/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
 product/lib64/vendor.qti.hardware.data.latency@1.0.so
 product/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
@@ -93,7 +88,7 @@ product/lib64/vendor.qti.latency@2.0.so
 product/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
--product/priv-app/ims/ims.apk|411603cd3e3ae8b2658b56e5c91d74ff9f1dc8c2
+-product/priv-app/ims/ims.apk|411603CD3E3AE8B2658B56E5C91D74FF9F1DC8C2
 lib/libdiag_system.so
 lib64/libdiag_system.so
 -product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
@@ -141,6 +136,7 @@ product/lib64/com.qualcomm.qti.imscmservice@2.0.so
 product/lib64/com.qualcomm.qti.imscmservice@2.1.so
 product/lib64/com.qualcomm.qti.imscmservice@2.2.so
 product/lib64/com.qualcomm.qti.uceservice@2.0.so
+product/lib64/libimscamera_jni.so
 product/lib64/libimsmedia_jni.so
 product/lib64/lib-imsvideocodec.so
 product/lib64/lib-imsvtextutils.so
@@ -167,8 +163,7 @@ product/lib64/vendor.qti.imsrtpservice@2.1.so
 # IOP
 product/lib64/vendor.qti.hardware.iop@2.0.so
 product/lib64/vendor.qti.hardware.perf@2.0.so
-product/lib/vendor.qti.hardware.iop@2.0.so
-product/lib/vendor.qti.hardware.perf@2.0.so
+product/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 -product/framework/vendor.qti.hardware.soter-V1.0-java.jar
 product/lib/vendor.qti.hardware.soter@1.0.so
@@ -179,6 +174,10 @@ product/lib/libGPQTEEC_system.qti.so
 product/lib64/libGPTEE_system.qti.so
 product/lib64/libQTEEConnector_system.so
 product/lib64/libGPQTEEC_system.qti.so
+
+# Secure
+-product/app/com.qualcomm.qti.services.secureui/com.qualcomm.qti.services.secureui.apk
+product/lib64/libsecureuisvc_jni.so|B855B7ADAA64264749A1D0AB099FEABC258CF276
 product/lib/libsecureuisvc_jni.so
 product/lib/libsecureui_svcsock_system.so
 product/lib64/libsecureuisvc_jni.so
