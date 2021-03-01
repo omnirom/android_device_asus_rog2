@@ -79,6 +79,7 @@ persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac
 persist.vendor.btstack.aac_frm_ctl.enabled=true
 persist.vendor.btstack.enable.twsplus=true
+persist.vendor.btstack.enable.twsplussho=true
 persist.bluetooth.avrcpversion=avrcp16
 
 #system prop for wipower support
@@ -191,7 +192,7 @@ persist.vendor.service.bt.iotinfo.report.enable=true
 # ASUS_BSP "Enable IOT logging"---
 
 #Expose aux camera for below packages
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.qualcomm.saltproject2,com.asus.camera
+vendor.camera.aux.packagelist=org.omnirom.snap,com.googlecamera.wichaya,com.asus.camera
 
 # [ASUS BSP] Deka
 ro.asus.camera.preview_beauty=0:1;1:1;2:1;3:1
@@ -301,15 +302,11 @@ audio.wizard.default.mode=smart
 ro.asus.poweroffalarm_support=1
 
 # lkmd
-
-ro.lmk.use_minfree_levels=true
-ro.lmk.use_psi=false
-ro.lmk.low=1001
-ro.lmk.medium=800
-ro.lmk.critical=200
+ro.config.low_ram=false
 ro.lmk.kill_heaviest_task=true
-ro.lmk.upgrade_pressure=100
-ro.lmk.downgrade_pressure=100
+ro.lmk.kill_timeout_ms=100
+ro.lmk.use_minfree_levels=true
+ro.lmk.log_stats=true
 
 vendor.iop.enable_uxe=0
 
