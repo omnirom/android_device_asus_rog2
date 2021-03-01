@@ -5,14 +5,6 @@
     <!-- Screen brightness when dozing -->
     <integer name="config_screenBrightnessDoze">6</integer>
 
-    <!-- List supported color modes. -->
-    <integer-array name="config_availableColorModes">
-        <item>0</item> <!-- COLOR_MODE_NATURAL -->
-        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
-        <item>2</item> <!-- COLOR_MODE_SATURATED -->
-        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
-    </integer-array>
-
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
     <integer name="config_screenBrightnessSettingMinimum">2</integer>

@@ -1,5 +1,9 @@
 on init
     mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/TelephonyResCommon.apk bind
+    mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/FrameworksResCommon.apk bind
+    mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/FrameworksResTarget.apk bind
+    mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/SystemUIResCommon.apk bind
+    mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/OptInAppOverlay/OptInAppOverlay.apk bind
 
 service vendor.vibrator-1-0 /system/bin/true
     disabled
