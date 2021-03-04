@@ -2,4 +2,4 @@
 allow init vendor_configs_file:dir mounton;
 
 # Allow init to mount vendor overlays
-allow init vendor_overlay_file:dir mounton;
+allow init vendor_overlay_file:file mounton;
