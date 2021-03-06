@@ -22,13 +22,14 @@ import android.app.Dialog;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 import android.provider.Settings;
@@ -59,6 +60,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
     private static Preference mGameGenie;
+    private MakeFps mMakeFps;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -117,6 +119,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private void setFrameMode(int position, int fps) {
 
         String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final String defaultValue = DEFAULT_FPS_VALUE;
 
         if (value == null) {
@@ -127,7 +130,7 @@ public class DeviceSettings extends PreferenceFragment implements
             parts[position] = String.valueOf(fps);
             String newValue = TextUtils.join(",", parts);
             Settings.System.putString(getContext().getContentResolver(), TEMP_FPS, newValue);
-            SystemProperties.set(VENDOR_FPS, newValue);
+            mMakeFps.changeFps(sharedPrefs, fps);
         } catch (Exception e) {
         }
     }
