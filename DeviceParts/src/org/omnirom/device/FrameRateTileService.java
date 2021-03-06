@@ -15,18 +15,25 @@
  */
 package org.omnirom.device;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Icon;
-import android.os.SystemProperties;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
+import androidx.preference.PreferenceManager;
 
 public class FrameRateTileService extends TileService {
-    private static String VENDOR_FPS = "vendor.asus.dfps";
 
     private static final String DEFAULT_FPS_VALUE = "60";
     private static final String FPS_VALUE_90 = "90";
     private static final String FPS_VALUE_120 = "120";
+
+    private static final int DEFAULT_FPS_INT = 60;
+    private static final int FPS_INT_90 = 90;
+    private static final int FPS_INT_120 = 120;
+    private static String OMNIFPS = "OmniFrameRateTile";
+    private MakeFps mMakeFps;
 
     @Override
     public void onDestroy() {
@@ -49,7 +56,7 @@ public class FrameRateTileService extends TileService {
 
         String value = Settings.System.getString(this.getContentResolver(), DeviceSettings.TEMP_FPS);
         switch (value) {
-			case DEFAULT_FPS_VALUE:
+            case DEFAULT_FPS_VALUE:
                 getQsTile().setIcon(Icon.createWithResource(this, R.drawable.ic_refresh_rate));
                 break;
             case FPS_VALUE_90:
@@ -73,21 +80,22 @@ public class FrameRateTileService extends TileService {
         super.onClick();
 
         String value = Settings.System.getString(this.getContentResolver(), DeviceSettings.TEMP_FPS);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         switch (value) {
-			case DEFAULT_FPS_VALUE:
+            case DEFAULT_FPS_VALUE:
                 Settings.System.putString(this.getContentResolver(), DeviceSettings.TEMP_FPS, FPS_VALUE_90);
-                SystemProperties.set(VENDOR_FPS, FPS_VALUE_90);
+                mMakeFps.changeFps(sharedPrefs, FPS_INT_90);
                 getQsTile().setIcon(Icon.createWithResource(this, R.drawable.ic_refresh_rate_90));
                 break;
             case FPS_VALUE_90:
                 Settings.System.putString(this.getContentResolver(), DeviceSettings.TEMP_FPS, FPS_VALUE_120);
-                SystemProperties.set(VENDOR_FPS, FPS_VALUE_120);
+                mMakeFps.changeFps(sharedPrefs, FPS_INT_120);
                 getQsTile().setIcon(Icon.createWithResource(this, R.drawable.ic_refresh_rate_120));
                 break;
             case FPS_VALUE_120:
                 Settings.System.putString(this.getContentResolver(), DeviceSettings.TEMP_FPS, DEFAULT_FPS_VALUE);
-                SystemProperties.set(VENDOR_FPS, DEFAULT_FPS_VALUE);
+                mMakeFps.changeFps(sharedPrefs, DEFAULT_FPS_INT);
                 getQsTile().setIcon(Icon.createWithResource(this, R.drawable.ic_refresh_rate));
                 break;
         }

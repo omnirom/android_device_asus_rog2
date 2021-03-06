@@ -128,10 +128,6 @@ public class Startup extends BroadcastReceiver {
         if (TextUtils.isEmpty(value)) {
             value = DeviceSettings.DEFAULT_FPS_VALUE;
             Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-            SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
-        } else {
-        Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-        SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
         }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;

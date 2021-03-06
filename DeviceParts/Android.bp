@@ -14,6 +14,7 @@ android_app {
 
     srcs: [
         "src/**/*.java",
+        "src/**/*.kt",
     ],
     certificate: "platform",
     privileged: true,
@@ -28,4 +29,6 @@ android_app {
     dex_preopt: {
         enabled: false,
     },
+
+    kotlincflags: ["-Xjvm-default=enable"],
 }
