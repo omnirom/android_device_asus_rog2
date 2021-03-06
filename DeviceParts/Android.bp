@@ -1,0 +1,33 @@
+//package_resource_overlays = ["__builtin_func:strip      __builtin_func:wildcard __builtin_func:foreach dir  <'PRODUCT_PACKAGE_OVERLAYS' unset>         __builtin_func:addprefix <'dir' unset>/  packages/apps/DeviceParts/res      __builtin_func:wildcard __builtin_func:foreach dir  <'DEVICE_PACKAGE_OVERLAYS' unset>         __builtin_func:addprefix <'dir' unset>/  packages/apps/DeviceParts/res"]
+android_app {
+    name: "DeviceParts",
+
+    defaults: [
+        "SettingsLibDefaults",
+        "SettingsLib-search-defaults",
+    ],
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "OmniLib",
+    ],
+
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+    certificate: "platform",
+    privileged: true,
+    platform_apis: true,
+    resource_dirs: ["res"],
+
+    libs: ["telephony-common"],
+
+    optimize: {
+        enabled: false,
+    },
+    dex_preopt: {
+        enabled: false,
+    },
+}
