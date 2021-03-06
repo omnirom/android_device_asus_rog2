@@ -17,18 +17,20 @@
 */
 package org.omnirom.device;
 
+import android.content.Context;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 import android.provider.Settings;
@@ -49,8 +51,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
     public static final String KEY_GAME_GENIE = "game_toolbar_app";
-    public static final String VENDOR_FPS = "vendor.asus.dfps";
-    public static final String TEMP_FPS = "temp_fps";
+    public static final String FPS = "fps";
 
     public static final String DEFAULT_FPS_VALUE = "60";
     public static final String FPS_VALUE_90 = "90";
@@ -59,6 +60,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
     private static Preference mGameGenie;
+    private ApplyFps mApplyFps;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -100,7 +102,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private int getFrameMode(int position) {
 
-        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
+        String value = Settings.System.getString(getContext().getContentResolver(), FPS);
         final String defaultValue = DEFAULT_FPS_VALUE;
 
         if (value == null) {
@@ -116,7 +118,8 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private void setFrameMode(int position, int fps) {
 
-        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
+        String value = Settings.System.getString(getContext().getContentResolver(), FPS);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         final String defaultValue = DEFAULT_FPS_VALUE;
 
         if (value == null) {
@@ -126,8 +129,8 @@ public class DeviceSettings extends PreferenceFragment implements
             String[] parts = value.split(",");
             parts[position] = String.valueOf(fps);
             String newValue = TextUtils.join(",", parts);
-            Settings.System.putString(getContext().getContentResolver(), TEMP_FPS, newValue);
-            SystemProperties.set(VENDOR_FPS, newValue);
+            Settings.System.putString(getContext().getContentResolver(), FPS, newValue);
+            mApplyFps.changeFps(sharedPrefs, Integer.valueOf(newValue));
         } catch (Exception e) {
         }
     }

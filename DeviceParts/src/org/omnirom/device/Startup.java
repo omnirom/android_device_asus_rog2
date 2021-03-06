@@ -27,6 +27,9 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 public class Startup extends BroadcastReceiver {
+
+    private ApplyFps mApplyFps;
+
     private static void restore(String file, boolean enabled) {
         if (file == null) {
             return;
@@ -53,6 +56,9 @@ public class Startup extends BroadcastReceiver {
             Settings.System.putInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, enabled ? 1 : 0);
 
             Settings.System.putInt(context.getContentResolver(), "omni_device_setting_imported", 1);
+
+            int fps = sharedPrefs.getInt(DeviceSettings.FPS, 60);
+            mApplyFps.changeFps(sharedPrefs, fps);
         }
     }
 
@@ -123,16 +129,6 @@ public class Startup extends BroadcastReceiver {
         }
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_Z_APP), enabled);
-
-        value = Settings.System.getString(context.getContentResolver(), DeviceSettings.TEMP_FPS);
-        if (TextUtils.isEmpty(value)) {
-            value = DeviceSettings.DEFAULT_FPS_VALUE;
-            Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-            SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
-        } else {
-        Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-        SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
-        }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
         if (enabled) {
