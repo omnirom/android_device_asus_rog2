@@ -19,4 +19,5 @@
 <resources>
     <dimen name="keyguard_fod_switch_bottom_margin">20dp</dimen>
     <dimen name="keyguard_security_container_bottom_margin">88dp</dimen>
+    <dimen name="keyguard_eca_bottom_margin">5dp</dimen>
 </resources>
