@@ -49,12 +49,9 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
     public static final String KEY_GAME_GENIE = "game_toolbar_app";
-    public static final String VENDOR_FPS = "vendor.asus.dfps";
-    public static final String TEMP_FPS = "temp_fps";
+    public static final String FPS = "fps";
 
-    public static final String DEFAULT_FPS_VALUE = "60";
-    public static final String FPS_VALUE_90 = "90";
-    public static final String FPS_VALUE_120 = "120";
+    protected static final String DEFAULT_FPS_VALUE = "60";
 
     private static ListPreference mFrameModeRate;
     private static TwoStatePreference mGloveModeSwitch;
@@ -70,11 +67,11 @@ public class DeviceSettings extends PreferenceFragment implements
         mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
 
         mFrameModeRate = (ListPreference) findPreference(KEY_FRAME_MODE);
+        int framevalue = Settings.System.getInt(getContext().getContentResolver(),
+                            FPS, 60);
+        mFrameModeRate.setValue(Integer.toString(framevalue));
+        mFrameModeRate.setSummary(mFrameModeRate.getEntry());
         mFrameModeRate.setOnPreferenceChangeListener(this);
-        int frameMode = getFrameMode(0);
-        int valueIndex = mFrameModeRate.findIndexOfValue(String.valueOf(frameMode));
-        mFrameModeRate.setValueIndex(valueIndex);
-        mFrameModeRate.setSummary(mFrameModeRate.getEntries()[valueIndex]);
 
         mGameGenie = findPreference(KEY_GAME_GENIE);
         mGameGenie.setEnabled(GameGenie.isGameGenieExist(this.getContext()));
@@ -89,46 +86,11 @@ public class DeviceSettings extends PreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mFrameModeRate) {
-            String value = (String) newValue;
-            int frameMode = Integer.valueOf(value);
-            setFrameMode(0, frameMode);
-            int valueIndex = mFrameModeRate.findIndexOfValue(value);
-            mFrameModeRate.setSummary(mFrameModeRate.getEntries()[valueIndex]);
+            int value = Integer.valueOf((String) newValue);
+            int index = mFrameModeRate.findIndexOfValue((String) newValue);
+            mFrameModeRate.setSummary(mFrameModeRate.getEntries()[index]);
+            Settings.System.putInt(getContext().getContentResolver(), FPS, value);
         }
         return true;
-    }
-
-    private int getFrameMode(int position) {
-
-        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
-        final String defaultValue = DEFAULT_FPS_VALUE;
-
-        if (value == null) {
-            value = defaultValue;
-        }
-        try {
-            String[] parts = value.split(",");
-            return Integer.valueOf(parts[position]);
-        } catch (Exception e) {
-        }
-        return 0;
-    }
-
-    private void setFrameMode(int position, int fps) {
-
-        String value = Settings.System.getString(getContext().getContentResolver(), TEMP_FPS);
-        final String defaultValue = DEFAULT_FPS_VALUE;
-
-        if (value == null) {
-            value = defaultValue;
-        }
-        try {
-            String[] parts = value.split(",");
-            parts[position] = String.valueOf(fps);
-            String newValue = TextUtils.join(",", parts);
-            Settings.System.putString(getContext().getContentResolver(), TEMP_FPS, newValue);
-            SystemProperties.set(VENDOR_FPS, newValue);
-        } catch (Exception e) {
-        }
     }
 }

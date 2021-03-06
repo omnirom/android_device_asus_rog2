@@ -124,14 +124,12 @@ public class Startup extends BroadcastReceiver {
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_Z_APP), enabled);
 
-        value = Settings.System.getString(context.getContentResolver(), DeviceSettings.TEMP_FPS);
+        value = Settings.System.getString(context.getContentResolver(), DeviceSettings.FPS);
         if (TextUtils.isEmpty(value)) {
             value = DeviceSettings.DEFAULT_FPS_VALUE;
-            Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-            SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
+            Settings.System.putString(context.getContentResolver(), DeviceSettings.FPS, value);
         } else {
-        Settings.System.putString(context.getContentResolver(), DeviceSettings.TEMP_FPS, value);
-        SystemProperties.set(DeviceSettings.VENDOR_FPS, value);
+        Settings.System.putString(context.getContentResolver(), DeviceSettings.FPS, value);
         }
 
         enabled = Settings.System.getInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, 0) != 0;
