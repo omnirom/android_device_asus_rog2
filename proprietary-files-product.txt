@@ -88,7 +88,8 @@ product/lib64/vendor.qti.latency@2.0.so
 product/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
--product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|411603CD3E3AE8B2658B56E5C91D74FF9F1DC8C2
+#https://git.rip/dumps/redmi/sweetin/-/blob/qssi-user-11-RKQ1.200826.002-V12.0.1.0.RKFINXM-release-keys/system_ext/priv-app/ims/ims.apk
+-product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|87F152EA9F0465247EB4A4A1C2142ACD310C0C41
 lib/libdiag_system.so
 lib64/libdiag_system.so
 -product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
