@@ -72,6 +72,7 @@ QCOM_BT_USE_BTNV := true
 
 # charger
 HEALTHD_USE_BATTERY_INFO := true
+HEALTHD_ENABLE_TRICOLOR_LED := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
