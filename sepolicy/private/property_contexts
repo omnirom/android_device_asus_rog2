@@ -1,0 +1,4 @@
+vendor.ims.                u:object_r:ims_prop:s0
+ro.vendor.build.software.version  u:object_r:ims_prop:s0
+persist.vendor.ims.        u:object_r:ims_prop:s0
+persist.vendor.qti.telephony.vt_cam_interface u:object_r:ims_prop:s0
