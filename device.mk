@@ -158,6 +158,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     com.android.nfc_extras
 
+# Power Feature
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml
+
 # Prebuilt
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/system,system) \
