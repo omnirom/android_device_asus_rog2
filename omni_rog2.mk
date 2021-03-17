@@ -57,7 +57,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=ZS660KL
 
 OMNI_PRODUCT_PROPERTIES += \
-    ro.sf.lcd_density=411
+    ro.sf.lcd_density=420
 
 # Build properties from stock
 ASUS_BUILD_ID := QKQ1.190825.002
