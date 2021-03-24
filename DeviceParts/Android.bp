@@ -19,7 +19,11 @@ android_app {
     platform_apis: true,
     resource_dirs: ["res"],
 
-    libs: ["telephony-common"],
+    libs: [
+        "asus-vibrator",
+        "telephony-common",
+        "services",
+    ],
 
     optimize: {
         enabled: false,

@@ -1,0 +1,9 @@
+java_library {
+    name: "asus-vibrator",
+    installable: true,
+
+    srcs: [
+        "src/*/*/*/*.java",
+        "src/*/*/*.java",
+    ],
+}

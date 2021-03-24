@@ -18,17 +18,21 @@
 package org.omnirom.device;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Slog;
 
 public class Startup extends BroadcastReceiver {
 
     private static final String ASUS_GAMEMODE = "asus_gamemode";
+    private static final String TAG = "OmniStartServices";
 
     private static void restore(String file, boolean enabled) {
         if (file == null) {
@@ -64,6 +68,15 @@ public class Startup extends BroadcastReceiver {
         maybeImportOldSettings(context);
         restoreAfterUserSwitch(context);
         context.startService(new Intent(context, GripSensorServiceMain.class));
+        startVibratorFacade(context);
+    }
+
+    private static void startVibratorFacade(Context context) {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(KeyHandler.VibratorFacade.PACKAGE, "com.asus.ims.vibration.ImsService"));
+        intent.addFlags(256);
+        Slog.d(TAG, "Starting service: " + intent);
+        context.startServiceAsUser(intent, UserHandle.SYSTEM);
     }
 
     public static void restoreAfterUserSwitch(Context context) {

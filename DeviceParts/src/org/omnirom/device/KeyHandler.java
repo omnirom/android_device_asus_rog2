@@ -45,8 +45,11 @@ import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UEventObserver;
 import android.os.UserHandle;
+import android.os.VibrateMessage;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.os.VibratorFacadeInternal;
+import android.os.VibratorServiceInternal;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
@@ -65,6 +68,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.omni.OmniUtils;
 import org.omnirom.omnilib.utils.OmniVibe;
 import com.android.internal.statusbar.IStatusBarService;
+import com.android.server.LocalServices;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -573,5 +577,63 @@ public class KeyHandler implements DeviceKeyHandler {
 
     IStatusBarService getStatusBarService() {
         return IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
+    }
+
+    protected static class VibratorFacade extends VibratorServiceInternal {
+        public static final String PACKAGE = "com.asus.ims.vibration";
+        private int mDefaultVibrationAmplitude;
+        private boolean mFeature = false;
+        private VibratorFacadeInternal mVibratorFacadeInternal;
+
+        public VibratorFacade(Context context, int defaultAmplitude) {
+            this.mDefaultVibrationAmplitude = defaultAmplitude;
+            this.mFeature = true;
+        }
+
+        public void initVibrate() {
+            VibratorFacadeInternal vibratorFacadeInternal = (VibratorFacadeInternal) LocalServices.getService(VibratorFacadeInternal.class);
+            this.mVibratorFacadeInternal = vibratorFacadeInternal;
+            if (vibratorFacadeInternal != null) {
+                vibratorFacadeInternal.init(this.mDefaultVibrationAmplitude);
+            }
+        }
+
+        public void vibrateOn(VibrateMessage msg) {
+            VibratorFacadeInternal vibratorFacadeInternal = this.mVibratorFacadeInternal;
+            if (vibratorFacadeInternal != null) {
+                vibratorFacadeInternal.vibrateOn(msg);
+            }
+        }
+
+        public void vibrateOff(boolean cancel) {
+            VibratorFacadeInternal vibratorFacadeInternal = this.mVibratorFacadeInternal;
+            if (vibratorFacadeInternal != null) {
+                vibratorFacadeInternal.vibrateOff(cancel);
+            }
+        }
+
+        public void setAmptitude(int amptitude) {
+            VibratorFacadeInternal vibratorFacadeInternal = this.mVibratorFacadeInternal;
+            if (vibratorFacadeInternal != null) {
+                vibratorFacadeInternal.setAmptitude(amptitude);
+            }
+        }
+
+        public boolean isSupport(int id) {
+            if (id < 10000 || id >= 104000) {
+                return false;
+            }
+            return true;
+        }
+
+        public boolean enableFeature() {
+            return this.mFeature;
+        }
+
+        public void notify(int status) {
+            if (status == 4000) {
+                initVibrate();
+            }
+        }
     }
 }
