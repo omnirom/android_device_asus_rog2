@@ -115,6 +115,47 @@ lib64/libfm-hci.so
 product/lib/vendor.qti.hardware.fm@1.0.so
 product/lib64/vendor.qti.hardware.fm@1.0.so
 
+# Gallery
+-priv-app/AsusGallery/AsusGallery.apk
+priv-app/AsusGallery/lib/arm/libmpbase.so
+priv-app/AsusGallery/lib/arm/libjni_filter_show.so
+priv-app/AsusGallery/lib/arm/libtensorflowlite_jni.so
+priv-app/AsusGallery/lib/arm/libjni_face_effect.so
+priv-app/AsusGallery/lib/arm/librs.vignette.so
+priv-app/AsusGallery/lib/arm/libtensorflow_inference.so
+priv-app/AsusGallery/lib/arm/librs.convolve3x3.so
+priv-app/AsusGallery/lib/arm/libpanorenderer.so
+priv-app/AsusGallery/lib/arm/libpano_video_renderer.so
+priv-app/AsusGallery/lib/arm/librsjni_androidx.so
+priv-app/AsusGallery/lib/arm/librsjni.so
+priv-app/AsusGallery/lib/arm/libgif.so
+priv-app/AsusGallery/lib/arm/librs.grey.so
+priv-app/AsusGallery/lib/arm/libarcsoft_beautyshot.so
+priv-app/AsusGallery/lib/arm/librs.saturation.so
+priv-app/AsusGallery/lib/arm/libblur.so
+priv-app/AsusGallery/lib/arm/librs.grad.so
+priv-app/AsusGallery/lib/arm/librs.blur.so
+priv-app/AsusGallery/lib/arm/libRSSupport.so
+priv-app/AsusGallery/lib/arm/libjni_wide_angle_undistort.so
+priv-app/AsusGallery/lib/arm/libgvr.so
+priv-app/AsusGallery/lib/arm/libjni_cvface_api.so
+priv-app/AsusGallery/lib/arm/libcvface_api.so
+priv-app/AsusGallery/lib/arm/libarcsoft_undistort.so
+priv-app/AsusGallery/lib/arm/libopencv_java3.so
+
+# GalleryBurst
+-priv-app/AsusGalleryBurst/AsusGalleryBurst.apk
+priv-app/AsusGalleryBurst/lib/arm/libgifencoder.so
+
+# GalleryBurst Video Editor
+etc/videoeditor/Soothing.mfim
+etc/videoeditor/Charming.mfim
+etc/videoeditor/Energetic.mfim
+etc/videoeditor/Lively.mfim
+etc/videoeditor/Graceful.mfim
+etc/videoeditor/Happy.mfim
+etc/videoeditor/Dynamic.mfim
+
 # GPS
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
