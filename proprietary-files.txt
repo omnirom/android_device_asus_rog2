@@ -36,7 +36,7 @@ lib64/libmdsprpc_system.so
 lib64/libsdsprpc_system.so
 
 # Bluetooth
--app/aptxals/aptxals.apk
+-app/aptxals/aptxals.apk|95460DC333497F15E4E15D99842FB06BE8DBD3EF
 etc/bluetooth/bt_profile.conf
 etc/bluetooth/interop_database.conf
 etc/permissions/audiosphere.xml
