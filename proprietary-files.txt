@@ -55,6 +55,20 @@ lib64/libxditk_arch.so
 lib64/libxditk_ditArchLIB.so
 lib64/libxditk_ditBSP.so
 lib64/libxditk_ditBSP_JNI.so
+-priv-app/AsusCamera/AsusCamera.apk;PRESIGNED
+priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
+priv-app/AsusCamera/lib/arm64/libbitmap.so
+priv-app/AsusCamera/lib/arm64/libmpbase.so
+priv-app/AsusCamera/lib/arm64/libtensorflowlite_jni.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_selfiepano.so
+priv-app/AsusCamera/lib/arm64/libasus_camera_object_tracking.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_distortion_correction.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_panorama_burstcapture.so
+priv-app/AsusCamera/lib/arm64/libyuv_util.so
+priv-app/AsusCamera/lib/arm64/libUndistort.so
+priv-app/AsusCamera/lib/arm64/libasusundistort.so
+priv-app/AsusCamera/lib/arm64/libarcsoft_object_tracking.so
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
