@@ -81,7 +81,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private static final String SURFACE_FLINGER_SERVICE_KEY = "SurfaceFlinger";
     private static final String SURFACE_COMPOSER_INTERFACE_KEY = "android.ui.ISurfaceComposer";
     private static final int SURFACE_FLINGER_CODE = 1035;
-    private static Map<Integer, Integer> fpsMap = Map.of(120, 0, 90, 1, 60, 2);
+    private static Map<Integer, Integer> fpsMap = Map.of(144, 1, 120, 2, 90, 3, 60, 4);
     private static IBinder mSurfaceFlinger;
 
     @Override
@@ -143,9 +143,10 @@ public class DeviceSettings extends PreferenceFragment implements
                 mSurfaceFlinger = ServiceManager.getService(SURFACE_FLINGER_SERVICE_KEY);
                 Parcel data = Parcel.obtain();
                 data.writeInterfaceToken(SURFACE_COMPOSER_INTERFACE_KEY);
-                data.writeInt(fpsMap.getOrDefault(fps, -1));
+                data.writeInt(fps);
                 mSurfaceFlinger.transact(SURFACE_FLINGER_CODE, data, null, 0);
                 data.recycle();
+                System.out.println("OmnifpsMap: " + fpsMap +" Omnifps: "+ fps);
             }
         } catch (RemoteException ex) {
                // intentional no-op

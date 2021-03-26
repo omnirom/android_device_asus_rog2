@@ -15,11 +15,13 @@
         <item>60 Hz</item>
         <item>90 Hz</item>
         <item>120 Hz</item>
+        <item>144 Hz</item>
     </string-array>
 
     <string-array name="frame_rate_values" translatable="false">
         <item>60</item>
         <item>90</item>
         <item>120</item>
+        <item>144</item>
     </string-array>
 </resources>
