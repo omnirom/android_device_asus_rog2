@@ -131,7 +131,7 @@ void vendor_load_properties()
         property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DC");
     }
     if (name == "CN_I001D") {
-        property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DD");
+        property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DB");
     }
 }
 }
