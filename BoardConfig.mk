@@ -71,7 +71,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 QCOM_BT_USE_BTNV := true
 
 # charger
-HEALTHD_USE_BATTERY_INFO := true
 BLUE_LED_PATH := /sys/class/leds/green/brightness
 HEALTHD_ENABLE_TRICOLOR_LED := true
 
