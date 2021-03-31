@@ -77,7 +77,7 @@
     <string name="summary_placeholder"> </string>
 
     <string name="gaming_title">Game Category</string>
-    <string name="gaming_browse_summary">Lunch game genie settings</string>
+    <string name="gaming_browse_summary">launch game genie settings</string>
 
     <!-- Display Manager -->
     <string name="display_title">Display</string>
@@ -94,6 +94,6 @@
     <string name="mute_mode">Mute</string>
 
     <string name="asus_advanced_settings_gripsensor">AirTriggers</string>
-    <string name="grip_category_title">Lunch AirTriggers</string>
+    <string name="grip_category_title">Launch AirTriggers</string>
     <string name="grip_category_summary">Settings of your Grip Sensor</string>
 </resources>

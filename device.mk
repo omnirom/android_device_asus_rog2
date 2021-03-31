@@ -54,6 +54,10 @@ PRODUCT_PACKAGES += \
 # Api
 PRODUCT_SHIPPING_API_LEVEL := 28
 
+# Asus Services
+PRODUCT_PACKAGES += asus-services
+PRODUCT_BOOT_JARS += asus-services
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
@@ -214,7 +218,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.2-service.rog2
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml
+    $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml \
+    $(LOCAL_PATH)/configs/vendor.qti.hardware.charger_monitor@1.0-service.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 
 # WiFi
 PRODUCT_PACKAGES += \
