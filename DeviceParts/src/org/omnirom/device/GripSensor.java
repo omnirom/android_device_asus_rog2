@@ -37,7 +37,7 @@ import android.util.Log;
 import android.util.Slog;
 
 public class GripSensor {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final int MSG_BIND_SERVICE = 1001;
     private static final int MSG_REGISTER_GRIPSENSOR = 1000;
     private static final int MSG_RESET_BINDINGSTATE = 1002;
@@ -109,6 +109,7 @@ public class GripSensor {
                     }
                     try {
                         SystemProperties.set("persist.asus.hardware.gripsensor", "1");
+                        SystemProperties.set("persist.vendor.asus.hardware.gripsensor", "1");
                     } catch (Exception e) {
                         Log.w(GripSensor.TAG, e.toString());
                     }

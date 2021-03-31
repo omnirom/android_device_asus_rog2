@@ -104,6 +104,7 @@ public class DeviceSettings extends PreferenceFragment implements
         mGameGenie.setEnabled(GameGenie.isGameGenieExist(this.getContext()));
 
         mAirtriggerPref = findPreference(KEY_AIRTRIGGER_PREF);
+        mAirtriggerPref.setOnPreferenceChangeListener(this);
         mGameCategory = findPreference(KEY_CATEGORY_GAMING);
 
         mGripSensorPreference = (SwitchPreference) findPreference(KEY_AIRTRIGGER);
