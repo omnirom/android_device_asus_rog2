@@ -324,6 +324,8 @@ ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.sm8150.api29
 # Extra Asus
 
 ro.build.asus.sku=WW
+ro.vendor.build.asus.sku=WW
 ro.vendor.qti.va_aosp.support=1
 sys.vendor.qti.servicetracker.disable=true
 ro.charger.enable_suspend=true
+persist.asus.pointerlistener=1

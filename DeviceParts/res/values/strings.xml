@@ -20,7 +20,9 @@
     <string name="vib_strength_title_head">Strength</string>
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
     <string name="vib_test">Test</string>
+    <string name="advanced_devicesettings">DeviceSettings</string>
     <string name="advanced_settings">Advanced</string>
+    <string name="app_settings">DeviceParts</string>
     <string name="graphics_title">Graphics</string>
     <string name="screen_title">Screen Sensitivity</string>
     <string name="glove_mode_summary">Increase touch sensitivity when wearing gloves</string>
@@ -77,7 +79,7 @@
     <string name="summary_placeholder"> </string>
 
     <string name="gaming_title">Game Category</string>
-    <string name="gaming_browse_summary">Lunch game genie settings</string>
+    <string name="gaming_browse_summary">launch game genie settings</string>
 
     <!-- Display Manager -->
     <string name="display_title">Display</string>
@@ -94,6 +96,7 @@
     <string name="mute_mode">Mute</string>
 
     <string name="asus_advanced_settings_gripsensor">AirTriggers</string>
-    <string name="grip_category_title">Lunch AirTriggers</string>
+    <string name="grip_category_title">Launch AirTriggers</string>
     <string name="grip_category_summary">Settings of your Grip Sensor</string>
+    <string name="gamegenie_lock_mode_toast">Please launch Game Genie to turn off Lock mode</string>
 </resources>
