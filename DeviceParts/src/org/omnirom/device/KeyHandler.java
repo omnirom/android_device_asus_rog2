@@ -35,6 +35,7 @@ import android.media.session.MediaSessionLegacyHelper;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.os.FileObserver;
+import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
@@ -65,6 +66,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.omni.OmniUtils;
 import org.omnirom.omnilib.utils.OmniVibe;
 import com.android.internal.statusbar.IStatusBarService;
+import com.android.server.usb.UsbDeviceManager;
 
 public class KeyHandler implements DeviceKeyHandler {
 
@@ -114,6 +116,15 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int POCKET_MIN_DELTA_MS = 5000;
 
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture/dclick";
+
+    private static final int MSG_SET_CURRENT_FUNCTIONS = 2;
+    private static final long FUNCTION_UDC_SWITCH = 128;
+    private static final String USB_CONTROLLER_PROPERTY = "sys.usb.controller";
+    private static final String ACCESSORY_START_MATCH = "DEVPATH=/devices/virtual/misc/usb_accessory";
+    private static final String UDC1_MODE = "/sys/devices/platform/soc/a600000.ssusb/mode";
+    private static final String UDC2_MODE = "/sys/devices/platform/soc/a800000.ssusb/mode";
+    private static final String UDC1_NAME_MATCH = "DEVPATH=/devices/platform/soc/a600000.ssusb/a600000.dwc3";
+    private static final String UDC2_NAME_MATCH = "DEVPATH=/devices/platform/soc/a800000.ssusb/a800000.dwc3";
 
     private static final int[] sSupportedGestures = new int[]{
         KEY_DOUBLE_TAP,
@@ -178,6 +189,9 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean isOPCameraAvail;
     private boolean mRestoreUser;
     private boolean mDoubleTapToWake;
+    private static String udc_change;
+    private UsbDeviceManager mUsbDeviceManager;
+    private final UEventObserver mUEventObserver;
 
     private SensorEventListener mProximitySensor = new SensorEventListener() {
         @Override
@@ -236,11 +250,13 @@ public class KeyHandler implements DeviceKeyHandler {
                     false, this);
             update();
             updateDozeSettings();
+            updateUsb();
         }
 
         @Override
         public void onChange(boolean selfChange) {
             update();
+            updateUsb();
         }
 
         @Override
@@ -251,6 +267,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 return;
             }
             update();
+            updateUsb();
         }
 
         public void update() {
@@ -302,11 +319,26 @@ public class KeyHandler implements DeviceKeyHandler {
         systemStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
         systemStateFilter.addAction(Intent.ACTION_USER_SWITCHED);
         mContext.registerReceiver(mSystemStateReceiver, systemStateFilter);
+        // Watch for USB configuration changes
+        mUEventObserver = new UsbUEventObserver();
+        mUEventObserver.startObserving(UDC1_NAME_MATCH);
+        mUEventObserver.startObserving(UDC2_NAME_MATCH);
     }
 
     private class EventHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
+            switch (msg.what) {
+                /*case MSG_SET_CURRENT_FUNCTIONS: {
+                    long functions = ((Long) msg.obj).longValue();
+                    if (FUNCTION_UDC_SWITCH == functions) {
+                        SystemProperties.set(USB_CONTROLLER_PROPERTY, udc_change);
+                        mUsbDeviceManager.setEnabledFunctions(0, true);
+                        return;
+                    }
+                    return;
+                }*/
+            }
         }
     }
 
@@ -573,5 +605,36 @@ public class KeyHandler implements DeviceKeyHandler {
 
     IStatusBarService getStatusBarService() {
         return IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
+    }
+
+    private final class UsbUEventObserver extends UEventObserver {
+        @Override
+        public void onUEvent(UEventObserver.UEvent event) {
+            String udcname = event.get("UDC_NAME");
+            if (udcname != null) {
+                String controller = SystemProperties.get(USB_CONTROLLER_PROPERTY);
+                if (!controller.equals(udcname)) {
+                    String unused = udc_change = udcname;
+                    mUsbDeviceManager.setCurrentFunctions(FUNCTION_UDC_SWITCH);
+                }
+                String str = TAG;
+                Log.i(str, "Controller=" + controller + " UDC_NAME=" + udcname);
+            }
+        }
+    }
+
+    public void updateUsb() {
+        String controller = SystemProperties.get(USB_CONTROLLER_PROPERTY);
+        String usb1mode = Utils.readLine(UDC1_MODE);
+        String usb2mode = Utils.readLine(UDC2_MODE);
+        if ("peripheral".equals(usb1mode) && !"a600000.dwc3".equals(controller)) {
+            SystemProperties.set(USB_CONTROLLER_PROPERTY, "a600000.dwc3");
+            Utils.writeLine(UDC1_MODE, "peripheral");
+        } else if ("peripheral".equals(usb2mode) && !"a800000.dwc3".equals(controller)) {
+            SystemProperties.set(USB_CONTROLLER_PROPERTY, "a800000.dwc3");
+            Utils.writeLine(UDC2_MODE, "peripheral");
+        }
+        String str = TAG;
+        Log.i(str, "usb1_mode=" + usb1mode + " usb2_mode=" + usb2mode + " controller=" + controller);
     }
 }
