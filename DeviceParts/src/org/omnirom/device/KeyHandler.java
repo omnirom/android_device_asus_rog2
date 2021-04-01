@@ -35,6 +35,7 @@ import android.media.session.MediaSessionLegacyHelper;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.os.FileObserver;
+import android.os.FileUtils;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
@@ -114,6 +115,11 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int POCKET_MIN_DELTA_MS = 5000;
 
     private static final String DT2W_CONTROL_PATH = "/sys/devices/platform/goodix_ts.0/gesture/dclick";
+
+    private static final String USB_CONTROLLER_PROPERTY = "sys.usb.controller";
+    private static final String ACCESSORY_START_MATCH = "DEVPATH=/devices/virtual/misc/usb_accessory";
+    private static final String UDC1_MODE = "/sys/devices/platform/soc/a600000.ssusb/mode";
+    private static final String UDC2_MODE = "/sys/devices/platform/soc/a800000.ssusb/mode";
 
     private static final int[] sSupportedGestures = new int[]{
         KEY_DOUBLE_TAP,
@@ -236,11 +242,13 @@ public class KeyHandler implements DeviceKeyHandler {
                     false, this);
             update();
             updateDozeSettings();
+            updateUsb();
         }
 
         @Override
         public void onChange(boolean selfChange) {
             update();
+            updateUsb();
         }
 
         @Override
@@ -251,6 +259,7 @@ public class KeyHandler implements DeviceKeyHandler {
                 return;
             }
             update();
+            updateUsb();
         }
 
         public void update() {
@@ -573,5 +582,20 @@ public class KeyHandler implements DeviceKeyHandler {
 
     IStatusBarService getStatusBarService() {
         return IStatusBarService.Stub.asInterface(ServiceManager.getService("statusbar"));
+    }
+
+    public void updateUsb() {
+        String controller = SystemProperties.get(USB_CONTROLLER_PROPERTY);
+        String usb1mode = Utils.readLine(UDC1_MODE);
+        String usb2mode = Utils.readLine(UDC2_MODE);
+        if ("peripheral".equals(usb1mode) && !"a600000.dwc3".equals(controller)) {
+            SystemProperties.set(USB_CONTROLLER_PROPERTY, "a600000.dwc3");
+            Utils.writeLine(UDC1_MODE, "peripheral");
+        } else if ("peripheral".equals(usb2mode) && !"a800000.dwc3".equals(controller)) {
+            SystemProperties.set(USB_CONTROLLER_PROPERTY, "a800000.dwc3");
+            Utils.writeLine(UDC2_MODE, "peripheral");
+        }
+        String str = TAG;
+        Log.i(str, "usb1_mode=" + usb1mode + " usb2_mode=" + usb2mode + " controller=" + controller);
     }
 }
