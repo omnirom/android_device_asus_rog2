@@ -20,10 +20,17 @@ product/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Display api
-product/lib/libsdm-disp-apis.qti.so
-product/lib/vendor.qti.hardware.qdutils_disp@1.0.so
-product/lib64/libsdm-disp-apis.qti.so
-product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+product/etc/permissions/com.qti.snapdragon.sdk.display.xml|4C71D110023088C6EA8072227C714416E2792D75
+-product/framework/com.qti.snapdragon.sdk.display.jar|B45D5F70E2F88413A7134C5C500DD7D07DEB3AC5
+product/lib64/libsdm-disp-apis.qti.so:system_ext/lib64/libsdm-disp-apis.qti.so
+product/lib64/vendor.qti.hardware.qdutils_disp@1.0.so:system_ext/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+-system_ext/app/colorservice/colorservice.apk|E5B153B46612EF00D818620D2352B3AF54E26966
+system_ext/lib64/libsd_sdk_display.qti.so|561C79E18BA09FEAB752DA3DA15FD545E51D2509
+system_ext/lib64/vendor.display.color@1.0.so|3939E4D1AB4F74E6BBD04524A9E6211ADE9C5D0B
+system_ext/lib64/vendor.display.color@1.1.so|CE0030A7E6593236277962FFFF290B834EAF1F25
+system_ext/lib64/vendor.display.color@1.2.so|6ADFA77494DBAD3BE8A34B259B25F8A4D9DD6A04
+system_ext/lib64/vendor.display.color@1.3.so|906603578D0B833D990A50BFF62F36A0FC186F85
+system_ext/lib64/vendor.display.postproc@1.0.so|0B578A42706C770C6C61ECCDEE8A9E4C89C08B10
 
 # QTI Telephony
 -product/app/embms/embms.apk
