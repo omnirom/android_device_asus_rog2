@@ -31,7 +31,7 @@
 
     <PreferenceCategory
         android:key="key_doze_category"
-        android:title="@string/doze_category_title">
+        android:title="@string/display_title">
     <Preference
         android:key="doze_category"
         android:title="@string/doze_category_title"
@@ -41,6 +41,16 @@
                 android:targetPackage="org.omnirom.device"
                 android:targetClass="org.omnirom.device.DozeSettingsActivity" />
     </Preference>
+
+    <Preference
+        android:key="display_manager"
+        android:title="@string/display_manager"
+        android:summary="@string/display_calibration_summary" >
+        <intent
+             android:targetPackage="org.omnirom.omnidisplaymanager"
+             android:targetClass="org.omnirom.omnidisplaymanager.ColorSettingsActivity" />
+    </Preference>
+
     </PreferenceCategory>
 
     <PreferenceCategory
