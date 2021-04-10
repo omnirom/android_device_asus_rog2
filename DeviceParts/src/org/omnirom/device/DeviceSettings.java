@@ -34,6 +34,7 @@ import android.os.UserHandle;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
@@ -110,6 +111,16 @@ public class DeviceSettings extends PreferenceFragment implements
         mGripSensorPreference.setChecked(Settings.Global.getInt(getContext().getContentResolver(),
         FIELD_AIR_TRIGGER_ENABLE, 0) == 1);
         mGripSensorPreference.setOnPreferenceChangeListener(this);
+
+        PreferenceScreen mPowerSetting = (PreferenceScreen) findPreference("power_manager");
+        mPowerSetting.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+             @Override
+             public boolean onPreferenceClick(Preference preference) {
+                 Intent intent = new Intent(getActivity().getApplicationContext(), PowerSetting.class);
+                 startActivity(intent);
+                 return true;
+             }
+        });
 
     }
 

@@ -103,4 +103,16 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="category_battery"
+        android:title="@string/battery_manager">
+
+        <PreferenceScreen
+            android:key="power_manager"
+            android:fragment="org.omnirom.device.PowerSetting"
+            android:title="@string/battery_calibration_title"
+            android:summary="@string/battery_calibration_summary"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
