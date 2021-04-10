@@ -103,4 +103,20 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="category_battery"
+        android:title="@string/battery_manager">
+
+        <Preference
+            android:key="power_manager"
+            android:title="@string/battery_calibration_title"
+            android:summary="@string/battery_calibration_summary"
+            android:persistent="false" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.asus.powersaver"
+                android:targetClass="com.asus.powersaver.PowerSaverSettings" />
+    </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
