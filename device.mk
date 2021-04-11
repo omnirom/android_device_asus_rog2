@@ -211,7 +211,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.2-service.rog2
+    android.hardware.vibrator@1.2-service.rog2 \
+    vendor.asus.hardware.vibratorcontrol@1.0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml

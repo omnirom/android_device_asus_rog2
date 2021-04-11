@@ -1,0 +1,11 @@
+hidl_interface {
+    name: "vendor.asus.hardware.vibratorcontrol@1.0",
+    root: "vendor.asus",
+    srcs: [
+        "IVibratorcontrol.hal",
+    ],
+    interfaces: [
+        "android.hidl.base@1.0",
+    ],
+    gen_java: true,
+}

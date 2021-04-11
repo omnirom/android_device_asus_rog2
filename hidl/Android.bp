@@ -1,0 +1,4 @@
+hidl_package_root {
+    name: "vendor.asus",
+    path: "device/asus/rog2/hidl/vendor/asus",
+}
