@@ -218,6 +218,10 @@ lib64/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
 product/lib/vendor.qti.hardware.sigma_miracast@1.0.so
 product/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
 
+# Perf
+-framework/QPerformance.jar
+-framework/UxPerformance.jar
+
 # QVR
 bin/qvrservice
 etc/qvr/qvrservice_config.txt
@@ -332,7 +336,10 @@ product/etc/permissions/telephonyservice.xml
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
 
-# Wlan
+# Wlan et Wifi
 -product/framework/vendor.qti.hardware.data.iwlan-V1.0-java.jar
 product/lib64/vendor.qti.hardware.data.iwlan@1.0.so
 product/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
+-framework/vicewifi-service.jar
+-framework/wigig-service.jar
+

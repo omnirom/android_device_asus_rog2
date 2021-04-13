@@ -159,6 +159,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     com.android.nfc_extras
 
+# Performance
+PRODUCT_BOOT_JARS += UxPerformance
+PRODUCT_BOOT_JARS += QPerformance
+
 # Power Feature
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.controls.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.controls.xml
