@@ -11,6 +11,7 @@
     <uses-permission android:name="com.asus.focusapplistener.permission.GAME_GENIE_PROVIDER"/>
     <uses-permission android:name="com.asus.gamecenter.permission.mode_change"/>
     <uses-permission android:name="com.asus.hardwarestub.permission.FPS_CENTRAL_CONTROL_SERVICE"/>
+    <permission android:name="com.asus.launcher.permission.CATEGORY_ACCESS" android:protectionLevel="signatureOrSystem"/>
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <protected-broadcast android:name="com.asus.airtriggers.SYSTEMUI_AIR_TRIGGER_ON" />
@@ -109,5 +110,11 @@
                 <action android:name="com.asus.gamecenter.mode_changed"/>
             </intent-filter>
         </receiver>
+        <provider android:name="org.omnirom.device.CategoryProvider"
+                  android:permission="com.asus.launcher.permission.CATEGORY_ACCESS"
+                  android:enabled="true"
+                  android:exported="true"
+                  android:authorities="com.asus.launcher.categoryprovider">
+        </provider>
     </application>
 </manifest>
