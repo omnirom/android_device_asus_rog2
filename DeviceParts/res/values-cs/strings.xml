@@ -72,10 +72,13 @@
     <string name="swipe_up_to_wake_up_summary">Potáhněte prstem nahoru po obrazovce pro probuzení zařízení z režimu nečinnosti</string>
     <string name="category_frame_rate">FPS obrazovky</string>
     <string name="refresh_rate_title">Obnovovací frekvence</string>
-    <string name="gaming_title">Herní režim</string>
+    <string name="gaming_title">Kategorie hry</string>
     <string name="gaming_browse_summary">Nastavení hry v Herním režimu</string>
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Zvuk</string>
     <string name="vibrate_mode">Vibrace</string>
     <string name="mute_mode">Ticho</string>
+    <string name="asus_advanced_settings_gripsensor">AirTriggers</string>
+    <string name="grip_category_title">Spustit AirTriggers</string>
+    <string name="grip_category_summary">Nastavení senzoru Grip</string>
 </resources>
