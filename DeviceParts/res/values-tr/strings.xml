@@ -73,12 +73,20 @@
     <string name="category_frame_rate">Ekran FPS\'si</string>
     <string name="refresh_rate_title">Yenileme oranı</string>
     <string name="gaming_title">Oyun Kategorisi</string>
-    <string name="gaming_browse_summary">Oyun cini ayarlarını açar</string>
+    <string name="gaming_browse_summary">oyun cini ayarlarını açar</string>
+    <!-- Display Manager -->
+    <string name="display_title">Ekran</string>
+    <string name="display_manager">Ekran renkleri</string>
+    <string name="display_calibration_summary">Ekran renklerini kalibre edin</string>
+    <string name="category_battery">Pil</string>
+    <string name="battery_manager">Pil Tasarrufu</string>
+    <string name="battery_calibration_title">PowerMaster</string>
+    <string name="battery_calibration_summary">Pil modları, pil bakımı ve otomatik başlatma yöneticisi</string>
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Ses</string>
     <string name="vibrate_mode">Titreşim</string>
     <string name="mute_mode">Sessiz</string>
     <string name="asus_advanced_settings_gripsensor">AirTriggers</string>
-    <string name="grip_category_title">AirTriggers\'ı açar</string>
+    <string name="grip_category_title">AirTriggers\'ı aç</string>
     <string name="grip_category_summary">Kavrama sensörü ayarları</string>
 </resources>

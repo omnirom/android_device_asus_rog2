@@ -73,7 +73,15 @@
     <string name="category_frame_rate">FPS obrazovky</string>
     <string name="refresh_rate_title">Obnovovacia frekvencia</string>
     <string name="gaming_title">Kategória hry</string>
-    <string name="gaming_browse_summary">Nastavenie hry v Hernom režime</string>
+    <string name="gaming_browse_summary">Nastavenia hry v Hernom režime</string>
+    <!-- Display Manager -->
+    <string name="display_title">Displej</string>
+    <string name="display_manager">Farby displeja</string>
+    <string name="display_calibration_summary">Kalibrovať farby displeja</string>
+    <string name="category_battery">Batéria</string>
+    <string name="battery_manager">Šetrenie batérie</string>
+    <string name="battery_calibration_title">PowerMaster</string>
+    <string name="battery_calibration_summary">Režimy batérie, starostlivosti o batériu, správca automatického spustenia</string>
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Zvuk</string>
     <string name="vibrate_mode">Vibrovanie</string>
