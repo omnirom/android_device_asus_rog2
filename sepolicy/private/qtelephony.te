@@ -1,2 +1,2 @@
 get_prop(vendor_qtelephony, vendor_radio_prop)
-allow vendor_qtelephony ims_prop:file { read };
+get_prop(vendor_qtelephony, ims_prop)
