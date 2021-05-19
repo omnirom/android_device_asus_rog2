@@ -50,8 +50,8 @@ product/etc/permissions/UimGbaManager.xml:system_ext/etc/permissions/UimGbaManag
 -product/framework/uimgbalibrary.jar:system_ext/framework/uimgbalibrary.jar
 -product/framework/uimgbamanagerlibrary.jar:system_ext/framework/uimgbamanagerlibrary.jar
 -product/framework/uimlpalibrary.jar:system_ext/framework/uimlpalibrary.jar
-# https://git.rip/dumps/redmi/curtana/-/blob/qssi-user-11-RKQ1.200826.002-V12.0.1.0.RJWINXM-release-keys/system_ext/framework/qti-telephony-common.jar
--product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|C4D8A8B797EBCC7C73384CE3A10BA9E94FB1B460
+# From ROG 5
+-product/framework/qti-telephony-common.jar:system_ext/framework/qti-telephony-common.jar|320B3D35B78A533E041104E2CDB500D7237C463E
 -product/framework/vendor.qti.hardware.data.connection-V1.0-java.jar:system_ext/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
 -product/framework/vendor.qti.hardware.data.connection-V1.1-java.jar:system_ext/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
 -product/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar:system_ext/framework/vendor.qti.hardware.data.dynamicdds-V1.0-java.jar
@@ -80,8 +80,8 @@ product/lib64/vendor.qti.latency@2.0.so:system_ext/lib64/vendor.qti.latency@2.0.
 product/lib64/vendor.qti.voiceprint@1.0.so:system_ext/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
-# From Rog5
--product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|72D58FF5CCD16C0E7B8E58F3E566F175052DC0B5
+# From Zenfone6
+-product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|E56B19DDB54C8ACA8BA1D7C06F1D0D319F5433E1
 -product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar:system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
 -product/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar:system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
 -product/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar:system_ext/framework/com.qualcomm.qti.imscmservice-V2.2-java.jar
