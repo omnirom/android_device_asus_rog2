@@ -16,7 +16,6 @@ etc/sysconfig/ims-hiddenapi-package-whitelist.xml
 -priv-app/GameBroadcaster/GameBroadcaster.apk|7DD689EE02E1A1076A7F35550173BFFA5D20A94B
 priv-app/GameBroadcaster/lib/arm64/libJniModule.so
 -priv-app/ROGGameCenter/ROGGameCenter.apk|E15EBC3B2BA8BB119387D355063142689A4918D8
--priv-app/PowerSaving2/PowerSaving2.apk
 -priv-app/ImsAsusPointerListenerProxyService/ImsAsusPointerListenerProxyService.apk
 
 # Picked from ROG3
@@ -40,13 +39,6 @@ lib64/libcdsprpc_system.so
 lib64/libmdsprpc_system.so
 lib64/libsdsprpc_system.so
 
-# Battery (taken from rog3)
-etc/permissions/asus.software.marketapp.xml
--app/MobileManagerService/MobileManagerService.apk|9348F894B7251FCCC6E7693157C1C8B38001B3E7
--priv-app/MobileManager/MobileManager.apk|D45D87EF7A4CDC16BA07834F2AEA7F44A6B1883B
-priv-app/MobileManager/lib/arm64/libavast-utils.so|8BF07EE4B0A756093F393DAF33006FD5F70BE515
-priv-app/MobileManager/lib/arm64/libavast-vps-interface.so|7C1C81D6CE5F04FC59FD2F7BB982D0BFCD2BD1D3
-
 # Bluetooth
 -app/aptxals/aptxals.apk|95460DC333497F15E4E15D99842FB06BE8DBD3EF
 etc/bluetooth/bt_profile.conf
@@ -69,7 +61,6 @@ lib64/libxditk_ditBSP.so
 lib64/libxditk_ditBSP_JNI.so
 -priv-app/AsusCamera/AsusCamera.apk|73AFD871F01D70FDC207352173F6C91F91E56181
 priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
-priv-app/AsusCamera/lib/arm64/libasus_camera_panorama.so
 priv-app/AsusCamera/lib/arm64/libbitmap.so
 priv-app/AsusCamera/lib/arm64/libmpbase.so
 priv-app/AsusCamera/lib/arm64/libtensorflowlite_jni.so
@@ -81,10 +72,6 @@ priv-app/AsusCamera/lib/arm64/libyuv_util.so
 priv-app/AsusCamera/lib/arm64/libUndistort.so
 priv-app/AsusCamera/lib/arm64/libasusundistort.so
 priv-app/AsusCamera/lib/arm64/libarcsoft_object_tracking.so
-# Rog 3
-priv-app/AsusCamera/lib/arm64/libarcsoft_panorama_interval_capture.so|7819B7C76A1733B4D95D6478587181BC9B922D55
-priv-app/AsusCamera/lib/arm64/libasus_camera_interval_panorama.so|D0204D6F23536208C9BB4CD8D696AB316ECE57E3
-priv-app/AsusCamera/lib/arm64/libyuv_camera.so|91A5B185C4E735AE83CF78C0D1D042833CD1932E
 
 # CNE
 etc/cne/Nexus/ATT/ATT_profiles.xml
