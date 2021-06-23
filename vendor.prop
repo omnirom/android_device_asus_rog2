@@ -167,3 +167,7 @@ persist.sys.godoverlay.enable=1
 persist.sys.fpsctrl.enable=1
 persist.sys.autofps.mode=0
 persist.sys.auralight.enable=1
+
+# Chipset
+ro.soc.manufacturer=QTI
+ro.soc.model=SM8150
