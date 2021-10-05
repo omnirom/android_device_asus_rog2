@@ -1776,16 +1776,20 @@ audio_io_handle_t AudioPolicyManagerCustom::getOutputForDevices(
                     }
                 }
             }
-            if (outputDesc != NULL) {
-                if ((((*flags == AUDIO_OUTPUT_FLAG_DIRECT) && direct_pcm_already_in_use) ||
-                    ((*flags & AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD) &&
-                     compress_offload_already_in_use)) &&
-                     session != outputDesc->mDirectClientSession) {
-                     ALOGV("getOutput() do not reuse direct pcm output because current client (%d) "
-                           "is not the same as requesting client (%d) for different output conf",
-                     outputDesc->mDirectClientSession, session);
-                     goto non_direct_output;
-                }
+            if (outputDesc != NULL &&
+                 (((*flags == AUDIO_OUTPUT_FLAG_DIRECT) && direct_pcm_already_in_use) ||
+                 ((*flags & AUDIO_OUTPUT_FLAG_COMPRESS_OFFLOAD) &&
+                 compress_offload_already_in_use))) {
+                    if (session != outputDesc->mDirectClientSession) {
+                       ALOGV("getOutput() do not reuse direct pcm output because current"
+                             "client (%d) is not the same as requesting client (%d) for"
+                             " different output conf", outputDesc->mDirectClientSession, session);
+                       goto non_direct_output;
+                    } else {
+                       ALOGV("%s close previous output on same client session %d",
+                       __func__, session);
+                       closeOutput(outputDesc->mIoHandle);
+                    }
             }
         }
         if (!profile->canOpenNewIo()) {
