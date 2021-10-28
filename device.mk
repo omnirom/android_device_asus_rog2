@@ -67,6 +67,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects_ZS660KL.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_effects_ZS660KL.xml \
     $(LOCAL_PATH)/audio/audio_effects_ZS660KL.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_effects.xml
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.3-service.rog2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fingerprint/android.hardware.biometrics.fingerprint@2.1-service.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+
 # Bluetooth
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf

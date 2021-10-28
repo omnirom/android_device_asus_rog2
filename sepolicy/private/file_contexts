@@ -9,6 +9,9 @@
 /tombstones             u:object_r:rootfs:s0
 /dsp                    u:object_r:rootfs:s0
 
+# UDFPS
+/system_ext/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.rog2 u:object_r:hal_fingerprint_default_exec:s0
+
 # Vibrator
 /sys/class/leds/vibrator(/.*)? u:object_r:sysfs_vibrator:s0
 /system/bin/hw/android\.hardware\.vibrator@1\.2-service\.rog2 u:object_r:hal_vibrator_default_exec:s0
