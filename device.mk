@@ -85,6 +85,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4 \
+    android.hardware.camera.device@3.4
+
 # Charger images
 PRODUCT_PACKAGES += \
     omni_charger_res_images \
