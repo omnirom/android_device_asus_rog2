@@ -45,7 +45,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.omni.DeviceUtils;
+import org.omnirom.omnilib.utils.DeviceUtils;
 
 import com.qti.snapdragon.sdk.display.ModeInfo;
 
