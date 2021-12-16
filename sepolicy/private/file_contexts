@@ -8,7 +8,6 @@
 /persist(/.*)?          u:object_r:persist_file:s0
 /tombstones             u:object_r:rootfs:s0
 /dsp                    u:object_r:rootfs:s0
-/voucher(/.*)?          u:object_r:voucher_file:s0
 /xrom(/.*)?             u:object_r:xrom_file:s0
 
 # HALs

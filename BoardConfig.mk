@@ -72,8 +72,8 @@ QCOM_BT_USE_BTNV := true
 
 # charger
 HEALTHD_USE_BATTERY_INFO := true
-BLUE_LED_PATH := /sys/class/leds/green/brightness
-HEALTHD_ENABLE_TRICOLOR_LED := true
+#BLUE_LED_PATH := /sys/class/leds/green/brightness
+#HEALTHD_ENABLE_TRICOLOR_LED := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -140,7 +140,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_METADATA_PARTITION := true
 TARGET_COPY_OUT_VENDOR := vendor
 
-BOARD_ROOT_EXTRA_FOLDERS := ADF APD asdf batinfo voucher xrom
+BOARD_ROOT_EXTRA_FOLDERS := ADF APD asdf batinfo xrom
 
 # Platform
 TARGET_BOARD_PLATFORM := msmnile

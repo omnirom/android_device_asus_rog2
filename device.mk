@@ -21,9 +21,6 @@
 #
 $(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -59,8 +56,7 @@ PRODUCT_PACKAGES += asus-services
 PRODUCT_BOOT_JARS += asus-services
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # audio
 PRODUCT_COPY_FILES += \
@@ -136,7 +132,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/goodix_ts.idc:system/usr/idc/goodix_ts.idc \
     $(LOCAL_PATH)/idc/goodix_ts_station.idc:system/usr/idc/goodix_ts_station.idc \
     $(LOCAL_PATH)/keychars/goodix_ts.kcm:system/usr/keychars/goodix_ts.kcm \
-    $(LOCAL_PATH)/keylayout/goodix_ts.kl:system/usr/keylayout/goodix_ts.kl
+    $(LOCAL_PATH)/keylayout/goodix_ts.kl:system/usr/keylayout/goodix_ts.kl \
+    $(LOCAL_PATH)/keylayout/goodixfp.kl:system/usr/keylayout/goodixfp.kl
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -222,13 +219,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vintf/manifest.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest.xml
 
+# Systemhelper
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.systemhelper@1.0
+
 # WiFi
 PRODUCT_PACKAGES += \
     TetheringOverlay \
     WifiOverlay
 
-# WiFi Display
+# Wifi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libavservices_minijail \
+    libnl \
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 include vendor/qcom/opensource/display-commonsys-intf/config/display-product-system.mk

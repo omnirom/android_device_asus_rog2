@@ -90,17 +90,17 @@ void vendor_load_properties()
     LOG(INFO) << name;
 
     // These should be the only things to change for OTA updates
-    build_id = "QKQ1.190825.002";
-    build_number = "17.0240.2107.100-0";
+    build_id = "RKQ1.200710.002";
+    build_number = "18.0210.2111.190-0";
 
     // Create the correct stock props based on the above values
-    desc << name << "-user 10 " << build_id << " " << build_number << " release-keys";
+    desc << name << "-user 11 " << build_id << " " << build_number << " release-keys";
     description = desc.str();
 
     disp << build_id << ".WW_Phone-" << build_number;
     display_id = disp.str();
 
-    fp << "asus/" << name << "/ASUS_I001_1:10/" << build_id << "/" << build_number << ":user/release-keys";
+    fp << "asus/" << name << "/ASUS_I001_1:11/" << build_id << "/" << build_number << ":user/release-keys";
     fingerprint = fp.str();
 
     // These properties are the same for all variants
