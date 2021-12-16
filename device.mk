@@ -21,9 +21,6 @@
 #
 $(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -59,8 +56,7 @@ PRODUCT_PACKAGES += asus-services
 PRODUCT_BOOT_JARS += asus-services
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # audio
 PRODUCT_COPY_FILES += \
@@ -168,7 +164,7 @@ PRODUCT_COPY_FILES += \
 # Prebuilt
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/system,system) \
-    $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/root,root)
+    $(call find-copy-subdir-files,*,device/asus/rog2/prebuilt/recovery,recovery/root)
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -191,6 +187,10 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
+
+# Systemhelper
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.systemhelper@1.0
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -227,8 +227,12 @@ PRODUCT_PACKAGES += \
     TetheringOverlay \
     WifiOverlay
 
-# WiFi Display
+# Wifi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libavservices_minijail \
+    libnl \
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 include vendor/qcom/opensource/display-commonsys-intf/config/display-product-system.mk

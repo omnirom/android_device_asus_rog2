@@ -1,5 +1,2 @@
-on init
-    mount none /product/overlay/EmptyProductOverlay/EmptyProductOverlay.apk /vendor/overlay/TelephonyResCommon.apk bind
-
 service vendor.vibrator-1-0 /system/bin/true
     disabled

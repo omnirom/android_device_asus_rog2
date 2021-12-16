@@ -59,7 +59,8 @@ fi
 function blob_fixup() {
     case "${1}" in
     # Fix xml version
-    product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
+    system_ext/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | system_ext/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
+        sed -i 's|system/product|system_ext|g' "${2}"
         sed -i 's|xml version="2.0"|xml version="1.0"|g' "${2}"
         ;;
     esac
