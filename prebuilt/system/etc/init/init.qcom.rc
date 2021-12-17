@@ -1,2 +1,5 @@
 service vendor.vibrator-1-0 /system/bin/true
     disabled
+
+service vendor.qti.vibrator /system/bin/true
+    disabled
