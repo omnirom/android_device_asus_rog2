@@ -67,6 +67,33 @@ void property_override_dual(char const prop[], char const system_prop[],
     property_override(system_prop, value);
 }
 
+/* From Magisk@jni/magiskhide/hide_utils.c */
+static const char *snet_prop_key[] = {
+    "ro.boot.vbmeta.device_state",
+    "ro.boot.flash.locked",
+    "ro.boot.veritymode",
+    "ro.boot.warranty_bit",
+    "ro.warranty_bit",
+    NULL
+};
+
+ static const char *snet_prop_value[] = {
+    "locked",
+    "1",
+    "enforcing",
+    "0",
+    "0",
+    NULL
+};
+
+ static void workaround_snet_properties() {
+
+     // Hide all sensitive props
+    for (int i = 0; snet_prop_key[i]; ++i) {
+        property_override(snet_prop_key[i], snet_prop_value[i]);
+    }
+}
+
 void vendor_load_properties()
 {
     std::string name;
@@ -133,6 +160,10 @@ void vendor_load_properties()
     if (name == "CN_I001D") {
         property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DB");
     }
+
+    // SafetyNet workaround
+    property_override("ro.boot.verifiedbootstate", "green");
+    workaround_snet_properties();
 }
 }
 }
