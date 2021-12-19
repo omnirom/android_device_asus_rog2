@@ -11,7 +11,6 @@ type xrom_file, file_type;
 type sysfs_kgsl, sysfs_type, fs_type;
 
 # Offscreen Gestures
-type sysfs_gesture, sysfs_type, fs_type;
 type proc_touchscreen, proc_type, sysfs_type, fs_type;
 type sysfs_touchscreen, sysfs_type, fs_type;
 

@@ -128,6 +128,13 @@ public class Startup extends BroadcastReceiver {
         enabled = !value.equals(AppSelectListPreference.DISABLED_ENTRY);
         restore(GestureSettings.getGestureFile(GestureSettings.KEY_Z_APP), enabled);
 
+        value = Settings.System.getString(context.getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING);
+        if (TextUtils.isEmpty(value)) {
+            return;
+        } else {
+        restore(getGestureFile(GestureSettings.GESTURE_CONTROL_PATH), value);
+        }
+
         value = Settings.System.getString(context.getContentResolver(), DeviceSettings.FPS);
         if (TextUtils.isEmpty(value)) {
             value = DeviceSettings.DEFAULT_FPS_VALUE;
