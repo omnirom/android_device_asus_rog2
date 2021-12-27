@@ -65,16 +65,6 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="screen"
-        android:title="@string/screen_title">
-        <SwitchPreference
-            android:key="glove"
-            android:summary="@string/glove_mode_summary"
-            android:title="@string/glove_mode_title"
-            android:persistent="false" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
         android:key="category_gaming"
         android:title="@string/gaming_title">
 

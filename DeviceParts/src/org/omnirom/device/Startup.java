@@ -52,7 +52,7 @@ public class Startup extends BroadcastReceiver {
         boolean imported = Settings.System.getInt(context.getContentResolver(), "omni_device_setting_imported", 0) != 0;
         if (!imported) {
             SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GLOVE_SWITCH, false);
+            boolean enabled = sharedPrefs.getBoolean(GestureSettings.KEY_GLOVE_SWITCH, false);
             Settings.System.putInt(context.getContentResolver(), GloveModeSwitch.SETTINGS_KEY, enabled ? 1 : 0);
 
             Settings.System.putInt(context.getContentResolver(), "omni_device_setting_imported", 1);

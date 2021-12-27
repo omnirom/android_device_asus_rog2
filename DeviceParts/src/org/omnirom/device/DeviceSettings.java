@@ -52,7 +52,6 @@ public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
-    public static final String KEY_GLOVE_SWITCH = "glove";
 
     private static final String KEY_CATEGORY_SCREEN = "screen";
     private static final String KEY_FRAME_MODE = "frame_mode_key";
@@ -72,7 +71,6 @@ public class DeviceSettings extends PreferenceFragment implements
     private Airtrigger mAirtrigger;
 
     private static ListPreference mFrameModeRate;
-    private static TwoStatePreference mGloveModeSwitch;
     private static Preference mAirtriggerPref;
     private static Preference mGameCategory;
     private static Preference mGameGenie;
@@ -87,11 +85,6 @@ public class DeviceSettings extends PreferenceFragment implements
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.main, rootKey);
-
-        mGloveModeSwitch = (TwoStatePreference) findPreference(KEY_GLOVE_SWITCH);
-        mGloveModeSwitch.setEnabled(GloveModeSwitch.isSupported());
-        mGloveModeSwitch.setChecked(GloveModeSwitch.isCurrentlyEnabled(this.getContext()));
-        mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
 
         mFrameModeRate = (ListPreference) findPreference(KEY_FRAME_MODE);
         int framevalue = Settings.System.getInt(getContext().getContentResolver(),

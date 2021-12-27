@@ -28,7 +28,7 @@ public class GloveModeSwitch implements OnPreferenceChangeListener {
 
     private static final String FILE = "/sys/devices/platform/goodix_ts.0/glove_mode";
 
-    public static final String SETTINGS_KEY = DeviceSettings.KEY_SETTINGS_PREFIX + DeviceSettings.KEY_GLOVE_SWITCH;
+    public static final String SETTINGS_KEY = DeviceSettings.KEY_SETTINGS_PREFIX + GestureSettings.KEY_GLOVE_SWITCH;
 
     private Context mContext;
 

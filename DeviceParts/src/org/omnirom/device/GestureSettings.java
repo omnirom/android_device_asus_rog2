@@ -53,6 +53,7 @@ import java.util.List;
 public class GestureSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    public static final String KEY_GLOVE_SWITCH = "glove";
     public static final String KEY_PROXI_SWITCH = "proxi";
     public static final String KEY_OFF_SCREEN_GESTURE_FEEDBACK_SWITCH = "off_screen_gesture_feedback";
     public static final String KEY_SWIPEUP_SWITCH = "swipeup";
@@ -74,6 +75,7 @@ public class GestureSettings extends PreferenceFragment implements
     public static final String DEVICE_GESTURE_MAPPING_4 = "device_gesture_mapping_4_0";
     public static final String DEVICE_GESTURE_MAPPING_5 = "device_gesture_mapping_5_0";
 
+    private TwoStatePreference mGloveModeSwitch;
     private TwoStatePreference mProxiSwitch;
     private TwoStatePreference mSwipeUpSwitch;
     private AppSelectListPreference mLetterCGesture;
@@ -92,6 +94,11 @@ public class GestureSettings extends PreferenceFragment implements
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.gesture_settings, rootKey);
         mPm = getContext().getPackageManager();
+
+        mGloveModeSwitch = (TwoStatePreference) findPreference(KEY_GLOVE_SWITCH);
+        mGloveModeSwitch.setEnabled(GloveModeSwitch.isSupported());
+        mGloveModeSwitch.setChecked(GloveModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mGloveModeSwitch.setOnPreferenceChangeListener(new GloveModeSwitch(getContext()));
 
         mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
         mProxiSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
