@@ -28,4 +28,14 @@
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),$(filter $(TARGET_DEVICE),rog2))
+
+include $(CLEAR_VARS)
+
+ASUSFW_MOUNT_POINT := $(TARGET_OUT_VENDOR)/asusfw
+$(ASUSFW_MOUNT_POINT): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating $(ASUSFW_MOUNT_POINT)"
+	@mkdir -p $(TARGET_OUT_VENDOR)/asusfw
+
+ALL_DEFAULT_INSTALLED_MODULES += $(ASUSFW_MOUNT_POINT)
+
 endif
