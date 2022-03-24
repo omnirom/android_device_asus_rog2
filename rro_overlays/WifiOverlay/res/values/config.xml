@@ -48,16 +48,13 @@
     <!-- Indicates that p2p MAC randomization is supported on this device -->
     <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
 
-    <!-- Indicates that AP mode MAC randomization is supported on this device -->
-    <bool name="config_wifi_ap_mac_randomization_supported">true</bool>
+        <!-- Wifi driver Automatic channel selection (ACS) for softap to include DFS channels -->
+    <bool translatable="false" name="config_wifiSoftapAcsIncludeDfs">true</bool>
 
-    <!-- Indicates that wifi link probing is supported on this device -->
-    <bool name="config_wifi_link_probing_supported">true</bool>
+    <!-- Wifi driver supports WPA3 Simultaneous Authentication of Equals (WPA3-SAE) for softap -->
+    <bool translatable="false" name="config_wifi_softap_sae_supported">true</bool>
 
-    <!-- Configure wifi tcp buffersizes in the form:
-         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
-    <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,4194304,524288,1048576,4194304</string>
+    <!-- Integer indicating maximum hardware supported client number of soft ap -->
+    <integer translatable="false" name="config_wifiHardwareSoftapMaxClientCount">8</integer>
 
-    <!-- Boolean indicating that wifi only link configuratios that have exact same credentials (i.e PSK) -->
-    <bool translatable="false" name="config_wifi_only_link_same_credential_configurations">false</bool>
 </resources>
