@@ -184,6 +184,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vndk_package
 
+# Telephony extension
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
+
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
