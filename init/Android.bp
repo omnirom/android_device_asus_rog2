@@ -2,7 +2,6 @@ cc_library_static {
     name: "libinit_rog2",
 
     include_dirs: [
-        "system/core/base/include",
         "system/core/init",
     ],
     shared_libs: ["libbase"],
