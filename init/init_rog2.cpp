@@ -91,7 +91,7 @@ void vendor_load_properties()
 
     // These should be the only things to change for OTA updates
     build_id = "RKQ1.200710.002";
-    build_number = "18.0210.2111.190-0";
+    build_number = "18.0210.2201.211-0";
 
     // Create the correct stock props based on the above values
     desc << name << "-user 11 " << build_id << " " << build_number << " release-keys";
