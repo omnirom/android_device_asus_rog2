@@ -150,8 +150,6 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
-PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
-
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
