@@ -145,8 +145,6 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhwbinder
 
-PRODUCT_BOOT_JARS += android.hidl.manager-V1.0-java
-
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapers \
@@ -241,5 +239,5 @@ PRODUCT_PACKAGES += \
     libavservices_minijail \
     libnl \
 
-PRODUCT_BOOT_JARS += \
+#PRODUCT_BOOT_JARS += \
     WfdCommon
