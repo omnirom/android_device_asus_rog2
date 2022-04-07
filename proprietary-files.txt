@@ -6,16 +6,16 @@ etc/hardcore_default.json
 etc/hardcore_X1.json
 etc/hardcore_X2.json
 etc/hardcore_X3.json
-etc/permissions/asus.software.rog.connect.xml|9F344CDAB2540F1B571034993DCC569DC5E44000
-etc/permissions/asus.software.gamewidget.zenui.rog2.xml|781BE7C398C3A40F647ECED51199676D28001FE6
+etc/permissions/asus.software.rog.connect.xml|A5FE67F5C14D8907DAE2160691DE9D2D45D4936D
+etc/permissions/asus.software.gamewidget.zenui.rog2.xml|3BB4B5E5995A911742DEDF3A6D2C1788974D89C7
 etc/permissions/asus.software.sku.WW.xml
 etc/permissions/asus.software.zenui.xml
 etc/permissions/asus.software.zenui.rog.xml
-etc/permissions/asus.software.zenui.six.xml|7FA7ABAA30F5FB19971F916EECF4EA773F9CB829
+etc/permissions/asus.software.zenui.six.xml|8F1BDD89D1B1174317B5AC3A82FA91B4AA30B3A0
 etc/sysconfig/ims-hiddenapi-package-whitelist.xml
 -priv-app/GameBroadcaster/GameBroadcaster.apk|7DD689EE02E1A1076A7F35550173BFFA5D20A94B
 priv-app/GameBroadcaster/lib/arm64/libJniModule.so
--priv-app/ROGGameCenter/ROGGameCenter.apk|D5C41EF580F439C1C998E5B1B416839ABB76D668
+-priv-app/ROGGameCenter/ROGGameCenter.apk|E15EBC3B2BA8BB119387D355063142689A4918D8
 -priv-app/ImsAsusPointerListenerProxyService/ImsAsusPointerListenerProxyService.apk
 
 # Picked from ROG3
