@@ -179,6 +179,13 @@ system_ext/lib64/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
 system_ext/lib/vendor.qti.hardware.sigma_miracast@1.0.so
 system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
 
+# Qccsys halservice
+system_ext/bin/qccsyshalservice
+system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.0-service.rc
+system_ext/lib64/libqcc_file_agent_sys.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0-halimpl.so
+
 # QVR
 system_ext/bin/qvrservice
 system_ext/etc/init/qvrd_ext.rc
