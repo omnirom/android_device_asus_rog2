@@ -8,3 +8,6 @@ service vendor.vibrator-1-0 /system/bin/true
 
 service vendor.qti.vibrator /system/bin/true
     disabled
+
+service vendor.qcc-trd /system/bin/true
+    disabled
