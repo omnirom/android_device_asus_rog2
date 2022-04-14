@@ -1,2 +1,3 @@
 get_prop(vendor_qtelephony, vendor_radio_prop)
-get_prop(vendor_qtelephony, ims_prop)
+get_prop(vendor_qtelephony, vendor_ims_prop)
+set_prop(vendor_qtelephony, radio_control_prop)

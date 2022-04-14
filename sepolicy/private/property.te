@@ -3,6 +3,6 @@ type vendor_camera_prop, property_type;
 type vendor_asus_prop, property_type;
 type asus_dongle_prop, property_type;
 type vendor_radio_prop, property_type;
-type ims_prop, property_type;
+type vendor_ims_prop, property_type;
 type vendor_qvr_prop, property_type;
 type vendor_slm_prop, property_type;
