@@ -73,6 +73,7 @@ system_ext/lib64/vendor.qti.latency@2.0.so
 system_ext/lib64/vendor.qti.voiceprint@1.0.so
 
 # IMS
+-system_ext/priv-app/ims/ims.apk
 system_ext/lib64/libdiag_system.so
 -system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
 -system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
