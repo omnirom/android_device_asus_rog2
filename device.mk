@@ -103,11 +103,12 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    libdisplayconfig.qti \
+    libgralloc.qti \
     libion \
+    libqdMetaData \
+    libtinyalsa \
     libtinyxml2
-
-PRODUCT_PACKAGES += \
-    libtinyalsa
 
 $(call inherit-product, vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk)
 $(call inherit-product, vendor/qcom/opensource/commonsys/display/config/display-product-commonsys.mk)
