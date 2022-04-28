@@ -173,15 +173,6 @@ system_ext/lib64/vendor.qti.gnss@4.0.so
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 -system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
-# MirarCast
-system_ext/bin/sigma_miracasthalservice
-system_ext/etc/init/com.qualcomm.qti.sigma_miracast@1.0-service.rc
-system_ext/lib64/libmiracastsystem.so
-system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0-halimpl.so
-system_ext/lib64/hw/vendor.qti.hardware.sigma_miracast@1.0-impl.so
-system_ext/lib/vendor.qti.hardware.sigma_miracast@1.0.so
-system_ext/lib64/vendor.qti.hardware.sigma_miracast@1.0.so
-
 # Qccsys halservice
 system_ext/bin/qccsyshalservice
 system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.0-service.rc

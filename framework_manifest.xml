@@ -10,16 +10,6 @@
         <fqname>@1.0::IQccsyshal/qccsyshal</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.sigma_miracast</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>Isigma_miracast</name>
-            <instance>sigmahal</instance>
-        </interface>
-        <fqname>@1.0::Isigma_miracast/sigmahal</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.systemhelper</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
