@@ -2,7 +2,7 @@
   {
     "remote": "github",
     "repository": "micky387/android_device_qcom_caf-sepolicy",
-    "target_path": "device/qcom/sepolicy",
+    "target_path": "device/qcom/sepolicy_custom",
     "revision": "android-11"
   },
   {
