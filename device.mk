@@ -133,6 +133,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libinit_rog2
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.3-service.rog2
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fingerprint/android.hardware.biometrics.fingerprint@2.1-service.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc \
+    $(LOCAL_PATH)/fingerprint/android.hardware.biometrics.fingerprint@2.1-service.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/vintf/manifest/android.hardware.biometrics.fingerprint@2.1-service.xml
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/goodix_ts.idc:system/usr/idc/goodix_ts.idc \
