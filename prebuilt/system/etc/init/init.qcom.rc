@@ -11,3 +11,6 @@ service vendor.qti.vibrator /system/bin/true
 
 service vendor.qcc-trd /system/bin/true
     disabled
+
+service vendor.fps_hal /system/bin/true
+    disabled
