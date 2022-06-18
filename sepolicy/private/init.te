@@ -8,3 +8,6 @@ allow init { system_file vendor_file }:file mounton;
 
 # Vendor init
 allow init property_socket:sock_file write;
+
+# To prevent log spam, already defined in prebuilt vendor
+dontaudit init vendor_qcc_trd:process {transition};
