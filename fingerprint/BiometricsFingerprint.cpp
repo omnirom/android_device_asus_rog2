@@ -18,12 +18,19 @@
 
 #include <hardware/hw_auth_token.h>
 
+#include <android-base/file.h>
+#include <android-base/properties.h>
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include "BiometricsFingerprint.h"
 
 #include <inttypes.h>
 #include <unistd.h>
+
+#define AOD_ENABLED "doze_always_on"
+#define AOD_ENABLE_PATH "/sys/devices/platform/goodix_ts.0/gesture/aod_enable"
+#define AOD_FALSE "0"
+#define AOD_TRUE "1"
 
 namespace android {
 namespace hardware {
@@ -38,6 +45,8 @@ static const uint16_t kVersion = HARDWARE_MODULE_API_VERSION(2, 1);
 using RequestStatus =
         android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
 
+using android::base::GetProperty;
+
 BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
@@ -45,6 +54,13 @@ BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevi
     mDevice = openHal();
     if (!mDevice) {
         ALOGE("Can't open HAL module");
+    }
+
+    std::string valueAod = GetProperty(AOD_ENABLED, "");
+    if (valueAod == "0") {
+        android::base::WriteStringToFile(AOD_FALSE, AOD_ENABLE_PATH);
+    } else {
+        android::base::WriteStringToFile(AOD_TRUE, AOD_ENABLE_PATH);
     }
 }
 
