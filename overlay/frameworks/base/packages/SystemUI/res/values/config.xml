@@ -46,4 +46,7 @@
         wifi,cell,bt,flashlight,dnd,alarm,airplane,rotation,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness
     </string>
 
+    <!-- Doze: does the long press sensor need a proximity check? -->
+    <bool name="doze_long_press_proximity_check">true</bool>
+
 </resources>
