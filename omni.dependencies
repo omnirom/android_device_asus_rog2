@@ -1,44 +1,14 @@
 [
-  {
-    "remote": "github",
-    "repository": "micky387/android_device_qcom_caf-sepolicy",
-    "target_path": "device/qcom/sepolicy_custom",
+   {
+    "remote": "omnirom",
+    "repository": "android_asus_sm8150-common",
+    "target_path": "device/asus/sm8150-common",
     "revision": "android-12.1"
-  },
-  {
+   },
+   {
     "remote": "omnirom",
     "repository": "android_kernel_asus_rog2",
     "target_path": "kernel/asus/rog2",
     "revision": "android-12.1"
-  },
-  {
-     "remote": "omnirom",
-     "repository": "android_vendor_codeaurora_telephony",
-     "target_path": "vendor/codeaurora/telephony",
-     "revision": "android-12.0"
-   },
-  {
-     "remote": "omnirom",
-     "repository": "android_vendor_qcom_opensource_fm-commonsys",
-     "target_path": "vendor/qcom/opensource/fm-commonsys",
-     "revision": "android-12.0"
-   },
-   {
-     "remote": "omnirom",
-     "repository": "android_vendor_qcom_opensource_interfaces",
-     "target_path": "vendor/qcom/opensource/interfaces",
-     "revision": "android-12.0"
-   },
-   {
-     "remote": "gitlab",
-     "repository": "android_vendor_qcom_opensource_display-commonsys",
-     "target_path": "vendor/qcom/opensource/commonsys/display",
-     "revision": "android-12.1"
-   },
-   {
-     "remote": "gitlab",
-     "repository": "android_vendor_qcom_opensource_display-commonsys-intf",
-     "target_path": "vendor/qcom/opensource/commonsys-intf/display",
-     "revision": "android-12.0"
    }
 ]
