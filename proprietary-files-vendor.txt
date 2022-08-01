@@ -1678,7 +1678,6 @@ vendor/lib/libdataitems.so
 vendor/lib/libdiag.so
 vendor/lib/libdiagjni.so
 vendor/lib/libdisp-aba.so
-vendor/lib/libdisplayconfig.qti.so
 vendor/lib/libdisplaydebug.so
 vendor/lib/libdisplayqos.so
 vendor/lib/libdpmqmihal.so
@@ -1710,7 +1709,6 @@ vendor/lib/libgnsspps.so
 vendor/lib/libgps.utils.so
 vendor/lib/libgpu_tonemapper.so
 vendor/lib/libgpudataproducer.so
-vendor/lib/libgralloc.qti.so
 vendor/lib/libgralloccore.so
 vendor/lib/libgrallocutils.so
 vendor/lib/libgsl.so
@@ -1795,7 +1793,6 @@ vendor/lib/libqcmaputils.so
 vendor/lib/libqcodec2.so
 vendor/lib/libqcrilFramework.so
 vendor/lib/libqcrildatactl.so
-vendor/lib/libqdMetaData.so
 vendor/lib/libqdi.so
 vendor/lib/libqdma_file_agent.so
 vendor/lib/libqdp.so
@@ -2084,19 +2081,6 @@ vendor/lib/vendor.display.color@1.2.so
 vendor/lib/vendor.display.color@1.3.so
 vendor/lib/vendor.display.color@1.4.so
 vendor/lib/vendor.display.color@1.5.so
-vendor/lib/vendor.display.config@1.0.so
-vendor/lib/vendor.display.config@1.1.so
-vendor/lib/vendor.display.config@1.10.so
-vendor/lib/vendor.display.config@1.11.so
-vendor/lib/vendor.display.config@1.2.so
-vendor/lib/vendor.display.config@1.3.so
-vendor/lib/vendor.display.config@1.4.so
-vendor/lib/vendor.display.config@1.5.so
-vendor/lib/vendor.display.config@1.6.so
-vendor/lib/vendor.display.config@1.7.so
-vendor/lib/vendor.display.config@1.8.so
-vendor/lib/vendor.display.config@1.9.so
-vendor/lib/vendor.display.config@2.0.so
 vendor/lib/vendor.display.postproc@1.0.so
 vendor/lib/vendor.nxp.hardware.nfc@1.0.so
 vendor/lib/vendor.nxp.hardware.nfc@1.1.so
@@ -2522,7 +2506,6 @@ vendor/lib64/libdataitems.so
 vendor/lib64/libdiag.so
 vendor/lib64/libdiagjni.so
 vendor/lib64/libdisp-aba.so
-vendor/lib64/libdisplayconfig.qti.so
 vendor/lib64/libdisplaydebug.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdpmqmihal.so
@@ -2555,7 +2538,6 @@ vendor/lib64/libgnsspps.so
 vendor/lib64/libgps.utils.so
 vendor/lib64/libgpu_tonemapper.so
 vendor/lib64/libgpudataproducer.so
-vendor/lib64/libgralloc.qti.so
 vendor/lib64/libgralloccore.so
 vendor/lib64/libgrallocutils.so
 vendor/lib64/libgsl.so
@@ -2653,7 +2635,6 @@ vendor/lib64/libqcmaputils.so
 vendor/lib64/libqcodec2.so
 vendor/lib64/libqcrilFramework.so
 vendor/lib64/libqcrildatactl.so
-vendor/lib64/libqdMetaData.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdma_file_agent.so
 vendor/lib64/libqdp.so
@@ -2833,19 +2814,6 @@ vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.color@1.3.so
 vendor/lib64/vendor.display.color@1.4.so
 vendor/lib64/vendor.display.color@1.5.so
-vendor/lib64/vendor.display.config@1.0.so
-vendor/lib64/vendor.display.config@1.1.so
-vendor/lib64/vendor.display.config@1.10.so
-vendor/lib64/vendor.display.config@1.11.so
-vendor/lib64/vendor.display.config@1.2.so
-vendor/lib64/vendor.display.config@1.3.so
-vendor/lib64/vendor.display.config@1.4.so
-vendor/lib64/vendor.display.config@1.5.so
-vendor/lib64/vendor.display.config@1.6.so
-vendor/lib64/vendor.display.config@1.7.so
-vendor/lib64/vendor.display.config@1.8.so
-vendor/lib64/vendor.display.config@1.9.so
-vendor/lib64/vendor.display.config@2.0.so
 vendor/lib64/vendor.display.postproc@1.0.so
 vendor/lib64/vendor.ims.airtrigger@1.0.so
 vendor/lib64/vendor.ims.airtrigger@1.1.so
