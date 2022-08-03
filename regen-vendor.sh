@@ -429,6 +429,7 @@ VENDOR_SKIP_FILES_COMMON=(
 
     # Manifest
     "etc/vintf/manifest.xml"
+    "etc/vintf/manifest/manifest.xml"
 
     # Media
     "bin/hw/android.hardware.media.omx@1.0-service"
@@ -613,8 +614,17 @@ VENDOR_SKIP_FILES_COMMON=(
 
     # Wifi
     "bin/wifilearner"
+    "bin/hw/android.hardware.wifi@1.0-service"
+    "etc/init/android.hardware.wifi@1.0-service.rc"
+    "etc/vintf/manifest/android.hardware.wifi@1.0-service.xml"
     "etc/init/vendor.qti.hardware.wifi.wifilearner@1.0-service.rc"
     "lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so"
+    "bin/hostapd_cli"
+    "bin/hw/hostapd"
+    "etc/hostapd/hostapd.accept"
+    "etc/hostapd/hostapd.deny"
+    "etc/hostapd/hostapd_default.conf"
+    "etc/init/hostapd.android.rc"
     "bin/fstman"
     "etc/init/vendor.qti.hardware.fstman@1.0-service.rc"
     "etc/wifi/fstman.ini"
@@ -622,6 +632,17 @@ VENDOR_SKIP_FILES_COMMON=(
     "etc/wifi/aoa_cldb_falcon.bin"
     "etc/wifi/aoa_cldb_swl14.bin"
     "etc/wifi/icm.conf"
+    "etc/wifi/wpa_supplicant_overlay.conf"
+    "bin/hw/wpa_supplicant"
+    "lib64/libkeystore-engine-wifi-hidl.so"
+    "lib64/libkeystore-wifi-hidl.so"
+    "lib/libwifi-hal-ctrl.so"
+    "lib/libwifi-hal-qcom.so"
+    "lib/libwpa_client.so"
+    "lib64/libwpa_client.so"
+    "lib64/libwifi-hal.so"
+    "lib64/libwifi-hal-ctrl.so"
+    "lib64/libwifi-hal-qcom.so"
 
 )
 ALL_SKIP_FILES=("${VENDOR_SKIP_FILES_COMMON[@]}" "${VENDOR_SKIP_FILES_DEVICE[@]}")
@@ -651,8 +672,6 @@ as_module "etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml"
 as_module "etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml"
 as_module "etc/vintf/manifest/android.hardware.usb@1.0-service.xml"
 as_module "etc/vintf/manifest/android.hardware.wifi.hostapd.xml"
-as_module "etc/vintf/manifest/android.hardware.wifi@1.0-service.xml"
-as_module "etc/vintf/manifest/manifest.xml"
 as_module "etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.clearkey.xml"
 as_module "etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml"
 as_module "etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml"
