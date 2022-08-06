@@ -5,7 +5,7 @@ on early-boot
     chown system system /sys/class/leds/vibrator/state
     chown system system /sys/class/leds/vibrator/scale
 
-service system.vibrator-1-2 /system/bin/hw/android.hardware.vibrator@1.2-service.rog2
+service vendor.vibrator-1-2 /vendor/bin/hw/android.hardware.vibrator@1.2-service.rog2
     class hal
     user system
     group system
