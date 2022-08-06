@@ -1,2 +1,0 @@
-allow vendor_wfdservice vendor_wifidisplayhalservice_hwservice:hwservice_manager find;
-hal_client_domain(vendor_wfdservice, vendor_wifidisplayhalservice);

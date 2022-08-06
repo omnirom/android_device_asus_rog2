@@ -1,2 +1,0 @@
-allow hal_fingerprint sysfs_fod:file w_file_perms;
-allow hal_fingerprint proc_touchscreen:file w_file_perms;

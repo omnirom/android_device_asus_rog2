@@ -1,4 +1,0 @@
-allow update_engine init:file { r_file_perms };
-allow update_engine init:dir { getattr r_file_perms };
-allow update_engine kernel:file { r_file_perms };
-allow update_engine kernel:dir { getattr r_file_perms };
