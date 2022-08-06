@@ -1,0 +1,2 @@
+allow hal_fingerprint_default vendor_sysfs_gestures:file w_file_perms;
+allow hal_fingerprint_default vendor_proc_graphics:file w_file_perms;
