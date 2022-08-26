@@ -4,10 +4,11 @@ cc_library_static {
     include_dirs: [
         "system/core/init",
     ],
-    shared_libs: ["libbase"],
+    static_libs: ["libbase"],
     cflags: [
         "-Wall",
     ],
     srcs: ["init_rog2.cpp"],
     recovery_available: true,
+    ramdisk_available: true,
 }
