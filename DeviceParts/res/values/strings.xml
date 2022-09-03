@@ -81,8 +81,6 @@
 
     <!-- Display Manager -->
     <string name="display_title">Display</string>
-    <string name="display_manager">Display colors</string>
-    <string name="display_calibration_summary">Calibrate display colours</string>
 
     <!-- Volume panel QS tile -->
     <string name="volume_mode">Sound</string>
