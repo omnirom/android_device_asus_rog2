@@ -30,7 +30,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     FrameworksResDeviceOverlay \
-    TetheringOverlay \
+    TetheringConfigOverlay \
     WifiOverlay
 
 # Asus Services
