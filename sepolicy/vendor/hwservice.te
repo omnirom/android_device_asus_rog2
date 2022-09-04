@@ -1,0 +1,5 @@
+# Airtrigger
+type hal_airtrigger_hwservice, hwservice_manager_type;
+
+# Pixelworks display
+type hal_display_iris_hwservice, hwservice_manager_type;

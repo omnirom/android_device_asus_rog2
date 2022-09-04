@@ -1,2 +1,8 @@
 allow platform_app asus_prop:file { getattr map open read };
 allow platform_app asus_dongle_prop:file { getattr map open read };
+
+allow platform_app vendor_sysfs_kgsl:file { getattr map open read };
+
+# Pixelworks
+allow platform_app asus_display_proc_exec:file rw_file_perms;
+hal_client_domain(platform_app, hal_display_iris)
