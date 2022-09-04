@@ -1,0 +1,1 @@
+allow cameraserver frgb_sensor_device:chr_file rw_file_perms;

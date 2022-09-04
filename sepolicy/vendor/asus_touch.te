@@ -1,0 +1,38 @@
+# Policy for Asus SP HAL service
+type asus_touch, domain;
+type asus_touch_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(asus_touch)
+
+dontaudit init asus_touch:process { noatsecure };
+
+allow init asus_touch_exec:file { read getattr map execute open };
+allow init asus_touch:process { transition };
+allow init asus_touch:process { siginh rlimitinh };
+
+allow asus_touch asus_touch_exec:file { read getattr map execute open entrypoint };
+allow asus_touch ctl_default_prop:property_service { set };
+allow asus_touch asus_touch_exec:file { read getattr open execute_no_trans };
+allow asus_touch vendor_file:file { execute_no_trans };
+allow asus_touch vendor_shell_exec:file { read getattr map execute_no_trans entrypoint };
+allow asus_touch sysfs_leds:dir { search };
+allow asus_touch sysfs_leds:lnk_file { read };
+allow asus_touch factory_file:file { read open };
+allow asus_touch factory_file:dir { search };
+allow asus_touch sysfs:file { read write open };
+allow asus_touch vendor_toolbox_exec:file { execute_no_trans };
+allow asus_touch asus_touch:capability { sys_module };
+allow asus_touch vendor_file:system { module_load };
+allow asus_touch kernel:key { search };
+allow asus_touch kmsg_device:chr_file { write append open };
+allow asus_touch property_socket:sock_file { write };
+allow asus_touch init:unix_stream_socket { connectto };
+allow asus_touch asus_touch_prop:file { read getattr map open };
+allow asus_touch vendor_default_prop:file { read getattr map open };
+allow asus_touch vendor_asus_prop:file { read getattr map open };
+allow asus_touch sysfs_touch:file { write open };
+allow vendor_init asus_touch_prop:file { read getattr map open };
+allow priv_app asus_touch_prop:file { read getattr map open };
+
+set_prop(hal_audio_default, asus_touch_prop)

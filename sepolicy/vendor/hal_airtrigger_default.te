@@ -1,0 +1,22 @@
+binder_call(hal_airtrigger_client, hal_airtrigger_server)
+binder_call(hal_airtrigger_server, hal_airtrigger_client)
+
+add_hwservice(hal_airtrigger, hal_airtrigger_hwservice)
+
+type hal_airtrigger_default, domain;
+type hal_airtrigger_default_exec, exec_type, vendor_file_type, file_type;
+
+allow hal_airtrigger_default hwservicemanager:binder call;
+allow hal_airtrigger_default hal_airtrigger_hwservice:hwservice_manager find;
+
+init_daemon_domain(hal_airtrigger_default)
+
+binder_call(hal_airtrigger_default, system_app)
+binder_call(hal_airtrigger_default, system_server)
+
+r_dir_file(hal_airtrigger_default, sysfs_leds)
+allow hal_airtrigger_default sysfs_leds:file create_file_perms;
+allow hal_airtrigger_default sysfs_leds:lnk_file read;
+
+allow hal_airtrigger_default proc_driver_grip_sensor:file create_file_perms;
+get_prop(hal_airtrigger_default, hwservicemanager_prop)

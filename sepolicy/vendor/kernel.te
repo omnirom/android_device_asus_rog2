@@ -1,0 +1,3 @@
+# Factory files
+allow kernel factory_file:file { open read };
+allow kernel factory_file:dir search;

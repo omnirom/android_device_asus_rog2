@@ -1,0 +1,1 @@
+type hal_airtrigger_hwservice, hwservice_manager_type;

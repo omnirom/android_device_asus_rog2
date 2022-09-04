@@ -1,0 +1,34 @@
+type asus_usb_host, domain;
+type asus_usb_host_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(asus_usb_host)
+
+allow asus_usb_host vendor_shell_exec:file { entrypoint };
+allow asus_usb_host vendor_toolbox_exec:file { execute_no_trans };
+allow asus_usb_host sysfs:dir { read open search };
+allow asus_usb_host sysfs:file { read write create getattr open };
+allow asus_usb_host sysfs_leds:dir { ioctl read getattr lock open watch watch_reads search };
+allow asus_usb_host sysfs_leds:file { read write create getattr open };
+allow asus_usb_host kmsg_device:chr_file { read write open };
+allow asus_usb_host property_socket:sock_file { write };
+allow asus_usb_host init:unix_stream_socket { connectto };
+#allow asus_usb_host storage_file:dir { search };
+#allow asus_usb_host storage_file:lnk_file { read write open };
+allow asus_usb_host mnt_user_file:dir { search };
+allow asus_usb_host mnt_user_file:lnk_file { read write open };
+allow asus_usb_host sdcardfs:dir { read write open add_name remove_name search };
+allow asus_usb_host sdcardfs:file { read write create getattr unlink open };
+allow asus_usb_host media_rw_data_file:file { read write getattr };
+allow asus_usb_host usb_device:dir { search };
+allow asus_usb_host usb_device:chr_file { ioctl read write getattr open };
+allow asus_usb_host vendor_file:file { read getattr execute open execute_no_trans };
+allow asus_usb_host factory_file:dir { search };
+allow asus_usb_host factory_file:file { read getattr open };
+allow asus_usb_host vendor_sysfs_usbpd_device:file { read open };
+allow asus_usb_host vendor_sysfs_usbpd_device:dir { search };
+allow asus_usb_host vendor_sysfs_usb_controller:file { read write open };
+allow asus_usb_host asus_dongle_prop:file { read getattr map open };
+allow asus_usb_host vendor_sysfs_battery_supply:file { write open };
+
+set_prop(asus_usb_host, asus_dongle_prop)

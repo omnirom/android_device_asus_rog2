@@ -1,0 +1,18 @@
+type vibrate_control, domain;
+type vibrate_control_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(vibrate_control)
+
+allow vibrate_control property_socket:sock_file { write };
+allow vibrate_control init:unix_stream_socket { connectto };
+allow vibrate_control vibrate_control_prop:file { read getattr map open };
+allow vibrate_control sysfs:file { read write create open };
+allow vibrate_control vibrate_control_prop:file { read getattr map open };
+allow vibrate_control sysfs_vibrator:lnk_file { read };
+allow vibrate_control sysfs_vibrator:dir { search };
+allow vibrate_control sysfs_vibrator:file { read write open };
+allow vibrate_control kmsg_device:chr_file { write open };
+allow vibrate_control vendor_toolbox_exec:file { execute_no_trans };
+
+set_prop(vibrate_control, vibrate_control_prop)
