@@ -1,0 +1,4 @@
+allow system_app proc_driver_grip_sensor:file { open read write };
+allow system_app hal_airtrigger_hwservice:hwservice_manager find;
+
+get_prop(system_app, vendor_asus_sp_prop)

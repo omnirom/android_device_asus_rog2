@@ -1,2 +1,11 @@
+# Asus default prop
 type asus_prop, property_type;
+
+# Aura Sync
+type vendor_aura_prop, property_type;
+
+# Dongle
 type asus_dongle_prop, property_type;
+
+# Touch
+type asus_touch_prop, property_type;

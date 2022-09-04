@@ -1,0 +1,2 @@
+allow init proc_driver_grip_sensor:file { open write };
+allow init vendor_sysfs_gestures:file setattr;

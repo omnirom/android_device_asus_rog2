@@ -1,0 +1,76 @@
+# Asus Sp
+ro.asus.screen.colortemp.enable                             u:object_r:vendor_asus_prop:s0
+ro.boot.id.                                                 u:object_r:vendor_asus_prop:s0
+ro.boot.ftm                                                 u:object_r:vendor_asus_prop:s0
+ro.vendor.cpufreq                                           u:object_r:vendor_asus_prop:s0
+ro.vendor.memsize                                           u:object_r:vendor_asus_prop:s0
+sys.foregroundapp                                           u:object_r:exported_system_prop:s0
+vendor.factory.adbon                                        u:object_r:vendor_asus_prop:s0
+vendor.factory.adbon2                                       u:object_r:vendor_asus_prop:s
+
+# Audio
+dts.audio.disable_undoredo                                  u:object_r:audio_debug_prop:s0
+ro.dts.                                                     u:object_r:vendor_audio_prop:s0
+use.audio.eu.parameters                                     u:object_r:audio_debug_prop:s0
+
+# Aura Sync
+vendor.asusfw.phone.aura_fwver                              u:object_r:vendor_aura_prop:s0
+vendor.phone.aura_fwupdate                                  u:object_r:vendor_aura_prop:s0
+
+# Dongle
+persist.asus.audbg_station                                  u:object_r:asus_dongle_prop:s0
+persist.odm.asus.station_sleep                              u:object_r:asus_dongle_prop:s0
+vendor.asus.accy.                                           u:object_r:asus_dongle_prop:s0
+vendor.asus.accy_gen                                        u:object_r:asus_dongle_prop:s0
+vendor.asus.aura.screenoff                                  u:object_r:asus_dongle_prop:s0
+vendor.asus.dongletype                                      u:object_r:asus_dongle_prop:s0
+vendor.asus.dongleevent                                     u:object_r:asus_dongle_prop:s0
+vendor.asus.dt.ac_power                                     u:object_r:asus_dongle_prop:s0
+vendor.asus.ec_i2c_trigger                                  u:object_r:asus_dongle_prop:s0
+vendor.asus.foregroundapp                                   u:object_r:asus_dongle_prop:s0
+vendor.asus.gamepad.                                        u:object_r:asus_dongle_prop:s0
+vendor.asus.usb.                                            u:object_r:asus_dongle_prop:s0
+vendor.asus.station.                                        u:object_r:asus_dongle_prop:s0
+vendor.asus.surfaceflingercall                              u:object_r:asus_dongle_prop:s0
+vendor.asusfw.gamepad.                                      u:object_r:asus_dongle_prop:s0
+vendor.asusfw.gamepad3.                                     u:object_r:asus_dongle_prop:s0
+vendor.asusfw.station.                                      u:object_r:asus_dongle_prop:s0
+vendor.asusfw.station2.ec_fwver                             u:object_r:asus_dongle_prop:s0
+vendor.asusfw.station3.ec_fwver                             u:object_r:asus_dongle_prop:s0
+vendor.asusfw.dt.                                           u:object_r:asus_dongle_prop:s0
+vendor.asusfw.inbox.aura_fwver                              u:object_r:asus_dongle_prop:s0
+vendor.aura.donglechmod                                     u:object_r:asus_dongle_prop:s0
+vendor.dt.                                                  u:object_r:asus_dongle_prop:s0
+vendor.ec_i2c.donglechmod                                   u:object_r:asus_dongle_prop:s0
+vendor.gamepad.                                             u:object_r:asus_dongle_prop:s0
+vendor.gamepad3.                                            u:object_r:asus_dongle_prop:s0
+vendor.inbox.aura_fwver                                     u:object_r:asus_dongle_prop:s0
+vendor.inbox.aura_fwupdate                                  u:object_r:asus_dongle_prop:s0
+vendor.oem.asus.inboxid                                     u:object_r:asus_dongle_prop:s0
+vendor.oem.asus.stationid                                   u:object_r:asus_dongle_prop:s0
+vendor.oem.asus.dtid                                        u:object_r:asus_dongle_prop:s0
+vendor.station.                                             u:object_r:asus_dongle_prop:s0
+vendor.station2.ec_fwver                                    u:object_r:asus_dongle_prop:s0
+vendor.station3.ec_fwver                                    u:object_r:asus_dongle_prop:s0
+
+# Grip Sensor
+persist.asus.hardware.gripsensor                            u:object_r:system_prop:s0
+
+# Thermal
+persist.asus.micfansettings                                 u:object_r:exported_system_prop:s0
+persist.asus.tempfan                                        u:object_r:asus_dongle_prop:s0
+persist.asus.thermalfan                                     u:object_r:asus_dongle_prop:s0
+persist.sys.asus.thermalfan                                 u:object_r:exported_system_prop:s0
+persist.sys.asus.userfan                                    u:object_r:exported_system_prop:s0
+vendor.fan.rpm                                              u:object_r:asus_dongle_prop:s0
+
+# Touch
+vendor.touch.version.driver                                 u:object_r:vendor_asus_prop:s0
+vendor.goodix.sensor.status                                 u:object_r:vendor_asus_prop:s0
+
+# Wifi
+ro.wifimac                                                  u:object_r:vendor_asus_prop:s0
+ro.wifimac_2                                                u:object_r:vendor_asus_prop:s0
+ro.wigigmac                                                 u:object_r:vendor_asus_prop:s0
+wigig.version.driver                                        u:object_r:vendor_asus_prop:s0
+wigig.dock.version.driver                                   u:object_r:vendor_asus_prop:s0

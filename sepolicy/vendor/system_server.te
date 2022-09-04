@@ -1,0 +1,1 @@
+allow system_server hal_airtrigger_hwservice:hwservice_manager find;

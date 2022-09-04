@@ -1,0 +1,4 @@
+# Airtrigger
+attribute hal_airtrigger;
+attribute hal_airtrigger_client;
+attribute hal_airtrigger_server;
