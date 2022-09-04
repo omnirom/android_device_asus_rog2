@@ -1,0 +1,4 @@
+allow hal_graphics_composer_default mnt_vendor_file:file { read getattr open };
+
+allow hal_graphics_composer_default asus_display_proc_exec:file rw_file_perms;
+hal_server_domain(hal_graphics_composer_default, hal_display_iris)

@@ -1,0 +1,11 @@
+# Asus Display
+type asus_display_proc_exec, fs_type, proc_type;
+
+# Grip Sensor
+type proc_driver_grip_sensor, fs_type, proc_type;
+
+# Touch
+type sysfs_touch, fs_type, sysfs_type;
+
+# Root vendor files
+type factory_file, file_type;

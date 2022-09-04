@@ -1,0 +1,21 @@
+type storage_check, domain;
+type storage_check_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(storage_check)
+
+allow storage_check vendor_shell_exec:file { read getattr execute_no_trans entrypoint };
+allow storage_check factory_file:file { read open };
+allow storage_check factory_file:dir { search };
+allow storage_check sysfs:file { read write create open };
+allow storage_check vendor_toolbox_exec:file { execute_no_trans };
+allow storage_check kmsg_device:chr_file { write open };
+allow storage_check property_socket:sock_file { write };
+allow storage_check init:unix_stream_socket { connectto };
+allow storage_check fscklogs:dir { read write getattr open add_name search };
+allow storage_check fscklogs:file { read write create getattr unlink open };
+allow storage_check log_file:dir { read write getattr open add_name remove_name search };
+allow storage_check log_file:file { read write create getattr unlink open };
+
+set_prop(storage_check, ctl_default_prop)
+set_prop(storage_check, vendor_storage_prop)

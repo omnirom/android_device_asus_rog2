@@ -1,0 +1,5 @@
+# Hid
+type hid_device, dev_type;
+
+# Sensor
+type frgb_sensor_device, dev_type;
