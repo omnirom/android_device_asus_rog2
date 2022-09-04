@@ -1,6 +1,57 @@
+# Airtrigger
+/(vendor|system/vendor)/bin/hw/vendor\.ims\.airtrigger@[0-9]\.[0-9]-service                   u:object_r:hal_airtrigger_default_exec:s0
+
+# Asus Audio
+/(vendor|system/vendor)/bin/audio_codec_status.sh                                             u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/AudioRoutingTest                                                  u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/headset_status.sh                                                 u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/init.asus.audbg.sh                                                u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/init.asus.checkaudbg.sh                                           u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/select_mic.sh                                                     u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/select_output.sh                                                  u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/spk_amp_cal_val.sh                                                u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/rcv_amp_cal_val.sh                                                u:object_r:audio_debug_exec:s0
+/(vendor|system/vendor)/bin/tinyfeedback                                                      u:object_r:audio_debug_exec:s0
+
+# Asus sp stuff
+/(vendor|system/vendor)/bin/ssn                                                               u:object_r:asus_sp_exec:s0
+
+# Hid
+/dev/hidraw.*                                                                                 u:object_r:hid_device:s0
+
+# Root vendor files
+/asusfw(/.*)?                                                                                 u:object_r:factory_file:s0
+/factory(/.*)?                                                                                u:object_r:factory_file:s0
+
+# Sensors
+/dev/asusFRGBSensor                                                                           u:object_r:frgb_sensor_device:s0
+/dev/asusLightSensor                                                                          u:object_r:sensors_device:s0
+/dev/asusProxSensor                                                                           u:object_r:sensors_device:s0
+
+# Storage
+/(vendor|system/vendor)/etc/storage_status.sh                                                 u:object_r:storage_check_exec:s0
+
+# Touch
+/sys/devices/platform/goodix_ts.0/airtrigger_touch                                            u:object_r:sysfs_touch:s0
+/sys/devices/platform/goodix_ts.0/keymapping_touch                                            u:object_r:sysfs_touch:s0
+/sys/devices/platform/goodix_ts.0/game_settings                                               u:object_r:sysfs_touch:s0
+
+/(vendor|system/vendor)/bin/init.asus.gamemode.sh                                             u:object_r:asus_touch_exec:s0
+/(vendor|system/vendor)/bin/init.asus.rotation.sh                                             u:object_r:asus_touch_exec:s0
+/(vendor|system/vendor)/bin/dongle_state.sh                                                   u:object_r:asus_touch_exec:s0
+/(vendor|system/vendor)/bin/touch_cfg.sh                                                      u:object_r:asus_touch_exec:s0
+
 # UDFPS
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.rog2                  u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.rog2                  u:object_r:hal_fingerprint_default_exec:s0
+
+# Ueventd
+/(vendor|system/vendor)/bin/ecUeventd                                                         u:object_r:ec_ueventd_exec:s0
 
 # Vibrator
+/(vendor|system/vendor)/bin/init.asus.boot_vibrate.sh                                         u:object_r:boot_vibrate_exec:s0
+
+/sys/dongwoon_haptic_drv(/.*)?                                                                u:object_r:sysfs_vibrator:s0
+/sys/asus_vib_ctrl(/.*)?                                                                      u:object_r:sysfs_vibrator:s0
 /sys/class/leds/vibrator(/.*)?                                                                u:object_r:sysfs_vibrator:s0
-/vendor/bin/hw/android\.hardware\.vibrator@1\.2-service\.rog2                                 u:object_r:hal_vibrator_default_exec:s0
+/sys/devices/platform/soc/a8c000.i2c/i2c-5/5-0059/leds/vibrator(/.*)?                         u:object_r:sysfs_vibrator:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.2-service\.rog2                 u:object_r:hal_vibrator_default_exec:s0

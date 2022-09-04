@@ -1,0 +1,46 @@
+# Policy for Asus SP HAL service
+type yoda_dongle, domain;
+type yoda_dongle_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(yoda_dongle)
+
+allow yoda_dongle vendor_shell_exec:file { read getattr execute_no_trans entrypoint };
+allow yoda_dongle sysfs_leds:dir { search };
+allow yoda_dongle sysfs_leds:lnk_file { read };
+allow yoda_dongle factory_file:file { getattr read open };
+allow yoda_dongle factory_file:dir { search };
+allow yoda_dongle sysfs:dir { read open };
+allow yoda_dongle sysfs:lnk_file { read };
+allow yoda_dongle sysfs:file { getattr read write create open };
+allow yoda_dongle yoda_dongle:capability { kill sys_module };
+allow yoda_dongle vendor_toolbox_exec:file { execute_no_trans };
+allow yoda_dongle vendor_file:system { module_load };
+allow yoda_dongle vendor_file:file { execute_no_trans };
+allow yoda_dongle kernel:key { search };
+allow yoda_dongle kmsg_device:chr_file { ioctl write getattr open };
+allow yoda_dongle property_socket:sock_file { write };
+allow yoda_dongle init:unix_stream_socket { connectto };
+allow yoda_dongle proc:file { create };
+allow yoda_dongle vendor_sysfs_usbpd_device:dir { ioctl read getattr lock open watch watch_reads search };
+allow yoda_dongle vendor_sysfs_usbpd_device:file { ioctl read getattr lock map open watch watch_reads };
+allow yoda_dongle ctl_default_prop:property_service { set };
+allow yoda_dongle asus_dongle_prop:property_service { set };
+allow yoda_dongle asus_dongle_prop:file { read getattr map open };
+allow yoda_dongle self:netlink_kobject_uevent_socket { read create bind setopt };
+allow yoda_dongle socket_device:dir { write lock open add_name remove_name search };
+#allow yoda_dongle storage_file:dir { search };
+#allow yoda_dongle storage_file:lnk_file { read };
+allow yoda_dongle mnt_user_file:dir { open search };
+allow yoda_dongle mnt_user_file:lnk_file { read };
+allow yoda_dongle vendor_data_file:dir { write add_name remove_name };
+allow yoda_dongle vendor_data_file:file { read write create getattr unlink open };
+allow yoda_dongle usb_device:chr_file { ioctl read write getattr open };
+allow yoda_dongle usb_device:dir { read open search };
+allow yoda_dongle proc_modules:file { read getattr open };
+allow yoda_dongle hid_device:chr_file { ioctl read write getattr setattr open };
+allow yoda_dongle vendor_sysfs_graphics:file { read write create open };
+allow yoda_dongle vendor_sysfs_graphics:dir { search };
+allow yoda_dongle sysfs_net:dir { search };
+allow yoda_dongle exported_system_prop:file { read getattr map open };
+allow yoda_dongle ec_ueventd_exec:file { execute_no_trans };

@@ -1,0 +1,6 @@
+allow hal_audio_default audio_debug_prop:file {read getattr map open };
+set_prop(hal_audio_default, audio_debug_prop)
+
+allow hal_audio_default factory_file:dir {ioctl read getattr lock open watch watch_reads search };
+allow hal_audio_default factory_file:file {ioctl read getattr lock map open watch watch_reads };
+allow hal_audio_default factory_file:lnk_file {ioctl read getattr lock map open watch watch_reads };

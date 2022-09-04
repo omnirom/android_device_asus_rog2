@@ -1,0 +1,5 @@
+allow hal_sensors_default sensors_device:chr_file rw_file_perms;
+
+# Factory files
+allow hal_sensors_default factory_file:file r_file_perms;
+r_dir_file(hal_sensors_default, factory_file)

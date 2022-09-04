@@ -1,0 +1,3 @@
+# Factory files
+allow asus_sp factory_file:dir search;
+allow asus_sp factory_file:file rw_file_perms;

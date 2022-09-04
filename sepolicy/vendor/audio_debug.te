@@ -1,0 +1,15 @@
+# Policy for Asus SP HAL service
+type audio_debug, domain;
+type audio_debug_exec, exec_type, vendor_file_type, file_type;
+
+# Started by init
+init_daemon_domain(audio_debug)
+
+allow audio_debug audio_debug_exec:file r_file_perms;
+allow audio_debug init:unix_stream_socket connectto;
+allow audio_debug property_socket:sock_file write;
+allow audio_debug vendor_toolbox_exec:file { getattr map execute execute_no_trans };
+allow audio_debug proc:file rw_file_perms;
+allow audio_debug proc_asound:file rw_file_perms;
+get_prop(audio_debug, log_prop)
+set_prop(audio_debug, log_prop)

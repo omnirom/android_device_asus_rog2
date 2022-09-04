@@ -1,0 +1,3 @@
+allow vendor_hal_perf_default vendor_sysfs_kgsl_gpuclk:file r_file_perms;
+
+get_prop(vendor_hal_perf_default, asus_dongle_prop)
