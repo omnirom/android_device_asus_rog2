@@ -130,11 +130,14 @@ void vendor_load_properties()
     fp << "asus/" << name << "/ASUS_I001_1:11/" << build_id << "/" << build_number << ":user/release-keys";
     fingerprint = fp.str();
 
-    // These properties are the same for all variants
-    property_override("ro.build.description", description);
-    property_override("ro.build.display.id", display_id);
-    property_override_dual("ro.build.fingerprint", "ro.system.build.fingerprint", fingerprint);
-    property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
+        // Set the default "name" string
+    if (country == "EU") {
+        property_override("ro.product.vendor.name", "EU_I001D");
+    } else if (country == "RU") {
+        property_override("ro.product.vendor.name", "RU_I001D");
+    } else if (country == "CN") {
+        property_override("ro.product.vendor.name", "CN_I001D");
+    }
 
     // Set below properties based on variant name
     if (name == "WW_I001D") {
@@ -160,6 +163,12 @@ void vendor_load_properties()
     if (name == "CN_I001D") {
         property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DB");
     }
+
+    // These properties are the same for all variants
+    property_override("ro.build.description", description);
+    property_override("ro.build.display.id", display_id);
+    property_override_dual("ro.build.fingerprint", "ro.system.build.fingerprint", fingerprint);
+    property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
 
     // SafetyNet workaround
     property_override("ro.boot.verifiedbootstate", "green");
