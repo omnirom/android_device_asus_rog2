@@ -167,6 +167,7 @@ void vendor_load_properties()
     // These properties are the same for all variants
     property_override("ro.build.description", description);
     property_override("ro.build.display.id", display_id);
+    property_override("ro.vendor.asus.build.fp", fingerprint);
     property_override_dual("ro.build.fingerprint", "ro.system.build.fingerprint", fingerprint);
     property_override("ro.product.carrier", "ASUS-ASUS_I001D-WW");
 
