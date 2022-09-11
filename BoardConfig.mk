@@ -51,7 +51,8 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # Kernel modules  Audio
 TARGET_MODULE_ALIASES += \
-    tfa9874_dlkm.ko:audio_tfa9874.ko
+    tfa9874_dlkm.ko:audio_tfa9874.ko \
+    wcd_cpe_dlkm.ko:audio_wcd_cpe.ko
 
 # Partitions
 BOARD_DTBOIMG_PARTITION_SIZE := 25165824
