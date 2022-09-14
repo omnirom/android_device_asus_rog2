@@ -393,6 +393,13 @@ VENDOR_SKIP_FILES_COMMON=(
     "lib64/vendor.display.config@1.9.so"
     "lib64/vendor.display.config@2.0.so"
 
+    # Health
+    "bin/hw/android.hardware.health@2.1-service"
+    "etc/init/android.hardware.health@2.1-service.rc"
+    "etc/vintf/manifest/android.hardware.health@2.1.xml"
+    "lib/hw/android.hardware.health@2.0-impl-2.1.so"
+    "lib64/hw/android.hardware.health@2.0-impl-2.1.so"
+
     # Init Scripts
     "bin/init.asus.check_asdf.sh"
     "bin/init.asus.check_last.sh"
@@ -722,7 +729,6 @@ as_module "etc/vintf/manifest/android.hardware.cas@1.2-service.xml"
 as_module "etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml"
 as_module "etc/vintf/manifest/android.hardware.graphics.composer-qti-display.xml"
 as_module "etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml"
-as_module "etc/vintf/manifest/android.hardware.health@2.1.xml"
 as_module "etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti-hta.xml"
 as_module "etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml"
 as_module "etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml"
