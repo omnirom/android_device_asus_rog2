@@ -1,4 +1,3 @@
-allow platform_app asus_prop:file { getattr map open read };
 allow platform_app asus_dongle_prop:file { getattr map open read };
 
 allow platform_app vendor_sysfs_kgsl:file { getattr map open read };
