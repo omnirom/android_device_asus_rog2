@@ -30,5 +30,6 @@ allow asus_usb_host vendor_sysfs_usbpd_device:dir { search };
 allow asus_usb_host vendor_sysfs_usb_controller:file { read write open };
 allow asus_usb_host asus_dongle_prop:file { read getattr map open };
 allow asus_usb_host vendor_sysfs_battery_supply:file { write open };
+allow asus_usb_host vendor_sysfs_usb_device:file { write open};
 
 set_prop(asus_usb_host, asus_dongle_prop)

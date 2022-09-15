@@ -1,1 +1,3 @@
 allow audioserver audio_debug_prop:file {read getattr map open };
+
+get_prop(audioserver, asus_dongle_prop)

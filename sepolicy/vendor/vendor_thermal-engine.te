@@ -1,0 +1,2 @@
+get_prop(vendor_thermal-engine, asus_dongle_prop)
+set_prop(vendor_thermal-engine, asus_dongle_prop)

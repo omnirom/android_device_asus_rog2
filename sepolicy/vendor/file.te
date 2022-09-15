@@ -1,6 +1,9 @@
 # Asus Display
 type asus_display_proc_exec, fs_type, proc_type;
 
+# Dongle
+type asus_dongle_path , fs_type, sysfs_type;
+
 # Grip Sensor
 type proc_driver_grip_sensor, fs_type, proc_type;
 

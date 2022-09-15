@@ -1,0 +1,2 @@
+get_prop(hal_light_default, asus_dongle_prop)
+set_prop(hal_light_default, asus_dongle_prop)
