@@ -1,9 +1,0 @@
-java_library {
-    name: "asus-services",
-    installable: true,
-
-    srcs: [
-        "src/*/*/*/*.java",
-        "src/*/*/*.java",
-    ],
-}
