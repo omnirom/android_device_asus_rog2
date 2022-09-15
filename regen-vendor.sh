@@ -61,6 +61,8 @@ VENDOR_SKIP_FILES_COMMON=(
     "etc/audio/audio_policy_configuration_ZS660KL_24bit.xml"
     "etc/audio_effects.xml"
     "etc/audio_effects_ZS660KL.xml"
+    "etc/audio_io_policy.conf"
+    "etc/audio_io_policy_24bit.conf"
     "etc/audio_policy_configuration.xml"
     "etc/audio_policy_volumes.xml"
     "etc/audio_policy_volumes_ZS660KL.xml"
