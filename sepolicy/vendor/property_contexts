@@ -6,12 +6,16 @@ ro.boot.id.rf                                               u:object_r:vendor_as
 ro.boot.id.sku                                              u:object_r:vendor_asus_prop:s0
 ro.boot.id.stage                                            u:object_r:vendor_asus_prop:s0
 ro.boot.ftm                                                 u:object_r:vendor_asus_prop:s0
+ro.tc.qkey                                                  u:object_r:vendor_asus_sp_prop:s0
 ro.vendor.cpufreq                                           u:object_r:vendor_asus_prop:s0
 ro.vendor.memsize                                           u:object_r:vendor_asus_prop:s0
 sys.asus.fan.mic                                            u:object_r:exported_system_prop:s0
 sys.foregroundapp                                           u:object_r:exported_system_prop:s0
+vendor.asus.aura.CSCmode                                    u:object_r:system_prop:s0
+vendor.asus.dis_flash_light                                 u:object_r:system_prop:s0
 vendor.factory.adbon                                        u:object_r:vendor_asus_prop:s0
 vendor.factory.adbon2                                       u:object_r:vendor_asus_prop:s0
+vendor.phone.aura.bumper_enable                             u:object_r:system_prop:s0
 vendor.x-rr.                                                u:object_r:vendor_asus_sp_prop:s0
 
 # Asus Log
@@ -50,7 +54,7 @@ vendor.audio.calibration.spk                                u:object_r:exported_
 vendor.audio.calibration.value.range                        u:object_r:exported_system_prop:s0
 vendor.audio.calibration.rcv.value                          u:object_r:exported_system_prop:s0
 vendor.audio.calibration.spk.value                          u:object_r:exported_system_prop:s0
-
+vendor.asus.donglestate_GV_PD                               u:object_r:system_prop:s0
 # Aura Sync
 vendor.asusfw.phone.aura_fwver                              u:object_r:vendor_aura_prop:s0
 vendor.phone.aura_fwupdate                                  u:object_r:vendor_aura_prop:s0
@@ -103,10 +107,10 @@ vendor.goodix.service.ready                                 u:object_r:vendor_gx
 vendor.goodix.version.pack                                  u:object_r:vendor_gx_fpd_prop:s0
 
 # Grip Sensor
-grip.fw.version                                             u:object_r:exported_system_prop:s0
-grip.fw.result                                              u:object_r:exported_system_prop:s0
+grip.fw.version                                             u:object_r:system_prop:s0
+grip.fw.result                                              u:object_r:system_prop:s0
 persist.grip.                                               u:object_r:vendor_asus_prop:s0
-persist.asus.hardware.gripsensor                            u:object_r:exported_system_prop:s0
+persist.asus.hardware.gripsensor                            u:object_r:system_prop:s0
 persist.vendor.asus.hardware.gripsensor                     u:object_r:exported_system_prop:s0
 vendor.grip.                                                u:object_r:vendor_thermal_prop:s0
 
