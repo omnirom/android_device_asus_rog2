@@ -20,6 +20,7 @@
 # product configuration (apps).
 #
 $(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
+$(call inherit-product, vendor/images/asus/rog2/rog2-app.mk)
 
 # Inherit from asus sm8150-common
 $(call inherit-product, device/asus/sm8150-common/common.mk)

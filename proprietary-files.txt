@@ -1,26 +1,29 @@
 # Asus Game
 -app/FocusAppListener/FocusAppListener.apk
 -app/GameBroadcasterService/GameBroadcasterService.apk
--app/HardwareStub/HardwareStub.apk|59E134C649A9D4959B1536A0A617AE74E076D195
+-app/HardwareStub/HardwareStub.apk
 etc/hardcore_default.json
 etc/hardcore_X1.json
 etc/hardcore_X2.json
 etc/hardcore_X3.json
-etc/permissions/asus.software.rog.connect.xml|A5FE67F5C14D8907DAE2160691DE9D2D45D4936D
-etc/permissions/asus.software.gamewidget.zenui.rog2.xml|3BB4B5E5995A911742DEDF3A6D2C1788974D89C7
+etc/hardcore_X660KL.json
+etc/permissions/asus.software.rog.xml
+etc/permissions/asus.software.gamewidget.zenui.rog2.r.xml
 etc/permissions/asus.software.sku.WW.xml
 etc/permissions/asus.software.zenui.xml
 etc/permissions/asus.software.zenui.rog.xml
-etc/permissions/asus.software.zenui.six.xml|8F1BDD89D1B1174317B5AC3A82FA91B4AA30B3A0
+etc/permissions/asus.software.zenui.seven.xml
 etc/sysconfig/ims-hiddenapi-package-whitelist.xml
--priv-app/GameBroadcaster/GameBroadcaster.apk|7DD689EE02E1A1076A7F35550173BFFA5D20A94B
+-priv-app/GameBroadcaster/GameBroadcaster.apk
 priv-app/GameBroadcaster/lib/arm64/libJniModule.so
--priv-app/ROGGameCenter/ROGGameCenter.apk|E15EBC3B2BA8BB119387D355063142689A4918D8
 -priv-app/ImsAsusPointerListenerProxyService/ImsAsusPointerListenerProxyService.apk
 
+# Moved to Gitlab. App now > 100 mb
+#-priv-app/ROGGameCenter/ROGGameCenter.apk|8A163D9B2307D479A2770A10E2FAFFABE91E54C6
+
 # Picked from ROG3
--priv-app/ROGAirTrigger/ROGAirTrigger.apk|2F249826B61FADF055D21E8D732831FBD4F0A983
-priv-app/ROGAirTrigger/lib/arm64/libpl_droidsonroids_gif.so|BECEE8F07DC2A1262F7EB4D977EA8D3A92D5FAED
+-priv-app/ROGAirTrigger/ROGAirTrigger.apk|09477BB1E17C15B350184AA776F44D979DD3A524
+priv-app/ROGAirTrigger/lib/arm64/libpl_droidsonroids_gif.so|8979017CB198255F1CE522C8188B6F87645D4F3B
 
 # ANT+
 -system_ext/app/AntHalService-Soong/AntHalService-Soong.apk
