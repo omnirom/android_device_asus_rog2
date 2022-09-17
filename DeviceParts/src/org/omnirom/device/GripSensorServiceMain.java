@@ -51,6 +51,6 @@ public class GripSensorServiceMain extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return mMessenger.getBinder();
+        return null;
     }
 }
