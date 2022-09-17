@@ -51,12 +51,12 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,cell,bt,flashlight,dnd,alarm,airplane,rotation,cast,screenrecord,mictoggle,cameratoggle
+        wifi,cell,bt,flashlight,dnd,alarm,airplane,rotation,cast,screenrecord,mictoggle,cameratoggle,nfc
     </string>
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
     <string name="quick_settings_tiles_stock" translatable="false">
-        wifi,cell,bt,flashlight,dnd,alarm,airplane,rotation,cast,screenrecord,mictoggle,cameratoggle,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness
+        wifi,cell,bt,flashlight,dnd,alarm,airplane,rotation,cast,screenrecord,mictoggle,cameratoggle,nfc,location,hotspot,inversion,saver,dark,work,night,reverse,reduce_brightness
     </string>
 
 </resources>
