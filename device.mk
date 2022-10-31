@@ -19,11 +19,6 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
-$(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
-$(call inherit-product, vendor/images/asus/rog2/rog2-app.mk)
-
-# Inherit from asus sm8150-common
-$(call inherit-product, device/asus/sm8150-common/common.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -82,3 +77,10 @@ PRODUCT_SOONG_NAMESPACES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.2-service.rog2
+
+# Inherit from asus sm8150-common
+$(call inherit-product, device/asus/sm8150-common/common.mk)
+
+# Inherit from vendor blobs
+$(call inherit-product, vendor/asus/rog2/rog2-vendor.mk)
+$(call inherit-product, vendor/images/asus/rog2/rog2-app.mk)
