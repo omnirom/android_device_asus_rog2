@@ -142,7 +142,7 @@ public class GestureSettings extends PreferenceFragment implements
 
         mSwipeUpSwitch = (TwoStatePreference) findPreference(KEY_SWIPEUP_SWITCH);
         mSwipeUpSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
-        KEY_SWIPEUP_SWITCH, 0) == 1);
+        SETTINGS_GESTURE_KEY, 0) == 1);
 
         new FetchPackageInformationTask().execute();
     }
@@ -160,7 +160,7 @@ public class GestureSettings extends PreferenceFragment implements
             return true;
         }
         if (preference == mSwipeUpSwitch) {
-            Settings.System.putInt(getContext().getContentResolver(), KEY_SWIPEUP_SWITCH, mSwipeUpSwitch.isChecked() ? 1 : 0);
+            Settings.System.putInt(getContext().getContentResolver(), SETTINGS_GESTURE_KEY, mSwipeUpSwitch.isChecked() ? 1 : 0);
             Utils.writeValue(getFile(), mSwipeUpSwitch.isChecked() ? "1" : "0");
             return true;
         }
