@@ -187,7 +187,7 @@ public class GestureSettings extends PreferenceFragment implements
         } else if (preference == mLetterVGesture) {
             String value = (String) newValue;
             boolean gestureDisabled = value.equals(AppSelectListPreference.DISABLED_ENTRY);
-            setGestureEnabled(KEY_W_APP, !gestureDisabled);
+            setGestureEnabled(KEY_V_APP, !gestureDisabled);
             Settings.System.putString(getContext().getContentResolver(), DEVICE_GESTURE_MAPPING_3, value);
         } else if (preference == mLetterWGesture) {
             String value = (String) newValue;
