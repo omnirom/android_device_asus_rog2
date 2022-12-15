@@ -1,4 +1,3 @@
-ro.control_privapp_permissions=enforce
 persist.vendor.qcomsysd.enabled=1
 persist.vendor.radio.data_ltd_sys_ind=1
 sys.tcpdump.num=5
