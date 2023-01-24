@@ -11,7 +11,3 @@ get_prop(system_app, vendor_asus_sp_prop)
 # Factory files
 allow system_app factory_file:file create_file_perms;
 r_dir_file(system_app, factory_file)
-
-# Pixelworks
-allow system_app asus_display_proc_exec:file rw_file_perms;
-hal_client_domain(system_app, hal_display_iris)
