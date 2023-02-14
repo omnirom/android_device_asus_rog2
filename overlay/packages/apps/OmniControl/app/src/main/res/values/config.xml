@@ -26,4 +26,6 @@
     <!-- Does devices support fast charging battery led -->
     <bool name="config_FastChargingLedSupported">true</bool>
 
+    <!-- udfps support. -->
+    <bool name="config_has_udfps">true</bool>
 </resources>
