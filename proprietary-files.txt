@@ -37,10 +37,6 @@ system_ext/lib64/libmdsprpc_system.so
 system_ext/lib64/libsdsprpc_system.so
 
 # Bluetooth
-# aptX blobs from crosshatch RQ3A.211001.001
-system_ext/lib64/libaptX_encoder.so|DF1C89D7AF1BB35808D5FE3496B04BA066C10CBC
-system_ext/lib64/libaptXHD_encoder.so|E13FA70C97CAAA24D061678BDEE608EB8850A69E
--app/aptxals/aptxals.apk|95460DC333497F15E4E15D99842FB06BE8DBD3EF
 system_ext/etc/permissions/audiosphere.xml
 -system_ext/framework/audiosphere.jar
 
