@@ -56,6 +56,8 @@ static constexpr uint32_t WAVEFORM_POP_EFFECT_MS = 20;
 
 static constexpr uint32_t WAVEFORM_THUD_EFFECT_MS = 25;
 
+static constexpr uint32_t WAVEFORM_RINGTONE_EFFECT_MS = 30000;
+
 /*
  * Write value to path and close file.
  */
@@ -135,6 +137,51 @@ Return<void> Vibrator::performEffect(Effect effect, EffectStrength,
         break;
     case Effect::THUD:
         timeMs = WAVEFORM_THUD_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_1:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_2:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_3:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_4:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_5:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_6:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_7:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_8:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_9:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_10:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_11:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_12:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_13:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_14:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
+        break;
+    case Effect::RINGTONE_15:
+        timeMs = WAVEFORM_RINGTONE_EFFECT_MS;
         break;
     default:
         _hidl_cb(Status::UNSUPPORTED_OPERATION, 0);
