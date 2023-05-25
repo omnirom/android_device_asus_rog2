@@ -44,6 +44,19 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 # Copyright headers and guards
 write_headers "rog2"
 
+# Qualcomm Izat blobs - we put a conditional around here
+# in case the Weekly build will not include this files
+printf '\n%s\n' "ifeq (\$(ROM_BUILDTYPE),\$(filter \$(ROM_BUILDTYPE),GAPPS MICROG))" >> "$PRODUCTMK"
+
+write_makefiles "$MY_DIR"/proprietary-files-Izat.txt
+
+# Qualcomm Location blobs - conditional as well
+# in order to support OmniRom OS builds
+cat << EOF >> "$PRODUCTMK"
+endif
+
+EOF
+
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
 

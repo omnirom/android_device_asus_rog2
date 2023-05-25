@@ -69,6 +69,7 @@ function blob_fixup() {
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT" false "$CLEAN_VENDOR"
 
+extract "$MY_DIR"/proprietary-files-Izat.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/proprietary-files-vendor.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/proprietary-files-product.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
