@@ -575,13 +575,6 @@ VENDOR_SKIP_FILES_COMMON=(
     "etc/init/hw/init.qcom.rc"
     "etc/init/hw/init.target.rc"
 
-    # Izat / GPS location
-    "etc/izat.conf"
-    "lib/libizat_client_api.so"
-    "lib/libizat_core.so"
-    "lib64/libizat_client_api.so"
-    "lib64/libizat_core.so"
-
     # Launcher
     "etc/workspace_grid_setting.xml"
     "etc/CN/ASUS/Launcher/default_workspace/default_allapp.xml"
