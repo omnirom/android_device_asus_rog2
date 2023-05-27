@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/logging.h>
 #include "property_service.h"
@@ -37,11 +38,16 @@
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#define CUSTOMER_FILE "mnt/vendor/persist/CUSTOMER"
+#define IDCODE_FILE "mnt/vendor/persist/COLOR"
+#define VARIANT_FILE "mnt/vendor/persist/COUNTRY"
+
 namespace android {
 namespace init {
 
 using android::base::GetProperty;
-using ::android::base::SetProperty;
+using android::base::ReadFileToString;
+using android::base::SetProperty;
 
 void property_override(const std::string& name, const std::string& value)
 {
@@ -94,8 +100,28 @@ static const char *snet_prop_key[] = {
     }
 }
 
+static void set_configs()
+{
+    std::string variantValue;
+
+    if (ReadFileToString(CUSTOMER_FILE, &variantValue)) {
+        property_override("ro.config.CID", variantValue.c_str());
+        property_override("ro.vendor.config.CID", variantValue.c_str());
+    }
+    if (ReadFileToString(IDCODE_FILE, &variantValue)) {
+        property_override("ro.config.idcode", variantValue.c_str());
+        property_override("ro.vendor.config.idcode", variantValue.c_str());
+    }
+    if (ReadFileToString(VARIANT_FILE, &variantValue)) {
+        property_override("ro.config.versatility", variantValue.c_str());
+        property_override("ro.vendor.config.versatility", variantValue.c_str());
+    }
+}
+
 void vendor_load_properties()
 {
+    set_configs();
+
     std::string name;
     std::string country;
     std::string build_id;
@@ -106,13 +132,21 @@ void vendor_load_properties()
     std::string description;
     std::ostringstream disp;
     std::string display_id;
-    std::string region;
 
     LOG(INFO) << "Starting custom init";
 
+    country = android::base::GetProperty("ro.config.versatility", "");
+
+    // Set the default "name" string
+    if (country == "EU") {
+        property_override("ro.product.vendor.name", "EU_I001D");
+    } else if (country == "RU") {
+        property_override("ro.product.vendor.name", "RU_I001D");
+    } else if (country == "CN") {
+        property_override("ro.product.vendor.name", "CN_I001D");
+    }
+
     name = android::base::GetProperty("ro.product.vendor.name", "");
-    region = name.substr (0,2);
-    country = android::base::GetProperty("ro.boot.country_code", "");
 
     LOG(INFO) << name;
 
@@ -130,29 +164,16 @@ void vendor_load_properties()
     fp << "asus/" << name << "/ASUS_I001_1:11/" << build_id << "/" << build_number << ":user/release-keys";
     fingerprint = fp.str();
 
-        // Set the default "name" string
-    if (country == "EU") {
-        property_override("ro.product.vendor.name", "EU_I001D");
-    } else if (country == "RU") {
-        property_override("ro.product.vendor.name", "RU_I001D");
-    } else if (country == "CN") {
-        property_override("ro.product.vendor.name", "CN_I001D");
-    }
-
     // Set below properties based on variant name
     if (name == "WW_I001D") {
-        // Set properties for IN and US variants
+        // Set properties for IN
         if (country == "IN") {
             property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DE");
-            property_override("ro.config.versatility", "IN");
-        } else if (country == "US") {
-            property_override("ro.config.versatility", "US");
         } else {
             property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DA");
         }
     } else {
         property_override("ro.product.system.name", name);
-        property_override("ro.config.versatility", region);
     }
     if (name == "RU_I001D") {
         property_override_dual("ro.product.model", "ro.product.system.model", "ASUS_I001DB");
