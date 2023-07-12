@@ -75,6 +75,7 @@ public class AudioSettings extends PreferenceFragment implements
             SETTINGS_KEY_AUDIO_WIZARD_OUTDOOR_MODE,
             SETTINGS_AUDIO_WIZARD_OUTDOOR_MODE_OFF_PANEL)==
             SETTINGS_AUDIO_WIZARD_OUTDOOR_MODE_ON);
+        mOutdoorMode.setOnPreferenceChangeListener(this);
 
         mWizard = prefScreen.findPreference(KEY_AUDIOWIZARD);
         mWizard.setEnabled(isEnable());
@@ -88,7 +89,7 @@ public class AudioSettings extends PreferenceFragment implements
             Settings.System.putInt(getContext().getContentResolver(),
                 SETTINGS_KEY_AUDIO_WIZARD_OUTDOOR_MODE, mOutdoorMode.isChecked() ?
                 SETTINGS_AUDIO_WIZARD_OUTDOOR_MODE_ON :
-                SETTINGS_AUDIO_WIZARD_OUTDOOR_MODE_OFF);
+                SETTINGS_AUDIO_WIZARD_OUTDOOR_MODE_OFF_PANEL);
             updateState();
             return true;
         }
